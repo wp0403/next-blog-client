@@ -1,0 +1,20 @@
+.dark #bg_mask {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#nav_item {
+  color: var(--txt-w-pure) !important;
+}
+
+#nav_mobile_list #nav_item {
+  color: var(--b-alpha) !important;
+}
+
+.nav_active #nav_item {
+  color: var(--b-alpha) !important;
+}
+
+/* 打字机光标颜色 */
+/* .typed-cursor{
+  color: var(--txt-w-pure);
+} */
