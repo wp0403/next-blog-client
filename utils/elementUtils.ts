@@ -44,3 +44,8 @@ export const removeScroll = () => {
     if (!layoutContent) return;
     layoutContent.removeEventListener('scroll', pageScroll, false);
 };
+
+// 获取当前的主题
+export const setTheme = (v) => {
+    theme = v;
+}

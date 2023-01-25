@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-12 14:27:58
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-01-12 14:27:58
+ * @LastEditTime: 2023-01-19 13:56:27
  */
 export const navList = [
     {
@@ -15,7 +15,7 @@ export const navList = [
     },
     {
         key: "blog",
-        href: "/blog",
+        href: "/blog/1",
         icon: "icon-zixun",
         title: "博客",
     },

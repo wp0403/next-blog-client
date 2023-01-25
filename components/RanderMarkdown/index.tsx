@@ -11,7 +11,6 @@ import remarkToc from "remark-toc";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // 设置高亮样式
 import coy from "./coy";
-import "./RanderMarkdown.module.css";
 
 const RanderMarkdown = (props: any) => {
   return (
@@ -19,7 +18,7 @@ const RanderMarkdown = (props: any) => {
       <Image.PreviewGroup>
         <ReactMarkdown
           children={props.markdown}
-          className="markdown_body"
+          className='markdown_body'
           remarkPlugins={[remarkGfm, remarkMath, remarkToc]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={{
