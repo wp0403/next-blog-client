@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 6001",
+    "dev": "next dev -p 6006",
     "build": "next build",
-    "start": "next start -p 6001",
+    "start": "next start -p 6006",
     "lint": "next lint",
-    "server":"next build && next start -p 6001"
+    "server":"next build && next start -p 6006"
   },
   "dependencies": {
     "@mdx-js/react": "^2.2.1",
