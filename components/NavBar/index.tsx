@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 import { getLayoutDom } from "../../utils/elementUtils";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
-import styles from "./NavBar.module.css";
+import styles from "./navBar.module.css";
 
 export default function Navbar() {
   // 导航item
