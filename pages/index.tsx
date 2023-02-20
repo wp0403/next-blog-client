@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <Script src="https://api.vvhan.com/api/snow" /> */}
+      <Script src="https://api.vvhan.com/api/snow" />
     </>
   );
 }
