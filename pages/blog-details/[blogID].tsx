@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-01-23 10:48:21
+ * @LastEditTime: 2023-03-03 14:20:07
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -81,7 +81,7 @@ export async function getStaticPaths() {
 
   return {
     paths: data.map(({ id }) => ({ params: { blogID: id.toString() } })),
-    fallback: false, // can also be true or 'blocking'
+    fallback: 'blocking', // can also be true or 'blocking'
   };
 }
 
@@ -94,5 +94,8 @@ export async function getStaticProps({ params }) {
   const posts = await res.json();
 
   // Pass post data to the page via props
-  return { props: { posts } };
+  return { 
+    props: { posts },    
+    revalidate: 60, // In seconds 
+  };
 }

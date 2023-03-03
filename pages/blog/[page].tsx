@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 11:01:47
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-01-25 16:36:55
+ * @LastEditTime: 2023-03-03 14:19:49
  */
 import Image from "next/image";
 import Link from "next/link";
@@ -161,7 +161,7 @@ export async function getStaticPaths() {
   return {
     // 必须叫paths，值必须是数组
     paths: arr.map((v) => ({ params: { page: v } })),
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
@@ -190,5 +190,6 @@ export async function getStaticProps({ params }) {
         ...posts2,
       },
     },
+    revalidate: 60, // In seconds
   };
 }
