@@ -33,7 +33,7 @@ export const navList = [
     },
     {
         key: "about",
-        href: "/404",
+        href: "/about",
         icon: "icon-wode",
         title: "关于",
     },

@@ -4,13 +4,13 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-03 14:20:07
+ * @LastEditTime: 2023-03-22 00:27:37
  */
 import Head from "next/head";
 import { useEffect } from "react";
 import RanderMarkdown from "../../components/RanderMarkdown";
 import SysIcon from "../../components/SysIcon";
-import { formatDate } from "../../utils/dataUtils";
+import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
 import {
   addLayoutNavStyle,
   removeLayoutNavStyle,
@@ -53,7 +53,9 @@ export default function BlogDetails({ posts }) {
           </div>
           <div className={style.list_item_type}>
             <SysIcon className={style.icon} type="icon-a-gerenyonghu" />
-            {data?.userInfo?.name}
+            {hasUnicode(data?.userInfo?.name)
+                ? unicodeToEmoji(data?.userInfo?.name)
+                : data?.userInfo?.name}
           </div>
         </div>
       </div>

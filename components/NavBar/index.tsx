@@ -6,7 +6,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-01-25 15:25:49
+ * @LastEditTime: 2023-03-21 23:10:57
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -50,16 +50,16 @@ export default function Navbar() {
     <>
       <nav className={styles.nav} id="layout_nav">
         <div className={styles.nav_left}>
-          <h1>
+          {/* <h1>
             <Image
               src={theme === 1 ? "/weiguang.png" : "/weiguang_bai.png"}
-              alt="于风里读诗"
+              alt="Shimmer"
               width={100}
               height={40}
             />
-          </h1>
+          </h1> */}
           <h2 className={styles.title} id="nav_item">
-            于风里读诗
+            Shimmer🌈
           </h2>
         </div>
         <div className={styles.nav_right}>

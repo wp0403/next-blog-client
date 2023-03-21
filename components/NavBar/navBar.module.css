@@ -13,10 +13,11 @@
 .nav_left {
   display: flex;
   align-items: center;
+  padding-left: 24px;
 }
 
 .title {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:'Times New Roman', Times, serif;
   font-size: 20px;
   white-space: nowrap;
   color: var(--b-alpha);

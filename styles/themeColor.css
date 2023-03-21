@@ -1,7 +1,6 @@
 :root {
-  --ct-body-font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto,
-    helvetica neue, Arial, noto sans, sans-serif, apple color emoji,
-    segoe ui emoji, segoe ui symbol, noto color emoji;
+  --ct-body-font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
   --ct-theme: linear-gradient(rgb(57, 89, 138), rgb(121, 215, 237));
   --ct-theme-border: 2px solid rgb(255, 255, 255);
   --w-alpha-0: rgba(255, 255, 255, 0);
@@ -14,6 +13,7 @@
   --w-alpha-50: rgba(255, 255, 255, 0.5);
   --w-alpha-60: rgba(255, 255, 255, 0.6);
   --w-alpha-70: rgba(255, 255, 255, 0.7);
+  --w-alpha-75: rgba(255, 255, 255, 0.75);
   --w-alpha-80: rgba(255, 255, 255, 0.8);
   --w-alpha-90: rgba(255, 255, 255, 0.9);
   --b-alpha-0: rgba(0, 0, 0, 0);
@@ -28,6 +28,7 @@
   --b-alpha-50: rgba(0, 0, 0, 0.5);
   --b-alpha-60: rgba(0, 0, 0, 0.6);
   --b-alpha-70: rgba(0, 0, 0, 0.7);
+  --b-alpha-75: rgba(0, 0, 0, 0.75);
   --b-alpha-80: rgba(0, 0, 0, 0.8);
   --b-alpha-90: rgba(0, 0, 0, 0.9);
   --w-alpha: rgb(255, 255, 255);
@@ -35,7 +36,7 @@
   --txt-w-pure: white;
   --txt-b-pure: black;
   --bg-w-pure: white;
-  --bg-w-245: rgb(245,245,245);
+  --bg-w-245: rgb(245, 245, 245);
   --purple-primary: #727cf5;
   --purple-primary-active: #575dcf;
   --purple-primary-hover: #a1acff;
@@ -58,10 +59,11 @@
   --w-alpha-20: rgba(0, 0, 0, 0.2);
   --w-alpha-30: rgba(0, 0, 0, 0.3);
   --w-alpha-40: rgba(0, 0, 0, 0.4);
-  --w-alpha-50: rgba(30, 30, 30, 0.5);
+  --w-alpha-50: rgba(0, 0, 0, 0.5);
   --w-alpha-60: rgba(0, 0, 0, 0.6);
-  --w-alpha-70: rgba(30, 30, 30, 0.7);
-  --w-alpha-80: rgba(30, 30, 30, 0.8);
+  --w-alpha-70: rgba(0, 0, 0, 0.7);
+  --w-alpha-75: rgba(0, 0, 0, 0.75);
+  --w-alpha-80: rgba(0, 0, 0, 0.8);
   --w-alpha-90: rgba(30, 30, 30, 0.9);
   --b-alpha-0: rgba(255, 255, 255, 0);
   --b-alpha-5: rgba(255, 255, 255, 0.05);
@@ -74,12 +76,13 @@
   --b-alpha-50: rgba(255, 255, 255, 0.5);
   --b-alpha-60: rgba(255, 255, 255, 0.6);
   --b-alpha-70: rgba(255, 255, 255, 0.7);
+  --b-alpha-75: rgba(255, 255, 255, 0.75);
   --b-alpha-80: rgba(255, 255, 255, 0.8);
   --b-alpha-90: rgba(255, 255, 255, 0.9);
   --w-alpha: rgb(0, 0, 0);
   --b-alpha: rgb(255, 255, 255);
-  --bg-w-pure: rgb(30,30,30);
-  --bg-w-245: rgb(40,40,40);
+  --bg-w-pure: rgb(30, 30, 30);
+  --bg-w-245: rgb(40, 40, 40);
   --purple-primary: rgb(114, 124, 245);
   --purple-primary-active: #5158a6;
   --purple-primary-hover: #939de8;

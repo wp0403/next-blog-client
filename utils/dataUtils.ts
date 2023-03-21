@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2022-11-16 10:42:30
+ * @LastEditTime: 2023-03-22 00:26:10
  */
 import { localGet } from './local';
 
@@ -224,3 +224,13 @@ export const createUid = (prefix) => {
     .toString()
     .substring(2, 6)}`;
 };
+// 判断字符串是否包含Unicode字符
+export const hasUnicode = (str) => {
+  const unicodeRegexp = /\\u\{([0-9a-fA-F]+)\}/;
+  return unicodeRegexp.test(str);
+}
+
+// 将字符串中Unicode字符转回原样
+export const unicodeToEmoji = (str) => {
+  return str.replace(/\\u\{([0-9a-fA-F]+)\}/g, (match, p1) => String.fromCodePoint(parseInt(p1, 16)));
+}

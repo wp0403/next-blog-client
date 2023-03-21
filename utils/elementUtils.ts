@@ -4,6 +4,8 @@ export let layoutContent: any = null;
 export let layoutNav: any = null;
 // 当前的主题
 export let theme: number = 1;
+// 记录上一次滚动的位置
+let lastScrollPos = 0;
 
 // 初始化获取全局元素
 export const getLayoutDom = () => {
@@ -28,6 +30,14 @@ export const pageScroll = () => {
     if (!layoutNav) return;
     if (layoutContent?.scrollTop && layoutContent?.scrollTop > 300) {
         layoutNav?.classList.add('nav_active');
+        if (lastScrollPos - layoutContent?.scrollTop > 30) {
+            lastScrollPos = layoutContent?.scrollTop
+            layoutNav?.classList.remove('nav_none');
+        }
+        if(layoutContent?.scrollTop - lastScrollPos > 30) {
+            lastScrollPos = layoutContent?.scrollTop
+            layoutNav?.classList.add('nav_none');
+        }
     } else {
         layoutNav?.classList.remove('nav_active');
     }
@@ -43,6 +53,7 @@ export const bindHandleScroll = () => {
 export const removeScroll = () => {
     if (!layoutContent) return;
     layoutContent.removeEventListener('scroll', pageScroll, false);
+    lastScrollPos = 0;
 };
 
 // 获取当前的主题

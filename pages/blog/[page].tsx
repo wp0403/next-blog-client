@@ -4,19 +4,20 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 11:01:47
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-03 14:19:49
+ * @LastEditTime: 2023-03-22 00:27:02
  */
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
 import Router from "next/router";
 import { useEffect } from "react";
-import { Pagination,Input } from "antd";
+import { Pagination, Input } from "antd";
 import SysIcon from "../../components/SysIcon";
 import {
   addLayoutNavStyle,
   removeLayoutNavStyle,
 } from "../../utils/elementUtils";
-import { formatDate } from "../../utils/dataUtils";
+import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
 import style from "./blog.module.css";
 
 const classList = [
@@ -48,7 +49,12 @@ const classList = [
 ];
 
 export default function BlogDetails({ posts }) {
-  const { data, totalPage, page } = posts;
+  const {
+    data,
+    totalPage,
+    page,
+    classifyNum: { classifyNum },
+  } = posts;
 
   useEffect(() => {
     addLayoutNavStyle();
@@ -62,15 +68,17 @@ export default function BlogDetails({ posts }) {
   const renderItem = (item) => {
     return (
       <div className={style.blog_item} key={item.id}>
-        <div className={style.blog_card_img_box}>
-          <Image
-            className={style.blog_card_img}
-            src={item.img}
-            alt=""
-            width={200}
-            height={100}
-          />
-        </div>
+        {/* {item.img && (
+          <div className={style.blog_card_img_box}>
+            <Image
+              className={style.blog_card_img}
+              src={item.img}
+              alt=""
+              width={200}
+              height={100}
+            />
+          </div>
+        )} */}
         <div className={style.blog_item_content}>
           <Link
             className={style.blog_item_title}
@@ -104,7 +112,11 @@ export default function BlogDetails({ posts }) {
                 21
               </div>
             </div>
-            <div className={style.blog_item_user}>{item?.userInfo?.name}</div>
+            <div className={style.blog_item_user}>
+              {hasUnicode(item?.userInfo?.name)
+                ? unicodeToEmoji(item?.userInfo?.name)
+                : item?.userInfo?.name}
+            </div>
           </div>
         </div>
       </div>
@@ -112,39 +124,53 @@ export default function BlogDetails({ posts }) {
   };
 
   return (
-    <div className={style.blog}>
-      <div className={style.blog_left}></div>
-      <div className={style.blog_list}>
-        <div className={style.blog_content}>
-          {data && Boolean(data?.length) && data?.map((v) => renderItem(v))}
-          {(!data || !data?.length) && "暂无数据"}
-        </div>
-        <div className={style.blog_Pagination}>
-          <Pagination
-            hideOnSinglePage
-            showLessItems
-            showSizeChanger={false}
-            defaultCurrent={page}
-            total={totalPage * 10}
-            onChange={(v) => Router.push(`/blog/${v}`)}
-          />
-        </div>
-      </div>
-      <div className={style.blog_right}>
-        <div className={style.blog_search}>
-          <Input className={style.blog_search_input} placeholder='搜索博文' />
-        </div>
-        <div className={style.blog_class}>
-          <div className={style.blog_class_title}>文章分类</div>
-          {classList?.map((v) => (
-            <div className={style.blog_class_item} key={v?.id}>
-              <div className={style.blog_class_item_name}>{v?.name}</div>
-              <div className={style.blog_class_item_num}>{v?.value}</div>
+    <>
+      <Head>
+        <title>文章列表</title>
+        <meta name="description" content="Shimmer的文章列表" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={style.blog}>
+        <div className={style.blog_con}>
+          {/* <div className={style.blog_left}></div> */}
+          <div className={style.blog_list}>
+            <div className={style.blog_content}>
+              {data && Boolean(data?.length) && data?.map((v) => renderItem(v))}
+              {(!data || !data?.length) && "暂无数据"}
             </div>
-          ))}
+            <div className={style.blog_Pagination}>
+              <Pagination
+                hideOnSinglePage
+                showLessItems
+                showSizeChanger={false}
+                defaultCurrent={page}
+                total={totalPage * 10}
+                onChange={(v) => Router.push(`/blog/${v}`)}
+              />
+            </div>
+          </div>
+          <div className={style.blog_right}>
+            <div className={style.blog_search}>
+              <Input
+                className={style.blog_search_input}
+                placeholder="搜索博文"
+              />
+            </div>
+            <div className={style.blog_class}>
+              <div className={style.blog_class_title}>文章分类</div>
+              <div className={style.blog_class_content}>
+                {classifyNum?.map((v) => (
+                  <div className={style.blog_class_item} key={v?.type}>
+                    <div className={style.blog_class_item_name}>{v?.label}</div>
+                    <div className={style.blog_class_item_num}>{v?.count}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -161,7 +187,7 @@ export async function getStaticPaths() {
   return {
     // 必须叫paths，值必须是数组
     paths: arr.map((v) => ({ params: { page: v } })),
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }
 
@@ -180,6 +206,9 @@ export async function getStaticProps({ params }) {
   );
   const posts2 = await res.json();
 
+  const classifyNum = await fetch(`https://wp-boke.work/api/getClassifyNum`);
+  const posts3 = await classifyNum.json();
+
   // Pass post data to the page via props
   return {
     props: {
@@ -187,6 +216,7 @@ export async function getStaticProps({ params }) {
         page: params.page,
         totalPage: posts1.data,
         pageList,
+        classifyNum: posts3.data,
         ...posts2,
       },
     },

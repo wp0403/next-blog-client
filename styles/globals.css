@@ -116,6 +116,7 @@ table {
   padding: 0;
   box-sizing: border-box;
   font-family: var(--ct-body-font-family);
+  -webkit-font-smoothing: antialiased;
   letter-spacing: 0.1em;
 }
 
@@ -138,6 +139,12 @@ body {
   backdrop-filter: blur(8px);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   transition: 0.4s;
+}
+
+#layout_nav.nav_none {
+  opacity: 0;
+  transition: 0.4s;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 900px) {
