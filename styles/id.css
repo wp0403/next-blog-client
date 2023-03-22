@@ -7,6 +7,10 @@
   font-weight: 400;
 }
 
+.nav_active_border{
+  border-bottom: 1px solid var(--b-alpha-5);
+}
+
 #nav_mobile_list .nav_item_text,
 .nav_active .nav_item_text {
   color: var(--b-alpha-60);

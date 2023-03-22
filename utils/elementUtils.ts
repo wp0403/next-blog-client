@@ -29,14 +29,16 @@ export const addLayoutNavStyle = () => {
 export const addNavItemStyle = () => {
     if (!layoutNav) return;
     const domList = Array.from(layoutNav.querySelectorAll('.nav_item_text'));
-    domList.forEach((v: any) => v?.classList.add('nav_item_block'))
+    domList.forEach((v: any) => v?.classList.add('nav_item_block'));
+    layoutNav?.classList.add('nav_active_border');
 };
 
 // 取消全局导航样式
 export const removeNavItemStyle = () => {
     if (!layoutNav) return;
     const domList = Array.from(layoutNav.querySelectorAll('.nav_item_text'));
-    domList.forEach((v: any) => v?.classList.remove('nav_item_block'))
+    domList.forEach((v: any) => v?.classList.remove('nav_item_block'));
+    layoutNav?.classList.remove('nav_active_border');
 };
 
 // 页面滚动事件

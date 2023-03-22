@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-12 14:27:58
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 13:46:25
+ * @LastEditTime: 2023-03-22 21:48:53
  */
 export const navList = [
     {
@@ -21,7 +21,7 @@ export const navList = [
     },
     {
         key: "archive",
-        href: "/404",
+        href: "/archive",
         icon: "icon-guidang",
         title: "文归档",
     },
