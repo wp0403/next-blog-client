@@ -6,7 +6,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 10:37:09
+ * @LastEditTime: 2023-03-22 17:48:09
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -87,7 +87,7 @@ export default function Navbar() {
             id="nav_item"
             onClick={() => setActive(!avtive)}
           >
-            <SysIcon type="icon-caidan" />
+            <SysIcon type="icon-tubiao_daohangcaidan" />
           </div>
         </div>
       </nav>
@@ -106,7 +106,7 @@ export default function Navbar() {
           className={styles.nav_mobile_btn}
           onClick={() => setActive(!avtive)}
         >
-          <SysIcon type="icon-caidan" />
+          <SysIcon type="icon-tubiao_daohangcaidan" />
         </div>
         <div className={styles.nav_mobile_list} id="nav_mobile_list">
           <div className={styles.nav_list}>
