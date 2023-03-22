@@ -25,10 +25,24 @@ export const addLayoutNavStyle = () => {
     layoutNav?.classList.add('nav_active');
 };
 
+// 设置全局导航样式
+export const addNavItemStyle = () => {
+    if (!layoutNav) return;
+    const domList = Array.from(layoutNav.querySelectorAll('.nav_item_text'));
+    domList.forEach((v: any) => v?.classList.add('nav_item_block'))
+};
+
+// 取消全局导航样式
+export const removeNavItemStyle = () => {
+    if (!layoutNav) return;
+    const domList = Array.from(layoutNav.querySelectorAll('.nav_item_text'));
+    domList.forEach((v: any) => v?.classList.remove('nav_item_block'))
+};
+
 // 页面滚动事件
 export const pageScroll = () => {
     if (!layoutNav) return;
-    if (layoutContent?.scrollTop && layoutContent?.scrollTop > 300) {
+    if (layoutContent?.scrollTop && layoutContent?.scrollTop > 50) {
         layoutNav?.classList.add('nav_active');
         if (lastScrollPos - layoutContent?.scrollTop > 30) {
             lastScrollPos = layoutContent?.scrollTop

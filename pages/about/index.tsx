@@ -4,24 +4,28 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 17:29:06
+ * @LastEditTime: 2023-03-22 18:15:28
  */
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect } from "react";
 import {
-  addLayoutNavStyle,
-  removeLayoutNavStyle,
+  addNavItemStyle,
+  bindHandleScroll,
+  removeNavItemStyle,
+  removeScroll,
 } from "../../utils/elementUtils";
 import aboutImg from "/public/about_3.jpg";
 import style from "./about.module.css";
 
 const About = () => {
   useEffect(() => {
-    addLayoutNavStyle();
+    addNavItemStyle();
+    bindHandleScroll();
 
     return () => {
-      removeLayoutNavStyle();
+      removeNavItemStyle();
+      removeScroll();
     };
   }, []);
   return (

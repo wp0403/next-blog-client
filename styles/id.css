@@ -2,23 +2,19 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-#nav_item {
-  color: var(--txt-w-pure);
-  font-weight: 600;
-}
-
-#nav_item:hover {
-  color: var(--txt-w-pure);
-}
-
-#nav_mobile_list #nav_item,
-.nav_active #nav_item {
+.nav_item_text.nav_item_block{
   color: var(--b-alpha-60);
   font-weight: 400;
 }
 
-#nav_mobile_list #nav_item:hover,
-.nav_active #nav_item:hover {
+#nav_mobile_list .nav_item_text,
+.nav_active .nav_item_text {
+  color: var(--b-alpha-60);
+  font-weight: 400;
+}
+
+#nav_mobile_list .nav_item_text:hover,
+.nav_active .nav_item_text:hover {
   color: var(--b-alpha-80);
 }
 

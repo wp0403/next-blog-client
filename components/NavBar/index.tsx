@@ -6,7 +6,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 17:48:09
+ * @LastEditTime: 2023-03-22 18:04:03
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -20,8 +20,7 @@ export default function Navbar() {
   // 导航item
   const navItem = (obj) => (
     <Link
-      className={styles.nav_item}
-      id="nav_item"
+      className={`${styles.nav_item} nav_item_text`}
       href={obj?.href}
       key={obj?.key}
     >
@@ -58,7 +57,7 @@ export default function Navbar() {
               height={40}
             />
           </h1> */}
-          <h2 className={styles.title} id="nav_item">
+          <h2 className={`${styles.title} nav_item_text`}>
             Shimmer🌈
           </h2>
         </div>
