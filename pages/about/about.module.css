@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 24px;
+  background-color: var(--bg-w-pure);
 }
 
 .about_content {
