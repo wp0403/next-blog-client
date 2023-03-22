@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 11:01:47
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 14:04:54
+ * @LastEditTime: 2023-03-22 15:44:18
  */
 import Image from "next/image";
 import Head from "next/head";
@@ -19,34 +19,6 @@ import {
 } from "../../utils/elementUtils";
 import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
 import style from "./blog.module.css";
-
-const classList = [
-  {
-    id: 1,
-    name: "前端",
-    value: 10,
-  },
-  {
-    id: 2,
-    name: "后端",
-    value: 30,
-  },
-  {
-    id: 3,
-    name: "其它学习资料",
-    value: 134,
-  },
-  {
-    id: 4,
-    name: "醉挽清风",
-    value: 13,
-  },
-  {
-    id: 5,
-    name: "在路上",
-    value: 133,
-  },
-];
 
 export default function BlogDetails({ posts }) {
   const {
