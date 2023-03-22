@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 18:15:28
+ * @LastEditTime: 2023-03-22 23:50:07
  */
 import Head from "next/head";
 import Image from "next/image";
@@ -30,6 +30,10 @@ const About = () => {
   }, []);
   return (
     <div className={style.about}>
+      <Head>
+        <title>About</title>
+        <meta name="description" content="About" />
+      </Head>
       <div className={style.about_content}>
         <div className={style.title}>About</div>
         <Image

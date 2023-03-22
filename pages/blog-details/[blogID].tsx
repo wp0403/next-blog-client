@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 14:06:04
+ * @LastEditTime: 2023-03-22 23:33:30
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -50,6 +50,14 @@ export default function BlogDetails({ posts }) {
             <SysIcon className={style.icon} type="icon-shijian" />
             发布于{formatDate(data.time_str, "yyyy-MM-dd")} 最近修改
             {formatDate(data.last_edit_time, "yyyy-MM-dd")}
+          </div>
+          <div className={style.list_item_type}>
+            <SysIcon className={style.icon} type="icon-yanjing-kai" />
+            <span>{data.views}</span>
+          </div>
+          <div className={style.list_item_type}>
+            <SysIcon className={style.icon} type="icon-guanzhu" />
+            <span>{data.likes}</span>
           </div>
           <div className={style.list_item_type}>
             <SysIcon className={style.icon} type="icon-geren1" />

@@ -4,8 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-01-25 16:48:55
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 23:08:34
+ * @LastEditTime: 2023-03-22 23:50:47
  */
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect } from "react";
 import {
@@ -31,6 +32,10 @@ export default function Archive(props) {
 
   return (
     <div className={style.archive}>
+      <Head>
+        <title>文归档</title>
+        <meta name="description" content="文归档" />
+      </Head>
       <div className={style.archive_content}>
         {data?.map((v) => {
           return (
