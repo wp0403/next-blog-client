@@ -3,15 +3,21 @@
 }
 
 #nav_item {
-  color: var(--txt-w-pure) !important;
+  color: var(--txt-w-pure);
 }
 
-#nav_mobile_list #nav_item {
-  color: var(--b-alpha) !important;
+#nav_item:hover {
+  color: var(--txt-w-pure);
 }
 
+#nav_mobile_list #nav_item,
 .nav_active #nav_item {
-  color: var(--b-alpha) !important;
+  color: var(--b-alpha-60);
+}
+
+#nav_mobile_list #nav_item:hover,
+.nav_active #nav_item:hover {
+  color: var(--b-alpha-80);
 }
 
 /* 打字机光标颜色 */

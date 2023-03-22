@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 00:27:37
+ * @LastEditTime: 2023-03-22 14:06:04
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -41,18 +41,18 @@ export default function BlogDetails({ posts }) {
         <div className={style.list_item_title}>{data.title}</div>
         <div className={style.list_item_info}>
           <div className={style.list_item_type}>
-            <SysIcon className={style.icon} type="icon-biaoqian" />
+            <SysIcon className={style.icon} type="icon-biaoqian2" />
             <span>{data.classify}</span>
             <span className={style.blog_item_class_border}>|</span>
             <span>{data.classify_sub}</span>
           </div>
           <div className={style.list_item_time}>
-            <SysIcon className={style.icon} type="icon-a-shijianzuijin" />
+            <SysIcon className={style.icon} type="icon-shijian" />
             发布于{formatDate(data.time_str, "yyyy-MM-dd")} 最近修改
             {formatDate(data.last_edit_time, "yyyy-MM-dd")}
           </div>
           <div className={style.list_item_type}>
-            <SysIcon className={style.icon} type="icon-a-gerenyonghu" />
+            <SysIcon className={style.icon} type="icon-geren1" />
             {hasUnicode(data?.userInfo?.name)
                 ? unicodeToEmoji(data?.userInfo?.name)
                 : data?.userInfo?.name}

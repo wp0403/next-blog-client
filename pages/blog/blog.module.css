@@ -44,6 +44,12 @@
 
 .blog_search_input {
   border-radius: 8px;
+  background-color: transparent;
+  color: var(--b-alpha-90);
+}
+
+.blog_search_input:hover{
+  border-color: var(--purple-text-hover);
 }
 
 .blog_class {

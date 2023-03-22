@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 11:01:47
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 00:27:02
+ * @LastEditTime: 2023-03-22 14:04:54
  */
 import Image from "next/image";
 import Head from "next/head";
@@ -100,14 +100,14 @@ export default function BlogDetails({ posts }) {
               <div className={style.blog_item_browse}>
                 <SysIcon
                   className={style.blog_item_icon}
-                  type="icon-a-yanjingxianshi"
+                  type="icon-yanjing-kai"
                 />
                 19918
               </div>
               <div className={style.blog_item_follow}>
                 <SysIcon
                   className={style.blog_item_icon}
-                  type="icon-a-xihuanguanzhuaixin"
+                  type="icon-guanzhu"
                 />
                 21
               </div>
