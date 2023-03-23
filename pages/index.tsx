@@ -9,7 +9,7 @@ import SysIcon from "../components/SysIcon";
 import bgImg from "/public/bg00003.jpg";
 import styles from "../styles/home.module.css";
 
-const str = '我是「于风里读诗」。 \n当然这肯定不是我的本名啦。\n目前从事的是web前端开发工作。\n在工作之余也会去学习一些新的知识，不断充实自己。\n平时我比较喜欢阅读，或者看一看军事类的新闻，偶尔也会在睡前关注一下行业热点。\n在搞这个小站之前，是在语雀上整理自己的一些学习笔记的。\n当然现在也暂停了这部分的更新（有点偷懒的嫌疑，但确实没有更多精力了）。\n目前在工作之余，大多数时间都在学习或是写一些自己的项目。\n非常羡慕那些有独立开发能力的伙伴们，希望自己也能慢慢茁壮成长（//` 0 `//）。 \n为了能够独立开发一些项目，我也在自学一些后端的东西。\n当然目前还没有太深入（想要尽快开发成果出来）。\n暂时的放弃不代表我会完全抛弃自己的想法。\n自己也在构思着一些小的项目，希望早日提上日程哈。\n我还在努力，期待自己能在此期间得到更多的收获。'
+const str = '「Shimmer🌈」\n从事web前端开发\n喜欢探索学习\n摄影、玩、玩、玩'
 
 export default function Home() {
   const typeTarget = useRef<any>(null);
@@ -70,7 +70,7 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className={styles.about} ref={aboutDom}>
+        {/* <div className={styles.about} ref={aboutDom}>
           <div className={styles.about_title}>关于我</div>
           <div className={styles.about_tags}>
             <span>程序员</span>
@@ -81,7 +81,7 @@ export default function Home() {
           <div className={styles.about_description} dangerouslySetInnerHTML={{__html: str,}}>
             
           </div>
-        </div>
+        </div> */}
       </div>
       <Script src="https://api.vvhan.com/api/snow" />
     </>

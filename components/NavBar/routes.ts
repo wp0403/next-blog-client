@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-12 14:27:58
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 21:48:53
+ * @LastEditTime: 2023-03-23 14:19:17
  */
 export const navList = [
     {
@@ -27,7 +27,7 @@ export const navList = [
     },
     {
         key: "tree-hole",
-        href: "/404",
+        href: "/tree-hole",
         icon: "icon--_liaotian",
         title: "树洞",
     },

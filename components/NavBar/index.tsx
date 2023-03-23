@@ -6,12 +6,11 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 18:04:03
+ * @LastEditTime: 2023-03-23 16:49:15
  */
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { getLayoutDom } from "../../utils/elementUtils";
+import { useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
 import styles from "./navBar.module.css";
@@ -39,11 +38,6 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark");
     setTheme(theme === 1 ? 2 : 1);
   };
-
-  // 绑定全局滚动事件
-  useEffect(() => {
-    getLayoutDom();
-  }, []);
 
   return (
     <>
@@ -83,7 +77,6 @@ export default function Navbar() {
         <div className={styles.nav_mobile}>
           <div
             className={styles.nav_mobile_btn}
-            id="nav_item"
             onClick={() => setActive(!avtive)}
           >
             <SysIcon type="icon-tubiao_daohangcaidan" />
@@ -102,7 +95,7 @@ export default function Navbar() {
         }`}
       >
         <div
-          className={styles.nav_mobile_btn}
+          className={`${styles.nav_mobile_btn}`}
           onClick={() => setActive(!avtive)}
         >
           <SysIcon type="icon-tubiao_daohangcaidan" />

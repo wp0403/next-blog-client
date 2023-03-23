@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 00:26:10
+ * @LastEditTime: 2023-03-23 16:40:27
  */
 import { localGet } from './local';
 
@@ -129,13 +129,13 @@ export const handleUpload: any = (file, callback?) => {
 export const XSS_encode_html = (str) => {
   return str
     ? str.replace(/[<">']/g, (a) => {
-        return {
-          '<': '&lt;',
-          '"': '&quot;',
-          '>': '&gt;',
-          "'": '&#39;',
-        }[a];
-      })
+      return {
+        '<': '&lt;',
+        '"': '&quot;',
+        '>': '&gt;',
+        "'": '&#39;',
+      }[a];
+    })
     : '';
 };
 
@@ -233,4 +233,27 @@ export const hasUnicode = (str) => {
 // 将字符串中Unicode字符转回原样
 export const unicodeToEmoji = (str) => {
   return str.replace(/\\u\{([0-9a-fA-F]+)\}/g, (match, p1) => String.fromCodePoint(parseInt(p1, 16)));
+}
+
+/**
+ * 对树洞数据做处理
+ * @param list 
+ * @returns 
+ */
+export const changeTreeData = (list) => {
+  const newList: any[] = [];
+
+  list.forEach(v => {
+    const ind = newList.findIndex(v1 => v1.year === v.year);
+    if (ind >= 0) {
+      newList[ind].children.push(v);
+    } else {
+      newList.push({
+        year: v.year,
+        children: [v],
+      });
+    }
+  });
+
+  return newList;
 }

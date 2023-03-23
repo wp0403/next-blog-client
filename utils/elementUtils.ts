@@ -50,7 +50,7 @@ export const pageScroll = () => {
             lastScrollPos = layoutContent?.scrollTop
             layoutNav?.classList.remove('nav_none');
         }
-        if(layoutContent?.scrollTop - lastScrollPos > 30) {
+        if (layoutContent?.scrollTop > 30 && layoutContent?.scrollTop - lastScrollPos > 30) {
             lastScrollPos = layoutContent?.scrollTop
             layoutNav?.classList.add('nav_none');
         }
