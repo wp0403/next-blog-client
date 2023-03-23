@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-23 14:15:39
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 16:54:17
+ * @LastEditTime: 2023-03-23 17:37:33
  */
 import { useEffect, useRef, useState } from "react";
 import { useGetState } from "ahooks";
@@ -16,7 +16,6 @@ import {
   removeScroll,
 } from "../../utils/elementUtils";
 import style from "./index.module.css";
-import Link from "next/link";
 import { changeTreeData, distinctObjectMap } from "../../utils/dataUtils";
 
 type DateItem = {
@@ -38,7 +37,7 @@ export default function TreeHole() {
   const getDate = async () => {
     setLoading(true);
     const res = await fetch(
-      `http://127.0.0.1:7001/getSecretList?page=${getPage()}&page_size=${page_size}`
+      `https://wp-boke.work/api/getSecretList?page=${getPage()}&page_size=${page_size}`
     );
     const posts = await res.json();
     setData((a) => distinctObjectMap([...a, ...posts.data], "id"));
