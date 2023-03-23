@@ -60,16 +60,18 @@ export const pageScroll = () => {
 };
 
 // 设置页面滚动事件
-export const bindHandleScroll = () => {
+export const bindHandleScroll = (func?) => {
     if (!layoutContent) return;
     layoutContent.addEventListener('scroll', pageScroll, false);
+    func && func();
 };
 
 // 卸载页面滚动事件
-export const removeScroll = () => {
+export const removeScroll = (func?) => {
     if (!layoutContent) return;
     layoutContent.removeEventListener('scroll', pageScroll, false);
     lastScrollPos = 0;
+    func && func();
 };
 
 // 获取当前的主题

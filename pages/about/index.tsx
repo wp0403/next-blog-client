@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-22 23:50:07
+ * @LastEditTime: 2023-03-23 18:24:42
  */
 import Head from "next/head";
 import Image from "next/image";
@@ -20,12 +20,10 @@ import style from "./about.module.css";
 
 const About = () => {
   useEffect(() => {
-    addNavItemStyle();
-    bindHandleScroll();
+    bindHandleScroll(addNavItemStyle);
 
     return () => {
-      removeNavItemStyle();
-      removeScroll();
+      removeScroll(removeNavItemStyle);
     };
   }, []);
   return (
