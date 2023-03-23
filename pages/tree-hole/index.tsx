@@ -4,9 +4,8 @@
  * @Author: WangPeng
  * @Date: 2023-03-23 14:15:39
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 18:25:35
+ * @LastEditTime: 2023-03-23 17:37:33
  */
-import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { useGetState } from "ahooks";
 import {
@@ -75,25 +74,23 @@ export default function TreeHole() {
   useEffect(() => {
     layoutContent && layoutContent.addEventListener("scroll", scrollFun);
     return () => {
-      layoutContent && layoutContent.removeEventListener("scroll", scrollFun);
+        layoutContent && layoutContent.removeEventListener("scroll", scrollFun);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page_size, page, totalPages, loading, layoutContent]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page_size, page, totalPages, loading,layoutContent]);
 
   useEffect(() => {
-    bindHandleScroll(addNavItemStyle);
+    addNavItemStyle();
+    bindHandleScroll();
 
     return () => {
-      removeScroll(removeNavItemStyle);
+      removeNavItemStyle();
+      removeScroll();
     };
   }, []);
 
   return (
     <div className={style.tree_hole} ref={content}>
-      <Head>
-        <title>树洞</title>
-        <meta name="description" content="树洞" />
-      </Head>
       <div className={style.content}>
         {changeTreeData(data)?.map((v, ind) => (
           <div className={style.item} key={ind}>

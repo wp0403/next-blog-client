@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-25 16:48:55
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 18:23:54
+ * @LastEditTime: 2023-03-22 23:50:47
  */
 import Head from "next/head";
 import Link from "next/link";
@@ -21,10 +21,12 @@ export default function Archive(props) {
   const { data } = props;
 
   useEffect(() => {
-    bindHandleScroll(addNavItemStyle);
+    addNavItemStyle();
+    bindHandleScroll();
 
     return () => {
-      removeScroll(removeNavItemStyle);
+      removeNavItemStyle();
+      removeScroll();
     };
   }, []);
 
