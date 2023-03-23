@@ -1,18 +1,24 @@
 import Navbar from "../NavBar";
 import Footer from "../Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getLayoutDom } from "../../utils/elementUtils";
 
 export default function Layout({ children }) {
-  // 绑定全局滚动事件
+  const [loading, setLoading] = useState<boolean>(true);
+  // 绑定全局获取元素事件
   useEffect(() => {
     getLayoutDom();
+    setLoading(false);
   }, []);
   return (
     <>
-      <Navbar />
-      {children}
-      <Footer />
+      {!loading && (
+        <>
+          <Navbar />
+          {children}
+          <Footer />
+        </>
+      )}
     </>
   );
 }
