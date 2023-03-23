@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 16:40:27
+ * @LastEditTime: 2023-03-23 23:42:03
  */
 import { localGet } from './local';
 
@@ -256,4 +256,17 @@ export const changeTreeData = (list) => {
   });
 
   return newList;
+}
+
+export const getTheme = () => {
+  const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
+  if (themeMedia.matches) {
+      // console.log('light')
+      document.documentElement.classList.remove("dark");
+      return 2;
+  } else {
+      // console.log('dark')
+      document.documentElement.classList.add("dark");
+      return 1;
+  }
 }

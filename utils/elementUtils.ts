@@ -1,7 +1,7 @@
 // 全局滚动的盒子
-export let layoutContent: any = null;
+export let layoutContent: any = document.getElementById('__next') || null;
 // 全局导航盒子
-export let layoutNav: any = null;
+export let layoutNav: any = document.getElementById('layout_nav') || null;
 // 当前的主题
 export let theme: number = 1;
 // 记录上一次滚动的位置

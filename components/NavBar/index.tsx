@@ -6,14 +6,15 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 16:49:15
+ * @LastEditTime: 2023-03-23 23:42:54
  */
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
 import styles from "./navBar.module.css";
+import { getTheme } from "../../utils/dataUtils";
 
 export default function Navbar() {
   // 导航item
@@ -39,6 +40,10 @@ export default function Navbar() {
     setTheme(theme === 1 ? 2 : 1);
   };
 
+  useEffect(() => {
+    setTheme(getTheme());
+  },[])
+
   return (
     <>
       <nav className={styles.nav} id="layout_nav">
@@ -62,13 +67,13 @@ export default function Navbar() {
           <div className={styles.nav_type} onClick={themeSwitch}>
             <SysIcon
               className={`${styles.nav_type_item} ${
-                theme === 1 && styles.nav_type_item_active
+                theme === 2 && styles.nav_type_item_active
               }`}
               type="icon-taiyang1"
             />
             <SysIcon
               className={`${styles.nav_type_item} ${
-                theme === 2 && styles.nav_type_item_active
+                theme === 1 && styles.nav_type_item_active
               }`}
               type="icon-yueliang1"
             />
