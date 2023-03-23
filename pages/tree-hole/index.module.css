@@ -65,17 +65,18 @@
   color: var(--b-alpha-70);
 }
 
+.tree_item_content {
+  color: var(--b-alpha-80);
+}
+
 .tree_item:hover {
   transform: translateX(8px);
 }
 
 .tree_item:hover .tree_item_time,
-.tree_item:hover .tree_item_content {
-  color: var(--purple-primary-active);
-}
-
+.tree_item:hover .tree_item_content,
 .tree_item:hover .tree_item_type {
-  color: var(--b-alpha-90);
+  color: var(--purple-primary);
 }
 
 @media screen and (max-width: 1000px) {
