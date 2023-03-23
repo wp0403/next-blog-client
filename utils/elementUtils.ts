@@ -28,17 +28,17 @@ export const addLayoutNavStyle = () => {
 
 // 设置全局导航样式
 export const addNavItemStyle = () => {
-    if (!layoutNav) return;
     const domList = Array.from(document.querySelectorAll('.nav_item_text'));
     domList.forEach((v: any) => v?.classList.add('nav_item_block'));
+    if (!layoutNav) return;
     layoutNav?.classList.add('nav_active_border');
 };
 
 // 取消全局导航样式
 export const removeNavItemStyle = () => {
-    if (!layoutNav) return;
     const domList = Array.from(document.querySelectorAll('.nav_item_text'));
     domList.forEach((v: any) => v?.classList.remove('nav_item_block'));
+    if (!layoutNav) return;
     layoutNav?.classList.remove('nav_active_border');
 };
 
