@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-23 14:15:39
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 17:37:33
+ * @LastEditTime: 2023-03-24 00:14:39
  */
 import { useEffect, useRef, useState } from "react";
 import { useGetState } from "ahooks";
@@ -30,11 +30,12 @@ export default function TreeHole() {
   // 每页条数
   const [page_size, setPageSize] = useState<number>(10);
   const [loading, setLoading] = useGetState<boolean>(false);
-  const [totalPages, setTotalPages] = useGetState<number>(0);
+  const [totalPages, setTotalPages,getTotalPages] = useGetState<number>(0);
 
   const content = useRef<any>(null);
 
   const getDate = async () => {
+    if(getTotalPages() !== 0 && getTotalPages() < getPage()) return;
     setLoading(true);
     const res = await fetch(
       `https://wp-boke.work/api/getSecretList?page=${getPage()}&page_size=${page_size}`
@@ -48,7 +49,7 @@ export default function TreeHole() {
   // 滚动事件
   const scrollFun = () => {
     // 滚动盒子
-    const scrollBox = layoutContent;
+    const scrollBox = layoutContent();
     const scrollConBox = content.current;
     const flag = page < totalPages;
 
@@ -72,9 +73,10 @@ export default function TreeHole() {
   }, [page]);
 
   useEffect(() => {
-    layoutContent && layoutContent.addEventListener("scroll", scrollFun);
+    const scrollBox = layoutContent();
+    scrollBox && scrollBox.addEventListener("scroll", scrollFun);
     return () => {
-        layoutContent && layoutContent.removeEventListener("scroll", scrollFun);
+        scrollBox && scrollBox.removeEventListener("scroll", scrollFun);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page_size, page, totalPages, loading,layoutContent]);
