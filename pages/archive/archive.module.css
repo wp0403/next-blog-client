@@ -70,7 +70,7 @@
 
 .class_item:hover .class_item_time,
 .class_item:hover .class_item_name {
-  color: var(--purple-primary-active);
+  color: var(--purple-primary);
 }
 
 @media screen and (max-width: 1000px) {
