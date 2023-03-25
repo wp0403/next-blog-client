@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 23:42:03
+ * @LastEditTime: 2023-03-24 14:24:50
  */
 import { localGet } from './local';
 
@@ -241,21 +241,36 @@ export const unicodeToEmoji = (str) => {
  * @returns 
  */
 export const changeTreeData = (list) => {
-  const newList: any[] = [];
+  const newList1: any[] = [];
+  const newList2: any[] = [];
+  const topList = list.filter(v => v.isTop);
+  const normalList = list.filter(v => !v.isTop);
 
-  list.forEach(v => {
-    const ind = newList.findIndex(v1 => v1.year === v.year);
+  topList.forEach(v => {
+    const ind = newList1.findIndex(v1 => v1.year === v.year);
     if (ind >= 0) {
-      newList[ind].children.push(v);
+      newList1[ind].children.push(v);
     } else {
-      newList.push({
+      newList1.push({
         year: v.year,
         children: [v],
       });
     }
   });
 
-  return newList;
+  normalList.forEach(v => {
+    const ind = newList2.findIndex(v1 => v1.year === v.year);
+    if (ind >= 0) {
+      newList2[ind].children.push(v);
+    } else {
+      newList2.push({
+        year: v.year,
+        children: [v],
+      });
+    }
+  });
+
+  return [...newList1,...newList2];
 }
 
 export const getTheme = () => {

@@ -1,10 +1,10 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: WangPeng
- * @Date: 2023-03-25 14:06:20
+ * @Date: 2023-03-25 14:21:48
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-25 14:59:10
+ * @LastEditTime: 2023-03-25 15:00:07
  */
 import Image from "next/image";
 import Head from "next/head";
@@ -13,20 +13,24 @@ import Router from "next/router";
 import { useEffect, useState } from "react";
 import { Pagination, Input, Spin } from "antd";
 import { useDebounceFn, useGetState } from "ahooks";
-import SysIcon from "../../components/SysIcon";
+import SysIcon from "../../../components/SysIcon";
 import {
   addLayoutNavStyle,
   removeLayoutNavStyle,
-} from "../../utils/elementUtils";
-import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
-import style from "./blog.module.css";
+} from "../../../utils/elementUtils";
+import {
+  formatDate,
+  hasUnicode,
+  unicodeToEmoji,
+} from "../../../utils/dataUtils";
+import style from "../blog.module.css";
 
 export default function BlogDetails({ posts }) {
   const {
     data,
     totalPage,
-    type = null,
     page,
+    type,
     classifyNum: { classifyNum },
   } = posts;
 
@@ -164,7 +168,7 @@ export default function BlogDetails({ posts }) {
                 defaultCurrent={page}
                 total={(keyword ? searchTotal : totalPage) * 10}
                 onChange={(v) =>
-                  keyword ? setSearchPage(v) : Router.push(`/blog/${v}`)
+                  keyword ? setSearchPage(v) : Router.push(`/blog/${v}/${type}`)
                 }
               />
             </div>
@@ -212,24 +216,33 @@ export default function BlogDetails({ posts }) {
 
 export async function getStaticPaths() {
   // 调用外部 API 获取内容
-  const res = await fetch(`https://wp-boke.work/api/getClassifyListPage`);
-  const posts = await res.json();
+  const classifyNum = await fetch(`https://wp-boke.work/api/getClassifyNum`);
+  const posts3 = await classifyNum.json();
 
-  const arr = [] as string[];
-  for (let i = 1; i <= posts.data; i++) {
-    arr.push(i.toString());
-  }
+  const arr = [] as any[];
+  posts3.data?.classifyNum?.forEach((v) => {
+    const totalPage = Math.ceil(v.count / 10);
+    const pageList = [] as string[];
+    for (let i = 1; i <= totalPage; i++) {
+      pageList.push(i.toString());
+    }
+    pageList.forEach((v1) => {
+      arr.push({ type: v.type, page: v1 });
+    });
+  });
 
   return {
     // 必须叫paths，值必须是数组
-    paths: arr.map((v) => ({ params: { page: v } })),
+    paths: arr.map((v) => ({ params: { page: v.page, type: v.type } })),
     fallback: "blocking",
   };
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   // 获取页码
-  const pageObj = await fetch(`https://wp-boke.work/api/getClassifyListPage`);
+  const pageObj = await fetch(
+    `https://wp-boke.work/api/getClassifyListPage?id=${params.type}`
+  );
   const posts1 = await pageObj.json();
 
   const pageList = [] as string[];
@@ -238,8 +251,8 @@ export async function getStaticProps({params}) {
   }
   // 调用外部 API 获取内容
   const res = await fetch(
-    `https://wp-boke.work/api/getClassifyList?page=${params.page}`
-    // `http://localhost:7001/getClassifyList?page=${params.page}`
+    `https://wp-boke.work/api/getClassifyList?page=${params.page}&id=${params.type}`
+    // `http://localhost:7001/getClassifyList?page=${params.page}&id=${params.type}`
   );
   const classifyNum = await fetch(`https://wp-boke.work/api/getClassifyNum`);
   const posts2 = await res.json();
@@ -252,6 +265,7 @@ export async function getStaticProps({params}) {
         page: params.page,
         totalPage: posts1.data,
         pageList,
+        type: params.type,
         classifyNum: posts3.data,
         ...posts2,
       },

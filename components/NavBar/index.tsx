@@ -6,7 +6,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 23:42:54
+ * @LastEditTime: 2023-03-24 14:36:44
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -17,22 +17,25 @@ import styles from "./navBar.module.css";
 import { getTheme } from "../../utils/dataUtils";
 
 export default function Navbar() {
+  const [current, setCurrent] = useState<string>("/");
+  // 主题
+  const [theme, setTheme] = useState<any>(1);
+  // 是否弹出遮罩
+  const [avtive, setActive] = useState<boolean>(false);
+
   // 导航item
   const navItem = (obj) => (
     <Link
       className={`${styles.nav_item} nav_item_text`}
+      id={`${current === obj?.href && 'nev_item_active'}`}
       href={obj?.href}
       key={obj?.key}
+      onClick={() => setCurrent(obj?.href)}
     >
       <SysIcon className={styles.nav_item_icon} type={obj?.icon} />
       <span className={styles.nav_item_title}>{obj?.title}</span>
     </Link>
   );
-
-  // 主题
-  const [theme, setTheme] = useState<any>(1);
-  // 是否弹出遮罩
-  const [avtive, setActive] = useState<boolean>(false);
 
   // 切换主题
   const themeSwitch = () => {
@@ -41,8 +44,10 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    setCurrent(window.location.pathname);
+
     setTheme(getTheme());
-  },[])
+  }, []);
 
   return (
     <>
@@ -56,9 +61,9 @@ export default function Navbar() {
               height={40}
             />
           </h1> */}
-          <h2 className={`${styles.title} nav_item_text`}>
+          <Link className={`${styles.title} nav_item_text`} href="/">
             Shimmer🌈
-          </h2>
+          </Link>
         </div>
         <div className={styles.nav_right}>
           <div className={styles.nav_list}>

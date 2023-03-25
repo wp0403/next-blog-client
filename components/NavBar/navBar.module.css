@@ -27,6 +27,10 @@
   color: var(--txt-w-pure);
 }
 
+.title:hover{
+  color: var(--txt-w-pure);
+}
+
 .nav_right {
   flex: 1;
   display: flex;

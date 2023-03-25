@@ -132,6 +132,8 @@ body {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav_active {
