@@ -10,6 +10,7 @@ export const layoutNav: any = () => {
 export let theme: number = 1;
 // 记录上一次滚动的位置
 let lastScrollPos = 0;
+let timerId;
 
 // 取消全局导航的样式
 export const removeLayoutNavStyle = () => {
@@ -42,6 +43,7 @@ export const removeNavItemStyle = () => {
 // 页面滚动事件
 export const pageScroll = () => {
     if (!layoutNav() || !layoutContent()) return;
+    timerId && clearTimeout(timerId);
     if (layoutContent()?.scrollTop && layoutContent().scrollTop > 50) {
         layoutNav()?.classList.add('nav_active');
         if (lastScrollPos - layoutContent()?.scrollTop > 30) {
@@ -55,6 +57,9 @@ export const pageScroll = () => {
     } else {
         layoutNav()?.classList.remove('nav_active');
     }
+    timerId = setTimeout(() => {
+        layoutNav()?.classList.remove('nav_none');
+    },100);
 };
 
 // 设置页面滚动事件
