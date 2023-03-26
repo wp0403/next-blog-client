@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-25 14:06:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-25 14:59:10
+ * @LastEditTime: 2023-03-25 23:33:49
  */
 import Image from "next/image";
 import Head from "next/head";
@@ -171,7 +171,7 @@ export default function BlogDetails({ posts }) {
           </div>
           <div className={style.blog_right}>
             <div className={style.blog_right_content}>
-              <div className={style.blog_blog_right}>
+              <div className={style.blog_search}>
                 <Input
                   className={style.blog_search_input}
                   placeholder="搜索博文"

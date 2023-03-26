@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Script from "next/script";
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import { bindHandleScroll, removeScroll } from "../utils/elementUtils";
@@ -83,7 +82,6 @@ export default function Home() {
           </div>
         </div> */}
       </div>
-      <Script src="https://api.vvhan.com/api/snow" />
     </>
   );
 }

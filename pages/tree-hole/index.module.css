@@ -1,6 +1,6 @@
 .tree_hole {
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
   padding-top: 70px;
   background-color: var(--bg-w-pure);
 }
