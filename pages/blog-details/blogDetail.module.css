@@ -1,5 +1,6 @@
 .blog_detail {
   width: 100%;
+  flex: 1;
   padding-top: 70px;
   background-color: var(--bg-w-pure);
   display: flex;

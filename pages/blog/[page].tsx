@@ -1,10 +1,10 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: WangPeng
  * @Date: 2023-03-25 14:06:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-25 23:33:49
+ * @LastEditTime: 2023-03-27 13:17:36
  */
 import Image from "next/image";
 import Head from "next/head";
@@ -15,8 +15,10 @@ import { Pagination, Input, Spin } from "antd";
 import { useDebounceFn, useGetState } from "ahooks";
 import SysIcon from "../../components/SysIcon";
 import {
-  addLayoutNavStyle,
-  removeLayoutNavStyle,
+  addNavItemStyle,
+  bindHandleScroll,
+  removeNavItemStyle,
+  removeScroll,
 } from "../../utils/elementUtils";
 import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
 import style from "./blog.module.css";
@@ -65,10 +67,12 @@ export default function BlogDetails({ posts }) {
   );
 
   useEffect(() => {
-    addLayoutNavStyle();
+    addNavItemStyle();
+    bindHandleScroll();
 
     return () => {
-      removeLayoutNavStyle();
+      removeNavItemStyle();
+      removeScroll();
     };
   }, []);
 
@@ -227,7 +231,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   // 获取页码
   const pageObj = await fetch(`https://wp-boke.work/api/getClassifyListPage`);
   const posts1 = await pageObj.json();

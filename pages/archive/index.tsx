@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-25 16:48:55
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-24 15:09:00
+ * @LastEditTime: 2023-03-27 12:36:14
  */
 import Head from "next/head";
 import Link from "next/link";
@@ -62,8 +62,8 @@ export default function Archive(props) {
 export async function getStaticProps() {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
-  // const res = await fetch(`https://wp-boke.work/api/getArchive`);
-  const res = await fetch(`http://localhost:7001/getArchive`);
+  const res = await fetch(`https://wp-boke.work/api/getArchive`);
+  // const res = await fetch(`http://localhost:7001/getArchive`);
   const { data } = await res.json();
 
   // Pass post data to the page via props

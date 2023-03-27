@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 23:47:14
+ * @LastEditTime: 2023-03-27 13:20:18
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -12,8 +12,10 @@ import RanderMarkdown from "../../components/RanderMarkdown";
 import SysIcon from "../../components/SysIcon";
 import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
 import {
-  addLayoutNavStyle,
-  removeLayoutNavStyle,
+  addNavItemStyle,
+  bindHandleScroll,
+  removeNavItemStyle,
+  removeScroll,
 } from "../../utils/elementUtils";
 import style from "./blogDetail.module.css";
 
@@ -25,10 +27,12 @@ export default function BlogDetails({ posts }) {
   };
 
   useEffect(() => {
-    addLayoutNavStyle();
+    addNavItemStyle();
+    bindHandleScroll();
 
     return () => {
-      removeLayoutNavStyle();
+      removeNavItemStyle();
+      removeScroll();
     };
   }, []);
 
@@ -62,8 +66,8 @@ export default function BlogDetails({ posts }) {
           <div className={style.list_item_type}>
             <SysIcon className={style.icon} type="icon-geren1" />
             {hasUnicode(data?.userInfo?.name)
-                ? unicodeToEmoji(data?.userInfo?.name)
-                : data?.userInfo?.name}
+              ? unicodeToEmoji(data?.userInfo?.name)
+              : data?.userInfo?.name}
           </div>
         </div>
       </div>
@@ -91,7 +95,7 @@ export async function getStaticPaths() {
 
   return {
     paths: data.map(({ id }) => ({ params: { blogID: id.toString() } })),
-    fallback: 'blocking', // can also be true or 'blocking'
+    fallback: "blocking", // can also be true or 'blocking'
   };
 }
 
@@ -104,8 +108,8 @@ export async function getStaticProps({ params }) {
   const posts = await res.json();
 
   // Pass post data to the page via props
-  return { 
-    props: { posts },    
-    revalidate: 60, // In seconds 
+  return {
+    props: { posts },
+    revalidate: 60, // In seconds
   };
 }

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-25 14:21:48
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-25 23:34:20
+ * @LastEditTime: 2023-03-27 13:18:32
  */
 import Image from "next/image";
 import Head from "next/head";
@@ -15,8 +15,10 @@ import { Pagination, Input, Spin } from "antd";
 import { useDebounceFn, useGetState } from "ahooks";
 import SysIcon from "../../../components/SysIcon";
 import {
-  addLayoutNavStyle,
-  removeLayoutNavStyle,
+  addNavItemStyle,
+  bindHandleScroll,
+  removeNavItemStyle,
+  removeScroll,
 } from "../../../utils/elementUtils";
 import {
   formatDate,
@@ -69,10 +71,12 @@ export default function BlogDetails({ posts }) {
   );
 
   useEffect(() => {
-    addLayoutNavStyle();
+    addNavItemStyle();
+    bindHandleScroll();
 
     return () => {
-      removeLayoutNavStyle();
+      removeNavItemStyle();
+      removeScroll();
     };
   }, []);
 
@@ -186,6 +190,14 @@ export default function BlogDetails({ posts }) {
               <div className={style.blog_class}>
                 <div className={style.blog_class_title}>文章分类</div>
                 <div className={style.blog_class_content}>
+                  <div className={style.blog_class_item} key={0}>
+                    <div
+                      className={style.blog_class_item_name}
+                      onClick={() => Router.push(`/blog/1`)}
+                    >
+                      全部
+                    </div>
+                  </div>
                   {classifyNum?.map((v) => (
                     <div
                       className={`${style.blog_class_item} ${
