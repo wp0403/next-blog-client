@@ -44,6 +44,8 @@ export default function Home() {
     };
   }, []);
 
+  
+
   return (
     <>
       <Head>
@@ -53,7 +55,7 @@ export default function Home() {
       </Head>
       <div className={styles.home}>
         <div className={styles.bg_card}>
-          <Image className={styles.bg_card_img} width={1200} src={bgImg} alt='' />
+          <Image className={styles.bg_card_img} width={1200} src={bgImg} alt='' priority />
         </div>
         <div className={styles.bg_mask} id="bg_mask" />
         <div className={styles.bg_content}>

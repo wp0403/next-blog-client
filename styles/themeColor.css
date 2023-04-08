@@ -47,6 +47,7 @@
   --purple-border-hover: #c9d1ff;
   --purple-bg: #f0f4ff;
   --purple-bg-hover: #f0f3ff;
+  --image-preview-mask: rgb(255,255,255);
 }
 
 .dark {
@@ -93,6 +94,7 @@
   --purple-border-hover: #3e4379;
   --purple-bg: #1a1b2a;
   --purple-bg-hover: #252643;
+  --image-preview-mask: rgb(50,50,50);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-12 14:27:58
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-23 14:19:17
+ * @LastEditTime: 2023-04-03 17:31:34
  */
 export const navList = [
     {
@@ -30,6 +30,12 @@ export const navList = [
         href: "/tree-hole",
         icon: "icon--_liaotian",
         title: "树洞",
+    },
+    {
+        key: "photography",
+        href: "/photography",
+        icon: "icon-sheying",
+        title: "摄影",
     },
     {
         key: "about",
