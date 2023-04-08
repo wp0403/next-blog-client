@@ -35,6 +35,10 @@
   padding: 14px 4px;
 }
 
+.photography_item .header *{
+  white-space: nowrap;
+}
+
 .photography_item .header .header_top {
   display: flex;
   align-items: center;
