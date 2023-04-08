@@ -39,12 +39,12 @@
 
 /* 输入框 */
 .ant-input::placeholder {
-  color: var(--b-alpha-60);
+  color: var(--b-alpha-60) !important;
 }
 
 /* 图片 */
 .ant-image-preview-root .ant-image-preview-mask {
-  background-color: var(--image-preview-mask);
+  background-color: var(--image-preview-mask) !important;
 }
 
 .ant-image-preview-operations-wrapper .ant-image-preview-operations {
@@ -54,22 +54,22 @@
 
 :where(.css-dev-only-do-not-override-1vtf12y)
   .ant-image-preview-operations-operation {
-  margin-inline-start: 0px;
+  margin-inline-start: 0px !important;
 }
 
 :where(.css-dev-only-do-not-override-1vtf12y).ant-image-preview-root
   .ant-image-preview-img-wrapper {
-  height: calc(100% - 46px);
-  top: 46px;
+  height: calc(100% - 46px) !important;
+  top: 46px !important;
 }
 
 :where(.css-dev-only-do-not-override-1vtf12y) .ant-image-preview-switch-left,
 :where(.css-dev-only-do-not-override-1vtf12y) .ant-image-preview-switch-right {
-  margin-top: 0px;
-  transform: translateY(0);
+  margin-top: 0px !important;
+  transform: translateY(0) !important;
 }
 
 .ant-image-preview-operations-progress {
-  left: 14px;
-  transform: translateX(0);
+  left: 14px !important;
+  transform: translateX(0) !important;
 }
