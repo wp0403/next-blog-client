@@ -52,19 +52,17 @@
   color: var(--w-alpha-70) !important;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y)
-  .ant-image-preview-operations-operation {
+.ant-image-preview-operations-operation {
   margin-inline-start: 0px !important;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y).ant-image-preview-root
-  .ant-image-preview-img-wrapper {
+.ant-image-preview-img-wrapper {
   height: calc(100% - 46px) !important;
   top: 46px !important;
 }
 
-:where(.css-dev-only-do-not-override-1vtf12y) .ant-image-preview-switch-left,
-:where(.css-dev-only-do-not-override-1vtf12y) .ant-image-preview-switch-right {
+.ant-image-preview-switch-left,
+.ant-image-preview-switch-right {
   margin-top: 0px !important;
   transform: translateY(0) !important;
 }
