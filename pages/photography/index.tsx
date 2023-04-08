@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-09 02:21:55
+ * @LastEditTime: 2023-04-09 02:36:48
  */
 import { useGetState } from "ahooks";
 import { Image } from "antd";
@@ -19,153 +19,6 @@ import {
   removeScroll,
 } from "../../utils/elementUtils";
 import style from "./Photography.module.css";
-
-const list = [
-  {
-    id: 1,
-    create_time: "2022.03.11",
-    title: "随拍",
-    authorInfo: {
-      name: "shimmer",
-    },
-    place: "北京街头",
-    desc: "一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述",
-    imgs: [
-      {
-        id: 111,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG563.jpeg",
-      },
-      {
-        id: 222,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG81.jpeg",
-      },
-      {
-        id: 333,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG35.jpeg",
-      },
-      {
-        id: 444,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG27.jpeg",
-      },
-      {
-        id: 555,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG2.jpeg",
-      },
-      {
-        id: 666,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_0284.jpeg",
-      },
-      {
-        id: 777,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_1274.jpeg",
-      },
-      {
-        id: 888,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_0225.jpeg",
-      },
-      {
-        id: 999,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-F4D116D9-BB29-4B04-BDA6-48D5F8B03546.jpeg",
-      },
-    ],
-  },
-  {
-    id: 1,
-    create_time: "2022.03.11",
-    title: "随拍",
-    authorInfo: {
-      name: "shimmer",
-    },
-    place: "北京街头",
-    desc: "一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述",
-    imgs: [
-      {
-        id: 111,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG563.jpeg",
-      },
-      {
-        id: 222,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG81.jpeg",
-      },
-      {
-        id: 333,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG35.jpeg",
-      },
-      {
-        id: 444,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG27.jpeg",
-      },
-      {
-        id: 555,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG2.jpeg",
-      },
-      {
-        id: 666,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_0284.jpeg",
-      },
-      {
-        id: 777,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_1274.jpeg",
-      },
-      {
-        id: 888,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_0225.jpeg",
-      },
-      {
-        id: 999,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-F4D116D9-BB29-4B04-BDA6-48D5F8B03546.jpeg",
-      },
-    ],
-  },
-  {
-    id: 1,
-    create_time: "2022.03.11",
-    title: "随拍",
-    authorInfo: {
-      name: "shimmer",
-    },
-    place: "北京街头",
-    desc: "一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述一段描述",
-    imgs: [
-      {
-        id: 111,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG563.jpeg",
-      },
-      {
-        id: 222,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG81.jpeg",
-      },
-      {
-        id: 333,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG35.jpeg",
-      },
-      {
-        id: 444,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG27.jpeg",
-      },
-      {
-        id: 555,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-WechatIMG2.jpeg",
-      },
-      {
-        id: 666,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_0284.jpeg",
-      },
-      {
-        id: 777,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_1274.jpeg",
-      },
-      {
-        id: 888,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-IMG_0225.jpeg",
-      },
-      {
-        id: 999,
-        url: "https://img-1302605407.cos.ap-beijing.myqcloud.com/3bbb83cf287c50c2ead0b0275842f33f-F4D116D9-BB29-4B04-BDA6-48D5F8B03546.jpeg",
-      },
-    ],
-  },
-];
 
 const Photography = () => {
   const dom = useRef<any>(null);
@@ -185,7 +38,7 @@ const Photography = () => {
     if (getTotalPages() !== 0 && getTotalPages() < getPage()) return;
     setLoading(true);
     const res = await fetch(
-      `http://wp-boke.work/api/getPhotographyList?page=${getPage()}&page_size=${page_size}`
+      `https://wp-boke.work/api/getPhotographyList?page=${getPage()}&page_size=${page_size}`
     );
     const posts = await res.json();
     setData((a) => distinctObjectMap([...a, ...posts.data], "id"));
