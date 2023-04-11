@@ -1,9 +1,8 @@
 .photography {
   width: 100%;
-  padding-top: 70px;
-  padding-bottom: 24px;
-  background-color: var(--bg-w-pure);
   flex: 1;
+  padding-top: 70px;
+  background-color: var(--bg-w-pure);
 }
 
 .photography_content {
@@ -12,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .photography_item {

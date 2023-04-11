@@ -8,7 +8,13 @@ import SysIcon from "../components/SysIcon";
 import bgImg from "/public/bg00003.jpg";
 import styles from "../styles/home.module.css";
 
-const str = '「Shimmer🌈」\n从事web前端开发\n喜欢探索学习\n摄影、玩、玩、玩'
+const timeAixsList = [
+  {
+    id: 1,
+    time: '2021.06.01',
+    
+  }
+]
 
 export default function Home() {
   const typeTarget = useRef<any>(null);
@@ -71,18 +77,9 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* <div className={styles.about} ref={aboutDom}>
-          <div className={styles.about_title}>关于我</div>
-          <div className={styles.about_tags}>
-            <span>程序员</span>
-            <span>程序员</span>
-            <span>程序员</span>
-            <span>程序员</span>
-          </div>
-          <div className={styles.about_description} dangerouslySetInnerHTML={{__html: str,}}>
-            
-          </div>
-        </div> */}
+        <div className={styles.timeAixs}>
+
+        </div>
       </div>
     </>
   );
