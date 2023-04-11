@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-08 19:26:34
+ * @LastEditTime: 2023-04-11 13:19:00
  */
 import { localGet } from './local';
 
@@ -339,4 +339,16 @@ export const findSum = (num) => {
     }
   }
   return null;
+}
+
+/**
+ * 生成随机颜色
+ * @returns 
+ */
+export const getRandomColor = () => {
+  var r = Math.floor(Math.random() * 76) + 180; //随机生成0-155的整数
+  var g = Math.floor(Math.random() * 76) + 180;
+  var b = Math.floor(Math.random() * 76) + 180;
+  //设定颜色范围：0~155
+  return "rgb(" + r + "," + g + "," + b + ")";
 }

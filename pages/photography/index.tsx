@@ -4,13 +4,17 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-09 02:44:32
+ * @LastEditTime: 2023-04-11 11:47:48
  */
 import { useGetState } from "ahooks";
 import { Image } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import usePageSize from "../../utils/CustomHooks/usePageSize";
-import { distinctObjectMap, formatDate } from "../../utils/dataUtils";
+import {
+  distinctObjectMap,
+  formatDate,
+  getRandomColor,
+} from "../../utils/dataUtils";
 import {
   addNavItemStyle,
   bindHandleScroll,
@@ -18,6 +22,7 @@ import {
   removeNavItemStyle,
   removeScroll,
 } from "../../utils/elementUtils";
+import LazyCom from "../../components/LazyCom";
 import style from "./Photography.module.css";
 
 const Photography = () => {
@@ -101,9 +106,7 @@ const Photography = () => {
       <div className={style.header}>
         <div className={style.header_top}>
           <div className={style.title}>{v.title}</div>
-          {
-            v.place && <div className={style.place}>{v.place}</div>
-          }
+          {v.place && <div className={style.place}>{v.place}</div>}
           <div className={style.time}>
             ({formatDate(v.create_time, "yyyy-MM-dd HH:ss")})
           </div>
@@ -111,21 +114,12 @@ const Photography = () => {
             上传人：<span>{v.userInfo?.name}</span>
           </div>
         </div>
-        {
-          v.desc && <div className={style.desc}>{v.desc}</div>
-        }
+        {v.desc && <div className={style.desc}>{v.desc}</div>}
       </div>
       <div className={style.content}>
         <Image.PreviewGroup>
           {v?.imgs?.map((v1) => (
-            <Image
-              key={v1.id}
-              className={style.photography_image}
-              width={pageWidth / 3}
-              height={pageWidth / 3}
-              alt=""
-              src={v1.url}
-            />
+            <LazyCom key={v1.id} domKey={v1.id} imgSrc={v1.url} width={pageWidth/3} />
           ))}
         </Image.PreviewGroup>
       </div>
