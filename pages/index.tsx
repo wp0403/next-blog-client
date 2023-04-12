@@ -11,10 +11,35 @@ import styles from "../styles/home.module.css";
 const timeAixsList = [
   {
     id: 1,
-    time: '2021.06.01',
-    
-  }
-]
+    time: "2021.06.01",
+    title: "申请域名 wp-boke.work",
+  },
+  {
+    id: 2,
+    time: "2021.08.01",
+    title: "域名备案通过",
+  },
+  {
+    id: 3,
+    time: "2021.11.11",
+    title: "blog第一版发布",
+  },
+  {
+    id: 4,
+    time: "2022.03.11",
+    title: "blog第二版发版",
+  },
+  {
+    id: 5,
+    time: "2023.02.11",
+    title: "NextJS重构，blog第三版预发布，域名 shimmer.wp-boke.work",
+  },
+  {
+    id: 6,
+    time: "2023.03.11",
+    title: "NextJS重构，blog第三版正式发布，转移到正式域名wp-boke.work",
+  },
+];
 
 export default function Home() {
   const typeTarget = useRef<any>(null);
@@ -50,8 +75,6 @@ export default function Home() {
     };
   }, []);
 
-  
-
   return (
     <>
       <Head>
@@ -61,7 +84,13 @@ export default function Home() {
       </Head>
       <div className={styles.home}>
         <div className={styles.bg_card}>
-          <Image className={styles.bg_card_img} width={1200} src={bgImg} alt='' priority />
+          <Image
+            className={styles.bg_card_img}
+            width={1200}
+            src={bgImg}
+            alt=""
+            priority
+          />
         </div>
         <div className={styles.bg_mask} id="bg_mask" />
         <div className={styles.bg_content}>
@@ -77,8 +106,32 @@ export default function Home() {
             />
           </div>
         </div>
-        <div className={styles.timeAixs}>
+        {/* <div className={styles.project_box}>
+          <div className={styles.project_title}>BLOG GROWTH RECORD</div>
+          <div className={styles.project_desc}>更多的作品</div>
+          <div className={styles.project}>
 
+          </div>
+        </div> */}
+        <div className={styles.timeAixs_box}>
+          <div className={styles.timeAixs_title}>BLOG GROWTH RECORD</div>
+          <div className={styles.timeAixs_desc}>记录小站的重大事件</div>
+          <div className={styles.timeAixs}>
+            <div className={styles.timeAixs_left} />
+            <div className={styles.timeAixs_content}>
+              {timeAixsList?.map((v) => (
+                <div className={styles.timeAixs_item} key={v.id}>
+                  <div className={styles.timeAixs_item_time}>{v.time}</div>
+                  <div className={styles.timeAixs_item_title}>{v.title}</div>
+                </div>
+              ))}
+              <div className={styles.timeAixs_item}>
+                <div className={styles.timeAixs_item_desc}>GROWING...</div>
+                <div className={styles.timeAixs_item_desc}>COMING SOON</div>
+              </div>
+            </div>
+            <div className={styles.timeAixs_right} />
+          </div>
         </div>
       </div>
     </>

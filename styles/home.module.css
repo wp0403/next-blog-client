@@ -91,8 +91,129 @@
   opacity: 1;
 }
 
+.project_box{
+  width: 100%;
+  background-color: var(--bg-w-235);
+  display: flex;
+  flex-direction: column;
+  padding: 70px 0;
+}
+
+.timeAixs_box{
+  width: 100%;
+  background-color: var(--bg-w-245);
+  display: flex;
+  flex-direction: column;
+  padding: 70px 0;
+}
+
+.timeAixs_title{
+  width: 80%;
+  margin: 30px auto;
+  white-space: nowrap;
+  font-size: 30px;
+  color: var(--b-alpha);
+  font-weight: bolder;
+  text-align: center;
+  position: relative;
+}
+
+.timeAixs_title::after{
+  position: absolute;
+  content: '';
+  z-index: 11;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+  width: 100px;
+  height: 3px;
+  background-color: var(--purple-primary);
+}
+
+.timeAixs_desc{
+  margin: 0 auto;
+  height: 50px;
+  font-size: 12px;
+  color: var(--b-alpha-70);
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .timeAixs{
   width: 80%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.timeAixs_content{
+  display: flex;
+  overflow-y: auto;
+  align-items: flex-start;
+  padding-bottom: 12px;
+}
+
+.timeAixs_content::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
+
+.timeAixs_content::-webkit-scrollbar-thumb{
+  background-color: var(--b-alpha-10);
+  border-radius: 3px;
+}
+
+.timeAixs_content::-webkit-scrollbar-thumb:hover{
+  background-color: var(--b-alpha-70);
+}
+
+.timeAixs_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 60px;
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.timeAixs_item_time{
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--b-alpha-90);
+  padding-bottom: 8px;
+}
+
+.timeAixs_item_title{
+  font-size: 14px;
+  color: var(--b-alpha-90);
+  line-height: 1.5em;
+}
+
+.timeAixs_item_desc{
+  font-size: 22px;
+  color: var(--b-alpha-30);
+  font-weight: 900;
+}
+
+.timeAixs_left{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 80px;
+  height: 100%;
+  background-image: linear-gradient(to left,var(--w-alpha-0),var(--bg-w-245));
+}
+
+.timeAixs_right{
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  width: 80px;
+  height: 100%;
+  background-image: linear-gradient(to right,var(--w-alpha-0),var(--bg-w-245));
 }
 
 @media screen and (max-width: 700px) {
@@ -101,7 +222,7 @@
     font-size: 28px;
   }
 
-  .bg_content .description_box {
+  .timeAixs{
     width: 90%;
   }
 }

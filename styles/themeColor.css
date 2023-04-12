@@ -1,5 +1,5 @@
 :root {
-  --ct-body-font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB",
+  --ct-body-font-family: "PingFang SC", "Hiragino Sans GB",
     "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
   --ct-theme: linear-gradient(rgb(57, 89, 138), rgb(121, 215, 237));
   --ct-theme-border: 2px solid rgb(255, 255, 255);
@@ -37,6 +37,8 @@
   --txt-b-pure: black;
   --bg-w-pure: white;
   --bg-w-245: rgb(245, 245, 245);
+  --bg-w-235: rgb(235, 235, 235);
+  --bg-w-225: rgb(225, 225, 225);
   --purple-primary: #727cf5;
   --purple-primary-active: #575dcf;
   --purple-primary-hover: #a1acff;
