@@ -4,9 +4,10 @@
  * @Author: WangPeng
  * @Date: 2023-01-23 11:30:09
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-01-23 12:38:08
+ * @LastEditTime: 2023-04-13 18:07:46
  */
 import { useEffect } from "react";
+import Head from "next/head";
 import {
   addLayoutNavStyle,
   removeLayoutNavStyle,
@@ -24,6 +25,10 @@ export default function PageLoading() {
 
   return (
     <div className={style.page_loading}>
+      <Head>
+        <title>Shimmer🌈</title>
+        <meta name="description" content="文归档" />
+      </Head>
       <div className={style.three_balls_bounce}>
         <div className={style.circle} />
         <div className={style.circle} />

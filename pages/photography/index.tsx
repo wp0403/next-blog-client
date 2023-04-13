@@ -4,8 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 17:33:56
+ * @LastEditTime: 2023-04-13 18:12:51
  */
+import Head from "next/head";
 import { useGetState } from "ahooks";
 import { Image } from "antd";
 import React, { useEffect, useRef, useState } from "react";
@@ -13,7 +14,6 @@ import usePageSize from "../../utils/CustomHooks/usePageSize";
 import {
   distinctObjectMap,
   formatDate,
-  getRandomColor,
 } from "../../utils/dataUtils";
 import {
   addNavItemStyle,
@@ -119,7 +119,12 @@ const Photography = () => {
       <div className={style.content}>
         <Image.PreviewGroup>
           {v?.imgs?.map((v1) => (
-            <LazyCom key={v1.id} domKey={v1.id} imgSrc={v1.url} width={pageWidth/3} />
+            <LazyCom
+              key={v1.id}
+              domKey={v1.id}
+              imgSrc={v1.url}
+              width={pageWidth / 3}
+            />
           ))}
         </Image.PreviewGroup>
       </div>
@@ -128,6 +133,9 @@ const Photography = () => {
 
   return (
     <div className={style.photography} ref={content}>
+      <Head>
+        <title>摄影</title>
+      </Head>
       <div
         className={style.photography_content}
         id="photography_content"

@@ -66,6 +66,7 @@
 
 .nav_item_title {
   font-size: 16px;
+  white-space: nowrap;
 }
 
 .nav_type {
@@ -173,7 +174,7 @@
     margin-top: 20px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .nav {
     padding: 0;
   }

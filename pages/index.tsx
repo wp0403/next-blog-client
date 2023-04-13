@@ -115,7 +115,7 @@ export default function Home() {
         </div> */}
         <div className={styles.timeAixs_box}>
           <div className={styles.timeAixs_title}>GROWTH RECORD</div>
-          <div className={styles.timeAixs_desc}>记录小站的重大事件</div>
+          <div className={styles.timeAixs_desc}>「 左右滑动查看 」</div>
           <div className={styles.timeAixs}>
             <div className={styles.timeAixs_left} />
             <div className={styles.timeAixs_content}>

@@ -4,8 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-03-23 14:15:39
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-24 00:14:39
+ * @LastEditTime: 2023-04-13 18:13:34
  */
+import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { useGetState } from "ahooks";
 import {
@@ -30,12 +31,12 @@ export default function TreeHole() {
   // 每页条数
   const [page_size, setPageSize] = useState<number>(10);
   const [loading, setLoading] = useGetState<boolean>(false);
-  const [totalPages, setTotalPages,getTotalPages] = useGetState<number>(0);
+  const [totalPages, setTotalPages, getTotalPages] = useGetState<number>(0);
 
   const content = useRef<any>(null);
 
   const getDate = async () => {
-    if(getTotalPages() !== 0 && getTotalPages() < getPage()) return;
+    if (getTotalPages() !== 0 && getTotalPages() < getPage()) return;
     setLoading(true);
     const res = await fetch(
       `https://wp-boke.work/api/getSecretList?page=${getPage()}&page_size=${page_size}`
@@ -76,10 +77,10 @@ export default function TreeHole() {
     const scrollBox = layoutContent();
     scrollBox && scrollBox.addEventListener("scroll", scrollFun);
     return () => {
-        scrollBox && scrollBox.removeEventListener("scroll", scrollFun);
+      scrollBox && scrollBox.removeEventListener("scroll", scrollFun);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page_size, page, totalPages, loading,layoutContent]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page_size, page, totalPages, loading, layoutContent]);
 
   useEffect(() => {
     addNavItemStyle();
@@ -93,6 +94,9 @@ export default function TreeHole() {
 
   return (
     <div className={style.tree_hole} ref={content}>
+      <Head>
+        <title>树洞</title>
+      </Head>
       <div className={style.content}>
         {changeTreeData(data)?.map((v, ind) => (
           <div className={style.item} key={ind}>

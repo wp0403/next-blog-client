@@ -6,10 +6,9 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-24 14:36:44
+ * @LastEditTime: 2023-04-13 17:58:41
  */
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
@@ -53,14 +52,6 @@ export default function Navbar() {
     <>
       <nav className={styles.nav} id="layout_nav">
         <div className={styles.nav_left}>
-          {/* <h1>
-            <Image
-              src={theme === 1 ? "/weiguang.png" : "/weiguang_bai.png"}
-              alt="Shimmer"
-              width={100}
-              height={40}
-            />
-          </h1> */}
           <Link className={`${styles.title} nav_item_text`} href="/">
             Shimmer🌈
           </Link>
