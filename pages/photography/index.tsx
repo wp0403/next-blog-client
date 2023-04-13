@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-11 11:47:48
+ * @LastEditTime: 2023-04-13 17:33:56
  */
 import { useGetState } from "ahooks";
 import { Image } from "antd";
@@ -28,7 +28,7 @@ import style from "./Photography.module.css";
 const Photography = () => {
   const dom = useRef<any>(null);
 
-  // 树洞列表
+  // 列表
   const [data, setData] = useState<any[]>([]);
   // 当前页
   const [page, setPage, getPage] = useGetState<number>(1);
