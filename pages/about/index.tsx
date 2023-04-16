@@ -4,8 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-06 13:20:59
+ * @LastEditTime: 2023-04-16 02:52:07
  */
+import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect } from "react";
@@ -46,10 +47,13 @@ const About = () => {
         <div className={style.title}>Me</div>
         <div className={style.info}>
           Hi！我是Shimmer🌈，在北京工作，目前从事Web前端工程师。
+          <Link className={style.toResume} href={"/resume"} target="_block">
+            （了解更多请点击这里）
+          </Link>
         </div>
         <div className={style.title}>关于Blog</div>
         <div className={style.desc}>
-          Blog至今已有三个不同的版本，历经纯HTML、React到如今的NextJS，写blog的目的在于扩展视野，累积文章，以及记录生活，目前已有对应的后管系统，希望未来能够走得更远。
+          我的个人博客已经经历了三个不同版本的演进，从最初的纯HTML，到React，再到现在的NextJS。写博客的初衷是为了拓展自己的视野、记录自己的成长和生活，同时也希望通过自己的文章为读者们提供有价值的信息和知识。目前，我已经建立了对应的后台管理系统，使得写作变得更加方便和高效。未来，我会持续探索和尝试新的技术和方法，让我的博客能够走得更远，为读者们带来更多有趣的内容和更好的阅读体验。
         </div>
         <div className={style.title}>Contact</div>
         <div className={style.contact}>

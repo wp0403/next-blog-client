@@ -54,6 +54,16 @@
 .contact {
   margin-bottom: 24px;
   color: var(--b-alpha-70);
+  line-height: 1.8em;
+}
+
+.toResume{
+  color: var(--purple-text);
+  font-size: 14px;
+}
+
+.toResume:hover{
+  color: var(--purple-text-active);
 }
 
 @media screen and (max-width: 1000px) {
