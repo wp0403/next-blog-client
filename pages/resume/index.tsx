@@ -22,7 +22,7 @@ import {
   schoolUndergo,
   myProject,
   about,
-} from "./dict";
+} from "../../utils/dict";
 import style from "./index.module.css";
 
 const Resume = () => {

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-16 16:47:25
+ * @LastEditTime: 2023-04-16 17:12:54
  */
 // 职业概述
 export const web_desc = '作为一名Web前端开发工程师，我负责设计、开发和维护Web应用程序的用户界面，使之呈现出美观、易用、高效的特性。我能够熟练运用HTML、CSS、JavaScript等前端技术和工具，同时也具备与UI设计师、后端工程师和产品经理等多个团队成员协作的能力。在我的工作中，我不断学习和跟进前沿技术和最佳实践，以提高开发效率和开发质量。'
