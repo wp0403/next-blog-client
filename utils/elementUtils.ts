@@ -6,8 +6,6 @@ export const layoutContent: any = () => {
 export const layoutNav: any = () => {
     return document.getElementById('layout_nav');
 };
-// 当前的主题
-export let theme: number = 1;
 // 记录上一次滚动的位置
 let lastScrollPos = 0;
 let timerId;
@@ -74,8 +72,3 @@ export const removeScroll = () => {
     layoutContent().removeEventListener('scroll', pageScroll, false);
     lastScrollPos = 0;
 };
-
-// 获取当前的主题
-export const setTheme = (v) => {
-    theme = v;
-}

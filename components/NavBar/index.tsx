@@ -6,14 +6,14 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 17:58:41
+ * @LastEditTime: 2023-04-17 17:41:21
  */
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
 import styles from "./navBar.module.css";
-import { getTheme } from "../../utils/dataUtils";
+import { handleThemeChange } from "../../utils/dataUtils";
 
 export default function Navbar() {
   const [current, setCurrent] = useState<string>("/");
@@ -26,7 +26,7 @@ export default function Navbar() {
   const navItem = (obj) => (
     <Link
       className={`${styles.nav_item} nav_item_text`}
-      id={`${current === obj?.href && 'nev_item_active'}`}
+      id={`${current === obj?.href && "nev_item_active"}`}
       href={obj?.href}
       key={obj?.key}
       onClick={() => setCurrent(obj?.href)}
@@ -37,15 +37,28 @@ export default function Navbar() {
   );
 
   // 切换主题
-  const themeSwitch = () => {
-    document.documentElement.classList.toggle("dark");
-    setTheme(theme === 1 ? 2 : 1);
+  const themeSwitch = (event) => {
+    if(event === 'click'){
+      document.documentElement.classList.toggle("dark");
+      setTheme(theme === 1 ? 2 : 1);
+    }else{
+      setTheme(handleThemeChange(event));
+    }
   };
 
   useEffect(() => {
     setCurrent(window.location.pathname);
+    const darkModeMediaQuery = window.matchMedia(
+      "(prefers-color-scheme: light)"
+    );
 
-    setTheme(getTheme());
+    // 添加一个监听器来监听主题切换
+    darkModeMediaQuery.addEventListener("change", themeSwitch);
+    themeSwitch(darkModeMediaQuery);
+
+    return () => {
+      darkModeMediaQuery.removeEventListener("change", themeSwitch);
+    };
   }, []);
 
   return (
@@ -60,7 +73,7 @@ export default function Navbar() {
           <div className={styles.nav_list}>
             {navList?.map((v) => navItem(v))}
           </div>
-          <div className={styles.nav_type} onClick={themeSwitch}>
+          <div className={styles.nav_type} onClick={() => themeSwitch('click')}>
             <SysIcon
               className={`${styles.nav_type_item} ${
                 theme === 2 && styles.nav_type_item_active
@@ -105,16 +118,16 @@ export default function Navbar() {
           <div className={styles.nav_list}>
             {navList?.map((v) => navItem(v))}
           </div>
-          <div className={styles.nav_type} onClick={themeSwitch}>
+          <div className={styles.nav_type} onClick={() => themeSwitch('click')}>
             <SysIcon
               className={`${styles.nav_type_item} ${
-                theme === 1 && styles.nav_type_item_active
+                theme === 2 && styles.nav_type_item_active
               }`}
               type="icon-taiyang1"
             />
             <SysIcon
               className={`${styles.nav_type_item} ${
-                theme === 2 && styles.nav_type_item_active
+                theme === 1 && styles.nav_type_item_active
               }`}
               type="icon-yueliang1"
             />

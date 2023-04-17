@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-11 13:19:00
+ * @LastEditTime: 2023-04-17 17:30:52
  */
 import { localGet } from './local';
 
@@ -277,9 +277,8 @@ export const changeTreeData = (list) => {
  * 主题切换
  * @returns 
  */
-export const getTheme = () => {
-  const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
-  if (themeMedia.matches) {
+export const handleThemeChange = (event) => {
+  if (event.matches) {
     // console.log('light')
     document.documentElement.classList.remove("dark");
     return 2;

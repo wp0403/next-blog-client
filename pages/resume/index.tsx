@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-15 10:33:31
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-17 13:37:33
+ * @LastEditTime: 2023-04-17 17:43:43
  */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -96,7 +96,7 @@ const Resume = () => {
               key={v.id}
             >
               <div
-                className={style.main_item_title}
+                className={`${style.main_item_title} ${style.cursor_pointer}`}
                 onClick={() => clickProject(v.id)}
               >
                 <div className={style.project_name}>{v.projectName}</div>

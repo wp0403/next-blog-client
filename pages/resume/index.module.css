@@ -166,6 +166,10 @@
     padding: 16px 0;
 }
 
+.cursor_pointer{
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px) {
   .resume_content {
     width: 55%;
