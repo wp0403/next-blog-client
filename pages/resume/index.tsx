@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-15 10:33:31
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-16 16:52:34
+ * @LastEditTime: 2023-04-17 13:37:33
  */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -94,9 +94,11 @@ const Resume = () => {
                   : style.main_item_retract
               }`}
               key={v.id}
-              onClick={() => clickProject(v.id)}
             >
-              <div className={style.main_item_title}>
+              <div
+                className={style.main_item_title}
+                onClick={() => clickProject(v.id)}
+              >
                 <div className={style.project_name}>{v.projectName}</div>
                 <div className={style.project_time}>{v.projectTime}</div>
               </div>
@@ -177,32 +179,20 @@ const Resume = () => {
                 <div className={style.project_name}>{v.projectName}</div>
                 <div className={style.project_time}>{v.projectTime}</div>
               </div>
-              <div
-                className={style.project_desc}
-              >
-                {v.desc}
-              </div>
-              <div
-                className={style.main_item_lectotype}
-              >
+              <div className={style.project_desc}>{v.desc}</div>
+              <div className={style.main_item_lectotype}>
                 技术选型：{v.lectotype}
               </div>
-              <div
-                className={`${style.main_item_title} ${style.top16}`}
-              >
+              <div className={`${style.main_item_title} ${style.top16}`}>
                 职责和成果
               </div>
-              <div
-                className={style.main_item_jobOrAchievement}
-              >
+              <div className={style.main_item_jobOrAchievement}>
                 {v?.jobOrAchievement}
               </div>
             </div>
           ))}
           <div className={style.main_title}>自我评价</div>
-          <div className={style.main_item_about}>
-            {about}
-          </div>
+          <div className={style.main_item_about}>{about}</div>
         </div>
       </div>
     </div>
