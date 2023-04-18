@@ -8,12 +8,13 @@ const usePageSize = (props) => {
         setPageWidth(document.getElementById(id)?.offsetWidth || 0);
     }
     useIsomorphicLayoutEffect(() => {
-        setPageWidth(document.getElementById(id)?.offsetWidth || 0);
         window.addEventListener('resize', pageSize);
+        pageSize();
         return () => {
             window.removeEventListener('resize', pageSize);
         }
     }, [])
+    
     return {
         pageWidth: pageWidth - 5,
     };

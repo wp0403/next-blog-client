@@ -49,7 +49,8 @@ export default function Home() {
     const aboutTop = aboutDom.current.offsetTop;
 
     scrollTo(aboutTop, {
-      getContainer: () => document.getElementById("__next") || window,
+      // getContainer: () => document.getElementById("__next") || window,
+      getContainer: () => document.body || window,
     });
   };
 

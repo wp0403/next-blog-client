@@ -1,6 +1,7 @@
 // 全局滚动的盒子
 export const layoutContent: any = () => {
-    return document.getElementById('__next');
+    // return document.getElementById('__next');
+    return document.body;
 };
 // 全局导航盒子
 export const layoutNav: any = () => {

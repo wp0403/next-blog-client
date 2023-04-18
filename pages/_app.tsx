@@ -7,7 +7,8 @@ import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   const routeChangeComplete = () => {
-    (document.getElementById("__next") || window).scrollTo(0, 0);
+    // (document.getElementById("__next") || window).scrollTo(0, 0);
+    (document.body || window).scrollTo(0, 0);
   };
 
   const [loading, setLoading] = useState<boolean>(false);
