@@ -1,4 +1,5 @@
 import Router from "next/router";
+import Head from "next/head";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
@@ -30,6 +31,13 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, []);
   return (
-    <Layout>{loading ? <PageLoading /> : <Component {...pageProps} />}</Layout>
+    <>
+      <Head>
+        <meta name="baidu-site-verification" content="codeva-ZUhqyitPRt" />
+      </Head>
+      <Layout>
+        {loading ? <PageLoading /> : <Component {...pageProps} />}
+      </Layout>
+    </>
   );
 }
