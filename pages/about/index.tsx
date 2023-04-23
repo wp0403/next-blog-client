@@ -47,7 +47,11 @@ const About = () => {
         <div className={style.title}>Me</div>
         <div className={style.info}>
           Hi！我是Shimmer🌈，在北京工作，目前从事Web前端工程师。
-          <Link className={style.toResume} href={"/resume"} target="_block">
+          <Link
+            className={style.toResume}
+            href={"https://wp-boke.work/resume"}
+            target="_block"
+          >
             （了解更多请点击这里）
           </Link>
         </div>
