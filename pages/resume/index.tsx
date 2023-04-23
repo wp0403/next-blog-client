@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-15 10:33:31
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-17 17:43:43
+ * @LastEditTime: 2023-04-23 11:16:00
  */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -24,6 +24,7 @@ import {
   about,
 } from "../../utils/dict";
 import style from "./index.module.css";
+import Head from "next/head";
 
 const Resume = () => {
   const [project, setProject] = useState<number[]>([]);
@@ -46,6 +47,9 @@ const Resume = () => {
   };
   return (
     <div className={style.resume}>
+      <Head>
+        <title>我的简历</title>
+      </Head>
       <div className={style.resume_content}>
         <div className={style.title}>Shimmer 🌈</div>
         <div className={style.main}>
