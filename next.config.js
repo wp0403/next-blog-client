@@ -2,6 +2,7 @@
 const path = require("path");
 
 const getRobotsPath = () => path.join(__dirname, "public", "robots.txt");
+const getSitemapPath = () => path.join(__dirname, "public", "sitemap.xml");
 
 const nextConfig = {
   reactStrictMode: true,
@@ -26,6 +27,13 @@ const nextConfig = {
     getRobotsTxtOptions: () => ({
       filePath: getRobotsPath(),
     }),
+    getServerRuntimeConfig: () => ({
+      sitemapPath: getSitemapPath(),
+    }),
+  },
+  webpack: (config, { dev }) => {
+    config.buildDeadChain = !dev ? './public/dead-chain.xml' : null;
+    return config;
   },
 };
 
