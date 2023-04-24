@@ -31,10 +31,6 @@ const nextConfig = {
       sitemapPath: getSitemapPath(),
     }),
   },
-  webpack: (config, { dev }) => {
-    config.buildDeadChain = !dev ? './public/dead-chain.xml' : null;
-    return config;
-  },
 };
 
 module.exports = nextConfig
