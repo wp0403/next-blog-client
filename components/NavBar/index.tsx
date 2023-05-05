@@ -6,14 +6,17 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-17 17:41:21
+ * @LastEditTime: 2023-05-05 17:52:23
  */
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
-import styles from "./navBar.module.css";
+import logo_black from "/public/logo_black.png";
+import logo_white from "/public/logo_white.png";
 import { handleThemeChange } from "../../utils/dataUtils";
+import styles from "./navBar.module.css";
 
 export default function Navbar() {
   const [current, setCurrent] = useState<string>("/");
@@ -38,10 +41,10 @@ export default function Navbar() {
 
   // 切换主题
   const themeSwitch = (event) => {
-    if(event === 'click'){
+    if (event === "click") {
       document.documentElement.classList.toggle("dark");
       setTheme(theme === 1 ? 2 : 1);
-    }else{
+    } else {
       setTheme(handleThemeChange(event));
     }
   };
@@ -66,14 +69,20 @@ export default function Navbar() {
       <nav className={styles.nav} id="layout_nav">
         <div className={styles.nav_left}>
           <Link className={`${styles.title} nav_item_text`} href="/">
-            Shimmer🌈
+            <Image
+              className={styles.logo}
+              width={100}
+              alt="about"
+              src={theme === 2 ? logo_black : logo_white}
+              priority
+            />
           </Link>
         </div>
         <div className={styles.nav_right}>
           <div className={styles.nav_list}>
             {navList?.map((v) => navItem(v))}
           </div>
-          <div className={styles.nav_type} onClick={() => themeSwitch('click')}>
+          <div className={styles.nav_type} onClick={() => themeSwitch("click")}>
             <SysIcon
               className={`${styles.nav_type_item} ${
                 theme === 2 && styles.nav_type_item_active
@@ -118,7 +127,7 @@ export default function Navbar() {
           <div className={styles.nav_list}>
             {navList?.map((v) => navItem(v))}
           </div>
-          <div className={styles.nav_type} onClick={() => themeSwitch('click')}>
+          <div className={styles.nav_type} onClick={() => themeSwitch("click")}>
             <SysIcon
               className={`${styles.nav_type_item} ${
                 theme === 2 && styles.nav_type_item_active

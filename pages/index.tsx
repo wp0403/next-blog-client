@@ -39,6 +39,11 @@ const timeAixsList = [
     time: "2023.03.11",
     title: "NextJS重构，blog第三版正式发布，转移到正式域名wp-boke.work",
   },
+  {
+    id: 7,
+    time: "2023.05.05",
+    title: "网站logo正式发布",
+  },
 ];
 
 export default function Home() {
