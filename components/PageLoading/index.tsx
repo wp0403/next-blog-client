@@ -4,14 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-01-23 11:30:09
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 18:07:46
+ * @LastEditTime: 2023-05-09 10:41:37
  */
 import { useEffect } from "react";
 import Head from "next/head";
-import {
-  addLayoutNavStyle,
-  removeLayoutNavStyle,
-} from "../../utils/elementUtils";
+import { addLayoutNavStyle, removeLayoutNavStyle } from "@utils/elementUtils";
 import style from "./pageLoading.module.css";
 
 export default function PageLoading() {

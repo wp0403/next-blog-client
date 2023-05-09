@@ -4,19 +4,19 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-27 13:20:18
+ * @LastEditTime: 2023-05-09 10:25:51
  */
 import Head from "next/head";
 import { useEffect } from "react";
-import RanderMarkdown from "../../components/RanderMarkdown";
-import SysIcon from "../../components/SysIcon";
-import { formatDate, hasUnicode, unicodeToEmoji } from "../../utils/dataUtils";
+import RanderMarkdown from "@components/RanderMarkdown";
+import SysIcon from "@components/SysIcon";
+import { formatDate, hasUnicode, unicodeToEmoji } from "@utils/dataUtils";
 import {
   addNavItemStyle,
   bindHandleScroll,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
+} from "@utils/elementUtils";
 import style from "./blogDetail.module.css";
 
 export default function BlogDetails({ posts }) {

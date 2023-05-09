@@ -16,7 +16,7 @@ const usePageSize = (props) => {
     }, [])
     
     return {
-        pageWidth: pageWidth - 5,
+        pageWidth: pageWidth,
     };
 };
 

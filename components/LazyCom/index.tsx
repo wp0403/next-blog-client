@@ -4,13 +4,13 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-11 11:59:50
+ * @LastEditTime: 2023-05-09 10:40:37
  */
 import React, { useEffect, useRef, useState } from "react";
 import { Image } from "antd";
 import { useInViewport } from "ahooks";
+import { getRandomColor } from "@utils/dataUtils";
 import style from "./index.module.css";
-import { getRandomColor } from "../../utils/dataUtils";
 
 type Props = {
   imgSrc: string;

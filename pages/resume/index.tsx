@@ -4,16 +4,16 @@
  * @Author: WangPeng
  * @Date: 2023-04-15 10:33:31
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-23 11:16:00
+ * @LastEditTime: 2023-05-09 10:27:08
  */
-import Link from "next/link";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import {
   addNavItemStyle,
   bindHandleScroll,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
+} from "@utils/elementUtils";
 import {
   web_desc,
   skillList,
@@ -22,9 +22,8 @@ import {
   schoolUndergo,
   myProject,
   about,
-} from "../../utils/dict";
-import style from "./index.module.css";
-import Head from "next/head";
+} from "@utils/dict";
+import style from "./resume.module.css";
 
 const Resume = () => {
   const [project, setProject] = useState<number[]>([]);

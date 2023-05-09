@@ -4,8 +4,46 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-17 13:29:58
+ * @LastEditTime: 2023-05-09 10:36:55
  */
+// 网站时间轴
+export const timeAixsList = [
+    {
+        id: 1,
+        time: "2021.06.01",
+        title: "申请域名 wp-boke.work",
+    },
+    {
+        id: 2,
+        time: "2021.08.01",
+        title: "域名备案通过",
+    },
+    {
+        id: 3,
+        time: "2021.11.11",
+        title: "blog第一版发布",
+    },
+    {
+        id: 4,
+        time: "2022.03.11",
+        title: "blog第二版发版",
+    },
+    {
+        id: 5,
+        time: "2023.02.11",
+        title: "NextJS重构，blog第三版预发布，域名 shimmer.wp-boke.work",
+    },
+    {
+        id: 6,
+        time: "2023.03.11",
+        title: "NextJS重构，blog第三版正式发布，转移到正式域名wp-boke.work",
+    },
+    {
+        id: 7,
+        time: "2023.05.05",
+        title: "网站logo正式发布",
+    },
+];
 // 职业概述
 export const web_desc = '作为一名Web前端开发工程师，我负责设计、开发和维护Web应用程序的用户界面，使之呈现出美观、易用、高效的特性。我能够熟练运用HTML、CSS、JavaScript等前端技术和工具，同时也具备与UI设计师、后端工程师和产品经理等多个团队成员协作的能力。在我的工作中，我不断学习和跟进前沿技术和最佳实践，以提高开发效率和开发质量。'
 
@@ -457,3 +495,19 @@ export const myProject = [
 
 // 自我评价
 export const about = '作为一名热爱前端开发的工程师，我对技术始终保持着敬畏之心，并且不断学习新的知识和技能，以提高自己的技术水平和工作效率。我注重团队合作，乐于分享和交流，能够快速融入团队并且和其他成员良好协作，以达到共同的目标。同时，我有较强的问题解决能力和自主学习能力，在遇到挑战和困难时能够冷静应对，通过不断尝试和探索找到最优解决方案。我希望能够在未来的工作中继续发挥自己的优势，并且不断追求进步和提高。';
+
+// 更多列表
+export const moreList = [
+    {
+        id: "audiovisuals",
+        title: "音乐&MV",
+        desc: "我喜欢的一些音乐和mv",
+        url: "https://wp-boke.work/audiovisuals",
+    },
+    {
+        id: "resume",
+        title: "我的简历",
+        desc: "我的个人简历",
+        url: "https://wp-boke.work/resume",
+    },
+];

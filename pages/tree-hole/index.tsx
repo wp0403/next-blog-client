@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-23 14:15:39
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 18:13:34
+ * @LastEditTime: 2023-05-09 10:27:40
  */
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
@@ -15,9 +15,9 @@ import {
   layoutContent,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
-import style from "./index.module.css";
-import { changeTreeData, distinctObjectMap } from "../../utils/dataUtils";
+} from "@utils/elementUtils";
+import { changeTreeData, distinctObjectMap } from "@utils/dataUtils";
+import style from "./treehole.module.css";
 
 type DateItem = {
   [key: string]: boolean | number | string | any;

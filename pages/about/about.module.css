@@ -6,6 +6,7 @@
   align-items: center;
   padding-bottom: 24px;
   background-color: var(--bg-w-pure);
+  flex: 1;
 }
 
 .about_content {

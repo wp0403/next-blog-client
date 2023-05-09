@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-25 14:21:48
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 18:12:33
+ * @LastEditTime: 2023-05-09 10:24:35
  */
 // import Image from "next/image";
 import Head from "next/head";
@@ -13,18 +13,14 @@ import Router from "next/router";
 import { useEffect, useState } from "react";
 import { Pagination, Input, Spin } from "antd";
 import { useDebounceFn, useGetState } from "ahooks";
-import SysIcon from "../../../components/SysIcon";
+import SysIcon from "@components/SysIcon";
 import {
   addNavItemStyle,
   bindHandleScroll,
   removeNavItemStyle,
   removeScroll,
-} from "../../../utils/elementUtils";
-import {
-  formatDate,
-  hasUnicode,
-  unicodeToEmoji,
-} from "../../../utils/dataUtils";
+} from "@utils/elementUtils";
+import { formatDate, hasUnicode, unicodeToEmoji } from "@utils/dataUtils";
 import style from "../blog.module.css";
 
 export default function BlogDetails({ posts }) {

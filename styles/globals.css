@@ -129,10 +129,13 @@ body {
 body{
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #__next {
   width: 100vw;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }

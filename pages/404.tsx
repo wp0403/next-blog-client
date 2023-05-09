@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect } from "react";
-import { addLayoutNavStyle, removeLayoutNavStyle } from "../utils/elementUtils";
-import styles from "../styles/error404.module.css";
+import { addLayoutNavStyle, removeLayoutNavStyle } from "@utils/elementUtils";
+import styles from "@styles/error404.module.css";
 
 export default function Custom404() {
   useEffect(() => {

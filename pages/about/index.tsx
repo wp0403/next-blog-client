@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-16 02:52:07
+ * @LastEditTime: 2023-05-09 10:25:05
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -15,8 +15,8 @@ import {
   bindHandleScroll,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
-import aboutImg from "/public/about_3.jpg";
+} from "@utils/elementUtils";
+import aboutImg from "@/public/about_3.jpg";
 import style from "./about.module.css";
 
 const About = () => {

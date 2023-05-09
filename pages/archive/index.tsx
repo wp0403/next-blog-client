@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-25 16:48:55
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-27 12:36:14
+ * @LastEditTime: 2023-05-09 10:25:20
  */
 import Head from "next/head";
 import Link from "next/link";
@@ -14,7 +14,7 @@ import {
   bindHandleScroll,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
+} from "@utils/elementUtils";
 import style from "./archive.module.css";
 
 export default function Archive(props) {

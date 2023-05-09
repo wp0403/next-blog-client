@@ -2,21 +2,19 @@
  * @Descripttion:
  * @version:
  * @Author: WangPeng
- * @Date: 2023-04-13 17:49:15
+ * @Date: 2023-05-08 11:22:08
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 18:06:17
+ * @LastEditTime: 2023-05-09 10:25:28
  */
 import React, { useEffect } from "react";
-import Head from "next/head";
 import {
   addNavItemStyle,
   bindHandleScroll,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
-import style from "./index.module.css";
+} from "@utils/elementUtils";
 
-const Projects = () => {
+const Audiovisuals = () => {
   useEffect(() => {
     addNavItemStyle();
     bindHandleScroll();
@@ -26,13 +24,7 @@ const Projects = () => {
       removeScroll();
     };
   }, []);
-  return (
-    <div className={style.projects}>
-      <Head>
-        <title>项目</title>
-      </Head>
-    </div>
-  );
+  return <div></div>;
 };
 
-export default Projects;
+export default Audiovisuals;

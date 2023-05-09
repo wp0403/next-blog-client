@@ -4,25 +4,22 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-13 18:12:51
+ * @LastEditTime: 2023-05-09 10:26:44
  */
 import Head from "next/head";
 import { useGetState } from "ahooks";
 import { Image } from "antd";
 import React, { useEffect, useRef, useState } from "react";
-import usePageSize from "../../utils/CustomHooks/usePageSize";
-import {
-  distinctObjectMap,
-  formatDate,
-} from "../../utils/dataUtils";
+import usePageSize from "@utils/CustomHooks/usePageSize";
+import { distinctObjectMap, formatDate } from "@utils/dataUtils";
 import {
   addNavItemStyle,
   bindHandleScroll,
   layoutContent,
   removeNavItemStyle,
   removeScroll,
-} from "../../utils/elementUtils";
-import LazyCom from "../../components/LazyCom";
+} from "@utils/elementUtils";
+import LazyCom from "@components/LazyCom";
 import style from "./Photography.module.css";
 
 const Photography = () => {
@@ -74,7 +71,6 @@ const Photography = () => {
   // 获取列表数据
   useEffect(() => {
     getDate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   useEffect(() => {
@@ -83,7 +79,6 @@ const Photography = () => {
     return () => {
       scrollBox && scrollBox.removeEventListener("scroll", scrollFun);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page_size, page, totalPages, loading, layoutContent]);
 
   useEffect(() => {
