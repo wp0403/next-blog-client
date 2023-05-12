@@ -330,6 +330,11 @@
   resolved "https://registry.npmmirror.com/@types/js-cookie/-/js-cookie-2.2.7.tgz#226a9e31680835a6188e887f3988e60c04d3f6a3"
   integrity sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==
 
+"@types/jsmediatags@^3.9.3":
+  version "3.9.3"
+  resolved "https://registry.npmmirror.com/@types/jsmediatags/-/jsmediatags-3.9.3.tgz#b98b964ac052ab301f6ca0efee89642fc4e6f35d"
+  integrity sha512-oNEPG+SI5E/VWK0x9JTWwkU+LmmOgW4tisCE4IrxiyNfzIRyg9kspNjaoqknpN9HUIexDvbD2/wbViw6TGIFgw==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.npmmirror.com/@types/json5/-/json5-0.0.29.tgz"
@@ -2170,6 +2175,13 @@ js-yaml@^4.1.0:
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
   dependencies:
     argparse "^2.0.1"
+
+jsmediatags@^3.9.7:
+  version "3.9.7"
+  resolved "https://registry.npmmirror.com/jsmediatags/-/jsmediatags-3.9.7.tgz#808c6713b5ccb9712a4dc4b2149a0cb253c641a2"
+  integrity sha512-xCAO8C3li3t5hYkXqn8iv8zQQUB4T1QqRN2aSONHMls21ICdEvXi4xtb6W70/fAFYSDwMHd32hIqvo4YuXoNcQ==
+  dependencies:
+    xhr2 "^0.1.4"
 
 json-parse-better-errors@^1.0.1:
   version "1.0.2"
@@ -4517,6 +4529,11 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/wrappy/-/wrappy-1.0.2.tgz"
   integrity sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
+
+xhr2@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npmmirror.com/xhr2/-/xhr2-0.1.4.tgz#7f87658847716db5026323812f818cadab387a5f"
+  integrity sha512-3QGhDryRzTbIDj+waTRvMBe8SyPhW79kz3YnNb+HQt/6LPYQT3zT3Jt0Y8pBofZqQX26x8Ecfv0FXR72uH5VpA==
 
 xtend@^4.0.0:
   version "4.0.2"

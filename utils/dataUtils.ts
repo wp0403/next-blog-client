@@ -4,9 +4,15 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-17 17:30:52
+ * @LastEditTime: 2023-05-12 13:30:34
  */
 import { localGet } from './local';
+
+// 歌词数组的类型
+export type ParsedLyrics = {
+  time: number;
+  text: string
+}
 
 /**
  * 阻止冒泡
@@ -350,4 +356,83 @@ export const getRandomColor = () => {
   var b = Math.floor(Math.random() * 76) + 180;
   //设定颜色范围：0~155
   return "rgb(" + r + "," + g + "," + b + ")";
+}
+
+/**
+ * 读取歌词文件
+ */
+export const readLyricFile = async (url: string) => {
+  return await fetch(url)
+    .then(res => res.text())
+    .then(data => {
+      // 将文件内容按行拆分为数组
+      const lines = data.split('\r');
+      const lyrList = data.split('\r');
+      // 使用正则表达式提取歌曲的元数据
+      const metadata = {
+        title: '',
+        artist: '',
+        album: ''
+      };
+
+      while (lines.length > 0) {
+        // 退出条件
+        if (!lines[0].startsWith('[')) break;
+
+        if (Array.isArray(lines) && lines.length > 0) {
+          // 解析元数据
+          const match = /^\[(ti|ar|al):(.*)\]$/.exec(lines.shift() as any);
+          if (match) {
+            const [, key, value] = match;
+            if (key === 'ti') metadata.title = `歌曲名：${value}`;
+            if (key === 'ar') metadata.artist = `歌手：${value}`;
+            if (key === 'al') metadata.album = `专辑：${value}`;
+          }
+        }
+      }
+      // 解析每行歌词数据
+      const parsedLyrics: any[] = [];
+
+      lyrList.forEach(line => {
+        const timestampRegex = /\[(\d{2}):(\d{2}\.\d{2})\]/g;
+        const matches = line.match(timestampRegex);
+        // 单行歌词时间数组
+        const timeList: number[] = [];
+        matches?.forEach(v => {
+          const regex = /\[(\d{2}):(\d{2}\.\d{2})\]/;
+          const match = regex.exec(v) as any;
+          const timeInMs = parseFloat(match[1]) * 60 * 1000 + parseFloat(match[2]) * 1000;
+          timeList.push(timeInMs)
+        })
+        if (timeList.length) {
+          parsedLyrics.push({
+            timeList,
+            text: line.replace(timestampRegex, '')
+          })
+        }
+      })
+
+      let newParsedLyrics: any[] = [];
+
+      parsedLyrics.forEach(v => {
+        if (v.timeList.length) {
+          newParsedLyrics = [
+            ...newParsedLyrics,
+            ...v.timeList.map(v1 => ({ time: v1, text: v.text }))
+          ]
+        } else {
+          newParsedLyrics.push({
+            time: '',
+            text: v.text,
+          })
+        }
+      })
+
+      newParsedLyrics.sort((a, b) => a.time - b.time)
+
+      return [
+        ...Object.values(metadata).map(v => ({ time: '', text: v })),
+        ...newParsedLyrics
+      ];
+    })
 }
