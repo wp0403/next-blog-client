@@ -3,6 +3,12 @@
   display: inline-block;
 }
 
+.lazyImg :global .ant-image{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .photography_image {
   object-fit: cover;
   padding: 4px;
@@ -18,4 +24,13 @@
   opacity: 0;
   z-index: -1;
   position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.photography_image_antd{
+  object-fit: cover;
+  padding: 4px;
+  box-sizing: border-box;
+  display: none;
 }

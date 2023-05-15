@@ -57,7 +57,6 @@ export default function Home() {
             width={1200}
             src={bgImg}
             alt=""
-            priority
           />
         </div>
         <div className={styles.bg_mask} id="bg_mask" />

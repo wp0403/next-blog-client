@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:25:05
+ * @LastEditTime: 2023-05-15 18:25:24
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -42,7 +42,6 @@ const About = () => {
           width={850}
           alt="about"
           src={aboutImg}
-          priority
         />
         <div className={style.title}>Me</div>
         <div className={style.info}>
