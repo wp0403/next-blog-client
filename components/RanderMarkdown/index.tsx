@@ -9,6 +9,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkToc from "remark-toc";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import LazyCom from "@components/LazyCom";
 // 设置高亮样式
 import coy from "./coy";
 
@@ -18,7 +19,7 @@ const RanderMarkdown = (props: any) => {
       <Image.PreviewGroup>
         <ReactMarkdown
           children={props.markdown}
-          className='markdown_body'
+          className="markdown_body"
           remarkPlugins={[remarkGfm, remarkMath, remarkToc]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={{
@@ -40,7 +41,14 @@ const RanderMarkdown = (props: any) => {
               );
             },
             img({ src, alt }) {
-              return <Image src={src} alt={alt} />;
+              return (
+                <LazyCom
+                  className={"blog_img"}
+                  imgSrc={src as string}
+                  width={1000}
+                  reset={{ alt }}
+                />
+              );
             },
             a({ href, children }) {
               if (RegExp("#").test(href || "")) {

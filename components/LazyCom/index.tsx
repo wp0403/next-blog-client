@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-15 17:04:20
+ * @LastEditTime: 2023-05-16 11:06:03
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -15,12 +15,14 @@ import style from "./index.module.css";
 
 type Props = {
   imgSrc: string;
-  domKey: number | string;
+  domKey?: number | string;
   width: number | string;
+  className?: string;
+  reset?: object;
 };
 
 const LazyCom = (props: Props) => {
-  const { imgSrc, domKey, width } = props;
+  const { className, imgSrc, domKey, width, reset = {} } = props;
   const ref = useRef(null);
   const [src, setSrc] = useState<string>();
   const [inViewport] = useInViewport(ref);
@@ -34,7 +36,7 @@ const LazyCom = (props: Props) => {
       {src && (
         <>
           <Image
-            className={`${style.photography_image} ${
+            className={`${className} ${style.photography_image} ${
               !isLoad && style.photography_image_none
             }`}
             width={width as any}
@@ -44,19 +46,22 @@ const LazyCom = (props: Props) => {
               setIsLoad(true);
             }}
             src={src}
+            {...reset}
           />
           <AntImage
-            className={`${style.photography_image_antd}`}
+            className={`${className} ${style.photography_image_antd}`}
             width={width as any}
             height={width as any}
             alt=""
             src={src}
-            rootClassName={!isLoad ? style.photography_image_none : ""}
+            rootClassName={`${className} ${
+              !isLoad ? style.photography_image_none : ""
+            }`}
           />
         </>
       )}
       <div
-        className={`${style.photography_image_div} ${
+        className={`${className} ${style.photography_image_div} ${
           isLoad && style.photography_image_none
         }`}
         style={{
