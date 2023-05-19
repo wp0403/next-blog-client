@@ -1,12 +1,15 @@
 import Navbar from "../NavBar";
 import Footer from "../Footer";
+import { LayoutContextProvider } from "@store/layoutStore";
 
 export default function Layout({ children }) {
   return (
     <>
-      <Navbar />
-      {children}
-      <Footer />
+      <LayoutContextProvider>
+        <Navbar />
+        {children}
+        <Footer />
+      </LayoutContextProvider>
     </>
   );
 }

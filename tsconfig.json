@@ -29,6 +29,9 @@
       "@styles/*": [
         "../styles/*"
       ],
+      "@store/*": [
+        "../store/*"
+      ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

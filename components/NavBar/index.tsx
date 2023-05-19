@@ -4,19 +4,21 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:40:50
+ * @LastEditTime: 2023-05-19 10:49:39
  */
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
 import logo_black from "@/public/logo_black.png";
 import logo_white from "@/public/logo_white.png";
 import { handleThemeChange } from "@utils/dataUtils";
+import { LayoutContext } from "@/store/layoutStore";
 import styles from "./navBar.module.css";
 
 export default function Navbar() {
+  const { changeTheme } = useContext(LayoutContext);
   const [current, setCurrent] = useState<string>("/");
   // 主题
   const [theme, setTheme] = useState<any>(1);
@@ -42,8 +44,10 @@ export default function Navbar() {
     if (event === "click") {
       document.documentElement.classList.toggle("dark");
       setTheme(theme === 1 ? 2 : 1);
+      changeTheme(theme === 1 ? 2 : 1);
     } else {
       setTheme(handleThemeChange(event));
+      changeTheme(handleThemeChange(event));
     }
   };
 
@@ -72,7 +76,6 @@ export default function Navbar() {
               width={100}
               alt="about"
               src={theme === 2 ? logo_black : logo_white}
-              priority
             />
           </Link>
         </div>
