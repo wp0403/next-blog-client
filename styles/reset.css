@@ -9,6 +9,13 @@
   color: var(--b-alpha-80);
 }
 
+.ant-pagination .ant-pagination-item,
+.ant-pagination .ant-pagination-next,
+.ant-pagination .ant-pagination-prev {
+  border-radius: 50% !important;
+  overflow: hidden;
+}
+
 .ant-pagination .ant-pagination-item:hover,
 .ant-pagination .ant-pagination-next:hover,
 .ant-pagination .ant-pagination-prev:hover {
@@ -16,7 +23,12 @@
   color: var(--txt-w-pure);
   font-weight: bold;
   border-radius: 50% !important;
+  overflow: hidden;
   border: none;
+}
+
+.ant-pagination .ant-pagination-item:hover a{
+  color: var(--txt-w-pure);
 }
 
 .ant-pagination .ant-pagination-item-active {

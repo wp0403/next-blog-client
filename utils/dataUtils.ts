@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-23 17:55:08
+ * @LastEditTime: 2023-05-23 22:33:24
  */
 import Fingerprint2 from 'fingerprintjs2'
 import crypto from 'crypto'
@@ -352,10 +352,10 @@ export const findSum = (num) => {
  * 生成随机颜色
  * @returns 
  */
-export const getRandomColor = () => {
-  var r = Math.floor(Math.random() * 76) + 180; //随机生成0-155的整数
-  var g = Math.floor(Math.random() * 76) + 180;
-  var b = Math.floor(Math.random() * 76) + 180;
+export const getRandomColor = (start = 76, end = 180) => {
+  var r = Math.floor(Math.random() * start) + end; //随机生成0-155的整数
+  var g = Math.floor(Math.random() * start) + end;
+  var b = Math.floor(Math.random() * start) + end;
   //设定颜色范围：0~155
   return "rgb(" + r + "," + g + "," + b + ")";
 }

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-18 17:46:19
+ * @LastEditTime: 2023-05-23 23:23:36
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -509,5 +509,11 @@ export const moreList = [
         title: "我的简历",
         desc: "我的个人简历",
         url: "https://wp-boke.work/resume",
+    },
+    {
+        id: "visitor",
+        title: "访客列表",
+        desc: "访客的信息",
+        url: "https://wp-boke.work/visitor",
     },
 ];

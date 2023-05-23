@@ -31,7 +31,7 @@ const More = () => {
 
   const randerItem = (v) => {
     return (
-      <div className={style.item}>
+      <div key={v.id} className={style.item}>
         <div className={style.item_title}>{v.title}</div>
         <div className={style.item_desc}>{v.desc}</div>
         <div className={style.item_footer}>
