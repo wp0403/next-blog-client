@@ -4,8 +4,10 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-12 13:30:34
+ * @LastEditTime: 2023-05-23 17:55:08
  */
+import Fingerprint2 from 'fingerprintjs2'
+import crypto from 'crypto'
 import { localGet } from './local';
 
 // 歌词数组的类型
@@ -435,4 +437,27 @@ export const readLyricFile = async (url: string) => {
         ...newParsedLyrics
       ];
     })
+}
+
+// 生成浏览器指纹
+export const getFingerprint = async () => {
+  const components = await Promise.all([Fingerprint2.getPromise()]);
+  const fingerprint = Fingerprint2.x64hash128(
+    components.flat(Infinity).map(
+      (component: any) => component.value).join('')
+    , 64);
+  return fingerprint;
+}
+
+// 加盐哈希算法，使用sha256加密
+export const generateHash = (value, salt = 'fed94ab3abf9a6bfc43ab2e857956c11') => {
+  const hash = crypto.createHash('sha256');
+  hash.update(value + salt);   // 将原始值与盐进行拼接
+  return hash.digest('hex');   // 返回哈希值，使用hex编码
+}
+
+// 加密数据
+export function encrypt(data, key = 'fed94ab3abf9a6bfc43ab2e857956c11') {
+  const cipher = crypto.createCipher('aes-256-cbc', key); // 加密模式为aes-256-cbc
+  return cipher.update(data, 'utf8', 'hex') + cipher.final('hex'); // 将加密结果转为Hex编码
 }
