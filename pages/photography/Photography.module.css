@@ -113,10 +113,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .photography_image {
-    padding: 2px;
-  }
-
   .photography_item .header{
     padding: 14px 2px;
   }

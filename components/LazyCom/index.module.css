@@ -34,3 +34,9 @@
   box-sizing: border-box;
   display: none;
 }
+
+@media screen and (max-width: 600px) {
+  .photography_image {
+    padding: 2px;
+  }
+}

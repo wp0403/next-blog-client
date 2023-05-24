@@ -50,6 +50,12 @@
   --purple-bg: #f0f4ff;
   --purple-bg-hover: #f0f3ff;
   --image-preview-mask: rgb(255,255,255);
+  --color-blue: #1677ff;
+  --color-blue-hover: #4096ff;
+  --color-blue-bg: #e6f4ff;
+  --color-blue-bg-hover: #bae0ff;
+  --color-blue-border: #91caff;
+  --color-blue-border-hover: #69b1ff;
 }
 
 .dark {
@@ -97,6 +103,12 @@
   --purple-bg: #1a1b2a;
   --purple-bg-hover: #252643;
   --image-preview-mask: rgb(50,50,50);
+  --color-blue: #1677ff;
+  --color-blue-hover: #3c89e8;
+  --color-blue-bg: #111a2c;
+  --color-blue-bg-hover: #112545;
+  --color-blue-border: #15325b;
+  --color-blue-border-hover: #15417e;
 }
 
 @media (prefers-color-scheme: dark) {

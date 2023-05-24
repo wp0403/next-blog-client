@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:25:51
+ * @LastEditTime: 2023-05-24 16:18:52
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -17,6 +17,8 @@ import {
   removeNavItemStyle,
   removeScroll,
 } from "@utils/elementUtils";
+import Permit from "@components/Permit";
+import ClassifyPrevOrNext from "@components/ClassifyPrevOrNext";
 import style from "./blogDetail.module.css";
 
 export default function BlogDetails({ posts }) {
@@ -83,6 +85,10 @@ export default function BlogDetails({ posts }) {
           />
         )}
         {data.storage_type === "3" && data.content}
+      </div>
+      <div className={style.footer}>
+        <Permit id={data.id} user={data?.userInfo?.name} />
+        <ClassifyPrevOrNext id={data.id} />
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ export default function Home() {
             className={styles.bg_card_img}
             width={1200}
             src={bgImg}
-            alt=""
+            alt="blog-bg"
           />
         </div>
         <div className={styles.bg_mask} id="bg_mask" />

@@ -106,7 +106,7 @@ const MusicComponent = (props: Props) => {
               <Image
                 className={style.img}
                 src={audioObj.imageUrl}
-                alt=""
+                alt={audioObj.title}
                 width={200}
                 height={200}
               />

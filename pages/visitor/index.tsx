@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 10:31:41
+ * @LastEditTime: 2023-05-24 17:37:54
  */
 import React, { useContext, useEffect, useState } from "react";
 import { useGetState } from "ahooks";
@@ -26,6 +26,7 @@ const Visitor = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage, getPage] = useGetState<number>(1);
   const [totalPage, setTotalPage, getTotalPage] = useGetState<number>(0);
+  const [total, setTotal] = useState<number>(0);
   const getData = async () => {
     if (getTotalPage() !== 0 && getTotalPage() < getPage()) return;
     setLoading(true);
@@ -36,6 +37,7 @@ const Visitor = () => {
 
     setList(posts.data);
     setTotalPage(posts.meta.totalPage);
+    setTotal(posts.meta.total);
     setLoading(false);
   };
 
@@ -97,8 +99,8 @@ const Visitor = () => {
           showLessItems
           showSizeChanger={false}
           defaultCurrent={page}
-          pageSize={20}
-          total={totalPage * 20}
+          pageSize={15}
+          total={total}
           onChange={(v) => setPage(v)}
         />
       </div>

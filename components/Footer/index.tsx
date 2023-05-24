@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-03-25 17:14:27
+ * @LastEditTime: 2023-05-24 13:51:23
  */
 import Link from "next/link";
 import style from "./footer.module.css";
@@ -19,9 +19,13 @@ export default function Footer() {
         <Link
           className={style.link}
           href="mailto:webwp0403@163.com?subject=邮件标题&body=邮件内容"
-          target='_blank'
+          target="_blank"
+          passHref
+          legacyBehavior
         >
-          邮箱: webwp0403@163.com
+          <a className={style.link} rel="nofollow">
+            邮箱: webwp0403@163.com
+          </a>
         </Link>
       </div>
       {/* <div className={style.other_websites}>
@@ -40,8 +44,12 @@ export default function Footer() {
             className={style.link}
             target="_blank"
             href="https://beian.miit.gov.cn"
+            passHref
+            legacyBehavior
           >
-            京ICP备2022004838号-1
+            <a className={style.link} rel="nofollow">
+              京ICP备2022004838号-1
+            </a>
           </Link>
           <div className={style.link}>公安备案</div>
         </div>

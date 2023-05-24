@@ -1,9 +1,9 @@
+import { useEffect } from "react";
 import Navbar from "../NavBar";
 import Footer from "../Footer";
 import { LayoutContextProvider } from "@store/layoutStore";
-import { useEffect } from "react";
 import { getFingerprint, encrypt } from "@/utils/dataUtils";
-import { sessionGet, sessionSet } from "@/utils/local";
+import BackTop from "@components/BackTop";
 
 export default function Layout({ children }) {
   const getIp = async () => {
@@ -25,6 +25,7 @@ export default function Layout({ children }) {
         <Navbar />
         {children}
         <Footer />
+        <BackTop />
       </LayoutContextProvider>
     </>
   );

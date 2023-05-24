@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-12 12:40:11
+ * @LastEditTime: 2023-05-24 17:20:01
  */
 
 import raf from 'rc-util/lib/raf';
@@ -54,6 +54,8 @@ export const getScroll = (
     result = ((target as HTMLElement).ownerDocument || (target as Document))
       .documentElement?.[method];
   }
+  console.log(result);
+
   return result;
 };
 

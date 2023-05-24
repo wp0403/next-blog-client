@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-25 14:06:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:23:55
+ * @LastEditTime: 2023-05-24 13:43:59
  */
 // import Image from "next/image";
 import Head from "next/head";
@@ -80,17 +80,6 @@ export default function BlogDetails({ posts }) {
   const renderItem = (item) => {
     return (
       <div className={style.blog_item} key={item.id}>
-        {/* {item.img && (
-          <div className={style.blog_card_img_box}>
-            <Image
-              className={style.blog_card_img}
-              src={item.img}
-              alt=""
-              width={200}
-              height={100}
-            />
-          </div>
-        )} */}
         <div className={style.blog_item_content}>
           <Link
             className={style.blog_item_title}

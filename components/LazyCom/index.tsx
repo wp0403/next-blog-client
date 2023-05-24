@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-16 11:06:03
+ * @LastEditTime: 2023-05-24 13:06:25
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -32,7 +32,15 @@ const LazyCom = (props: Props) => {
     inViewport && !src && setSrc(imgSrc);
   }, [imgSrc, inViewport, src]);
   return (
-    <span className={style.lazyImg} ref={ref} key={domKey}>
+    <span
+      className={style.lazyImg}
+      ref={ref}
+      key={domKey}
+      style={{
+        width: width,
+        height: width,
+      }}
+    >
       {src && (
         <>
           <Image
