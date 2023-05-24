@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-23 23:22:46
+ * @LastEditTime: 2023-05-24 09:37:56
  */
 import React, { useContext, useEffect, useState } from "react";
 import { useGetState } from "ahooks";
@@ -55,8 +55,8 @@ const Visitor = () => {
   return (
     <div className={style.visitor}>
       <div className={style.title}>访客列表</div>
-      <Spin spinning={loading}>
-        <div className={style.content}>
+      <div className={style.content}>
+        <Spin spinning={loading}>
           {list?.map((v: any) => (
             <div
               key={v.id}
@@ -89,8 +89,8 @@ const Visitor = () => {
               </div>
             </div>
           ))}
-        </div>
-      </Spin>
+        </Spin>
+      </div>
       <div className={style.pagination}>
         <Pagination
           hideOnSinglePage
