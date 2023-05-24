@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 09:37:56
+ * @LastEditTime: 2023-05-24 10:31:41
  */
 import React, { useContext, useEffect, useState } from "react";
 import { useGetState } from "ahooks";
@@ -70,14 +70,14 @@ const Visitor = () => {
             >
               <div className={style.item_header}>
                 <div className={style.item_time}>
-                  {formatDate(v.last_visited_time, "yyyy.MM.dd HH:ss")}
+                  {formatDate(v.last_visited_time, "yyyy.MM.dd HH:mm")}
                 </div>
                 <div className={style.item_ip}>IP：{v.visitor_ip}</div>
               </div>
               <div className={style.item_content}>
                 <div className={style.item_con_item}>来访次数：{v.visits}</div>
                 <div className={style.item_con_item}>
-                  首次来访时间：{formatDate(v.create_time, "yyyy.MM.dd HH:ss")}
+                  首次来访时间：{formatDate(v.create_time, "yyyy.MM.dd HH:mm")}
                 </div>
                 <div className={style.item_con_item}>
                   设备类型：{v.device_type}
