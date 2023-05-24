@@ -9,8 +9,9 @@
 }
 
 .title {
-  padding: 24px;
-  font-size: 20px;
+  padding: 36px;
+  font-size: 24px;
+  font-weight: 700;
   color: var(--b-alpha-80);
   text-align: center;
 }
