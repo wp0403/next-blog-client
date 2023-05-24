@@ -7,7 +7,6 @@ import { sessionGet, sessionSet } from "@/utils/local";
 
 export default function Layout({ children }) {
   const getIp = async () => {
-    sessionSet("access", true);
     const originalValue = await getFingerprint();
     const hashValue = encrypt(originalValue);
     // const res = await fetch(
@@ -18,8 +17,7 @@ export default function Layout({ children }) {
     );
   };
   useEffect(() => {
-    const first_access = sessionGet("access");
-    !first_access && getIp();
+    getIp();
   }, []);
   return (
     <>
