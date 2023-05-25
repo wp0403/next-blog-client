@@ -4,10 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-25 10:08:50
+ * @LastEditTime: 2023-05-25 10:13:47
  */
 import Image from "next/image";
-import Script from "next/script";
 import Link from "next/link";
 import React, { useContext, useEffect } from "react";
 import {
@@ -96,15 +95,7 @@ const FriendlyLinks = () => {
           </Link>
         ))}
       </div>
-      <div className={style.submit}>
-        <div id="commento"></div>
-      </div>
-      <Script
-        defer
-        src="http://commento.example.com/js/commento.js"
-        data-css-override="http://example.com/my-custom-styling.css"
-        data-auto-init="true"
-      ></Script>
+      <div className={style.submit}></div>
     </div>
   );
 };
