@@ -2,7 +2,8 @@
   width: 100%;
   padding: 92px 0 22px 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--bg-w-pure);
   position: relative;
   -webkit-user-select: none; /* Safari */
@@ -73,14 +74,20 @@
   color: var(--purple-primary);
 }
 
+.comment {
+  width: 60%;
+}
+
 @media screen and (max-width: 1000px) {
-  .archive_content {
+  .archive_content,
+  .comment {
     width: 85%;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .archive_content {
+  .archive_content,
+  .comment {
     width: 100%;
   }
 }

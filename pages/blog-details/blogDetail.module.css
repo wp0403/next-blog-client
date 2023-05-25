@@ -88,10 +88,14 @@
   width: 60%;
 }
 
+.comment{
+  width: 60%;
+}
+
 @media screen and (max-width: 1000px) {
   .header,
   .content,
-  .footer {
+  .footer,.comment {
     width: 80%;
   }
 }
@@ -99,7 +103,7 @@
 @media screen and (max-width: 800px) {
   .header,
   .content,
-  .footer {
+  .footer,.comment {
     width: 90%;
   }
 }

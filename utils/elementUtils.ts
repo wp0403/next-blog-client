@@ -73,3 +73,14 @@ export const removeScroll = () => {
     layoutContent().removeEventListener('scroll', pageScroll, false);
     lastScrollPos = 0;
 };
+
+// 判断是否存在window
+export const isBrowser = () => {
+    if (typeof window !== 'undefined') {
+        // 在客户端渲染阶段
+        return true;
+    } else {
+        // 在服务器端渲染阶段
+        return false
+    }
+}

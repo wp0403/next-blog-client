@@ -4253,6 +4253,11 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
+twikoo@^1.6.16:
+  version "1.6.16"
+  resolved "https://registry.npmmirror.com/twikoo/-/twikoo-1.6.16.tgz#08457f987aaa8cd91e06a15a1363276b0d2116c9"
+  integrity sha512-U+yaZsM2h0WBoju5TKrm1sq+pb0WEzIynS8B/x4g7UMS30YlUbKePYU7nKU2bf00xubZvkbmICKRNy07naZhhQ==
+
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
   resolved "https://registry.npmmirror.com/type-check/-/type-check-0.4.0.tgz"

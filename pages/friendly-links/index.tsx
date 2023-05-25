@@ -4,10 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-25 10:43:47
+ * @LastEditTime: 2023-05-25 18:42:28
  */
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 import React, { useContext, useEffect } from "react";
 import {
   addNavItemStyle,
@@ -17,6 +18,7 @@ import {
 } from "@/utils/elementUtils";
 import { getRandomColor } from "@utils/dataUtils";
 import { LayoutContext } from "@/store/layoutStore";
+import Comment from "@components/Comment";
 import style from "./friendlyLinks.module.css";
 
 const list = [
@@ -57,6 +59,9 @@ const FriendlyLinks = () => {
   }, []);
   return (
     <div className={style.friendly_links}>
+      <Head>
+        <title>纽带花园</title>
+      </Head>
       <h1 className={style.title}>纽带花园</h1>
       <div className={style.demo}>
         <div className={style.demo_item}>网站名：shimmer</div>
@@ -96,7 +101,9 @@ const FriendlyLinks = () => {
           </Link>
         ))}
       </div>
-      <div className={style.submit}></div>
+      <div className={style.comment}>
+        <Comment />
+      </div>
     </div>
   );
 };

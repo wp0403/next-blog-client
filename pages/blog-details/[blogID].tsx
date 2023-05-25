@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 16:18:52
+ * @LastEditTime: 2023-05-25 18:55:31
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -19,6 +19,7 @@ import {
 } from "@utils/elementUtils";
 import Permit from "@components/Permit";
 import ClassifyPrevOrNext from "@components/ClassifyPrevOrNext";
+import Comment from "@components/Comment";
 import style from "./blogDetail.module.css";
 
 export default function BlogDetails({ posts }) {
@@ -89,6 +90,9 @@ export default function BlogDetails({ posts }) {
       <div className={style.footer}>
         <Permit id={data.id} user={data?.userInfo?.name} />
         <ClassifyPrevOrNext id={data.id} />
+      </div>
+      <div className={style.comment}>
+        <Comment />
       </div>
     </div>
   );
