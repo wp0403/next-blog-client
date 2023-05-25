@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-25 10:08:50
+ * @LastEditTime: 2023-05-25 10:23:30
  */
 import Image from "next/image";
 import Script from "next/script";
@@ -102,8 +102,7 @@ const FriendlyLinks = () => {
       </div>
       <Script
         defer
-        src="http://commento.example.com/js/commento.js"
-        data-css-override="http://example.com/my-custom-styling.css"
+        src="https://cdn.commento.io/js/commento.js"
         data-auto-init="true"
       ></Script>
     </div>
