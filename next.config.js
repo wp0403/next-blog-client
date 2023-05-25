@@ -4,6 +4,7 @@ const path = require("path");
 const getRobotsPath = () => path.join(__dirname, "public", "robots.txt");
 const getSitemapPath = () => path.join(__dirname, "public", "sitemap.xml");
 const getDeadChainPath = () => path.join(__dirname, "public", "deadChain.xml");
+const getLogoPath = () => path.join(__dirname, "public", "logo.png");
 
 const nextConfig = {
   reactStrictMode: true,
@@ -34,6 +35,10 @@ const nextConfig = {
       {
         source: "/deadChain.xml",
         destination: getDeadChainPath(),
+      },
+      {
+        source: "/logo.png",
+        destination: getLogoPath(),
       },
     ];
   },

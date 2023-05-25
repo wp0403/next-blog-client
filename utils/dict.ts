@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 17:33:34
+ * @LastEditTime: 2023-05-24 21:44:07
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -42,6 +42,11 @@ export const timeAixsList = [
         id: 7,
         time: "2023.05.05",
         title: "网站logo正式发布",
+    },
+    {
+        id: 8,
+        time: "2023.05.24",
+        title: "正式上线网站访客列表页",
     },
 ];
 // 职业概述
@@ -515,5 +520,11 @@ export const moreList = [
         title: "访客列表",
         desc: "访客的信息",
         url: "/visitor",
+    },
+    {
+        id: "friendly-links",
+        title: "纽带花园",
+        desc: "快来互链吧！！！",
+        url: "/friendly-links",
     },
 ];

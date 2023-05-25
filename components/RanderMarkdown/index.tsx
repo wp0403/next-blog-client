@@ -98,7 +98,11 @@ const RanderMarkdown = (props: any) => {
                 return <a href={href}>{children}</a>;
               }
               return (
-                <Link href={href as any} target="_blank" rel="nofollow">
+                <Link
+                  href={href as any}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
                   {children}
                 </Link>
               );

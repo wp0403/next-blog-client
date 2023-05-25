@@ -4,8 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 17:37:54
+ * @LastEditTime: 2023-05-24 21:49:13
  */
+import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
 import { useGetState } from "ahooks";
 import { Pagination, Spin } from "antd";
@@ -56,6 +57,10 @@ const Visitor = () => {
   }, []);
   return (
     <div className={style.visitor}>
+      <Head>
+        <title>访客列表</title>
+        <meta name="description" content="访客列表" />
+      </Head>
       <div className={style.title}>访客列表</div>
       <div className={style.content}>
         <Spin spinning={loading}>
@@ -98,7 +103,7 @@ const Visitor = () => {
           hideOnSinglePage
           showLessItems
           showSizeChanger={false}
-          defaultCurrent={page}
+          current={page}
           pageSize={15}
           total={total}
           onChange={(v) => setPage(v)}
