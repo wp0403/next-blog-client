@@ -74,20 +74,14 @@
   color: var(--purple-primary);
 }
 
-.comment {
-  width: 60%;
-}
-
 @media screen and (max-width: 1000px) {
-  .archive_content,
-  .comment {
+  .archive_content{
     width: 85%;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .archive_content,
-  .comment {
+  .archive_content{
     width: 100%;
   }
 }

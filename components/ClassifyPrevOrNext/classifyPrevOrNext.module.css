@@ -29,6 +29,7 @@
   font-weight: 700;
   padding-bottom: 8px;
   color: var(--b-alpha-80);
+  white-space: nowrap;
 }
 
 .prev_content,

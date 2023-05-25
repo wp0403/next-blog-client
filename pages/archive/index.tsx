@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-25 16:48:55
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-25 18:59:30
+ * @LastEditTime: 2023-05-25 22:39:38
  */
 import Head from "next/head";
 import Link from "next/link";
@@ -15,7 +15,6 @@ import {
   removeNavItemStyle,
   removeScroll,
 } from "@utils/elementUtils";
-import Comment from "@components/Comment";
 import style from "./archive.module.css";
 
 export default function Archive(props) {
@@ -55,9 +54,6 @@ export default function Archive(props) {
             </div>
           );
         })}
-      </div>
-      <div className={style.comment}>
-        <Comment />
       </div>
     </div>
   );
