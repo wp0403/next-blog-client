@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-25 14:21:48
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 13:44:06
+ * @LastEditTime: 2023-05-26 16:37:58
  */
 // import Image from "next/image";
 import Head from "next/head";
@@ -135,7 +135,6 @@ export default function BlogDetails({ posts }) {
       <Head>
         <title>文章列表</title>
         <meta name="description" content="Shimmer的文章列表" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.blog}>
         <div className={style.blog_con}>

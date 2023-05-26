@@ -48,7 +48,6 @@ export default function Home() {
       <Head>
         <title>首页</title>
         <meta name="description" content="于风里读诗的博客首页" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.home}>
         <div className={styles.bg_card}>

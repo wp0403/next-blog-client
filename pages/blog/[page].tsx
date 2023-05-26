@@ -135,7 +135,6 @@ export default function BlogDetails({ posts }) {
       <Head>
         <title>文章列表</title>
         <meta name="description" content="Shimmer的文章列表" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={style.blog}>
         <div className={style.blog_con}>
