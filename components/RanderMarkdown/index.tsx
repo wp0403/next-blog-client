@@ -89,6 +89,7 @@ const RanderMarkdown = (props: any) => {
                   className={"blog_img"}
                   imgSrc={src as string}
                   width={1000}
+                  isHeightAuto={true}
                   reset={{ alt }}
                 />
               );

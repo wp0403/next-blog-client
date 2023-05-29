@@ -35,6 +35,10 @@
   display: none;
 }
 
+.photography_image_auto{
+  height: auto !important;
+}
+
 @media screen and (max-width: 600px) {
   .photography_image {
     padding: 2px;

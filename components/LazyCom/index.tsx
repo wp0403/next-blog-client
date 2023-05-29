@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 13:06:25
+ * @LastEditTime: 2023-05-29 18:33:45
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -19,10 +19,18 @@ type Props = {
   width: number | string;
   className?: string;
   reset?: object;
+  isHeightAuto?: boolean;
 };
 
 const LazyCom = (props: Props) => {
-  const { className, imgSrc, domKey, width, reset = {} } = props;
+  const {
+    className,
+    imgSrc,
+    domKey,
+    width,
+    reset = {},
+    isHeightAuto = false,
+  } = props;
   const ref = useRef(null);
   const [src, setSrc] = useState<string>();
   const [inViewport] = useInViewport(ref);
@@ -33,12 +41,12 @@ const LazyCom = (props: Props) => {
   }, [imgSrc, inViewport, src]);
   return (
     <span
-      className={style.lazyImg}
+      className={`${className} ${style.lazyImg}`}
       ref={ref}
       key={domKey}
       style={{
         width: width,
-        height: width,
+        height: "auto",
       }}
     >
       {src && (
@@ -46,7 +54,7 @@ const LazyCom = (props: Props) => {
           <Image
             className={`${className} ${style.photography_image} ${
               !isLoad && style.photography_image_none
-            }`}
+            } ${isHeightAuto && style.photography_image_auto}`}
             width={width as any}
             height={width as any}
             alt=""
@@ -59,7 +67,7 @@ const LazyCom = (props: Props) => {
           <AntImage
             className={`${className} ${style.photography_image_antd}`}
             width={width as any}
-            height={width as any}
+            height={"100%"}
             alt=""
             src={src}
             rootClassName={`${className} ${

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-25 23:44:30
+ * @LastEditTime: 2023-05-29 17:57:45
  */
 import Image from "next/image";
 import Link from "next/link";
@@ -21,19 +21,9 @@ import { LayoutContext } from "@/store/layoutStore";
 import Comment from "@components/Comment";
 import style from "./friendlyLinks.module.css";
 
-const list = [
-  {
-    id: 1,
-    title: "shimmer",
-    desc: "欲买桂花同载酒，终不似，少年游。",
-    logo: "https://wp-boke.work/logo.png",
-    url: "https://wp-boke.work",
-    email: "webwp0403@163.com",
-  },
-];
-
-const FriendlyLinks = () => {
+const FriendlyLinks = ({ posts }) => {
   const { theme } = useContext(LayoutContext);
+  const { data } = posts;
 
   useEffect(() => {
     addNavItemStyle();
@@ -63,7 +53,7 @@ const FriendlyLinks = () => {
       </div>
       <div className={style.desc}>不定期清理失效网站，拒绝无效互链。</div>
       <div className={style.content}>
-        {list?.map((v) => (
+        {data?.map((v) => (
           <Link
             key={v.id}
             className={style.blog_item}
@@ -91,3 +81,16 @@ const FriendlyLinks = () => {
 };
 
 export default FriendlyLinks;
+
+export async function getStaticProps() {
+  // params contains the post `id`.
+  // If the route is like /posts/1, then params.id is 1
+  const res = await fetch(`https://wp-boke.work/api/getFriendlyLinks`);
+  const posts = await res.json();
+
+  // Pass post data to the page via props
+  return {
+    props: { posts },
+    revalidate: 60, // In seconds
+  };
+}
