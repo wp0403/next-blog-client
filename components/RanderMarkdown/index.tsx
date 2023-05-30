@@ -10,7 +10,6 @@ import rehypeKatex from "rehype-katex";
 import remarkToc from "remark-toc";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import LazyCom from "@components/LazyCom";
 import { LayoutContext } from "@/store/layoutStore";
 
 const RanderMarkdown = (props: any) => {
@@ -85,12 +84,11 @@ const RanderMarkdown = (props: any) => {
             },
             img({ src, alt }) {
               return (
-                <LazyCom
+                <Image
                   className={"blog_img"}
-                  imgSrc={src as string}
-                  width={1000}
-                  isHeightAuto={true}
-                  reset={{ alt }}
+                  src={src}
+                  alt={alt}
+                  rootClassName={"blog_img"}
                 />
               );
             },
