@@ -4,12 +4,12 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 15:00:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-04-24 16:07:51
+ * @LastEditTime: 2023-06-01 18:25:04
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
 
-export default async (req, res) => {
+const sitemap = async (req, res) => {
     // Create a Sitemap stream
     const sitemapStream = new SitemapStream({
         hostname: 'https://wp-boke.work'
@@ -45,3 +45,5 @@ export default async (req, res) => {
     res.write(sitemap);
     res.end();
 };
+
+export default sitemap;

@@ -1,12 +1,11 @@
 import Router from "next/router";
 import Head from "next/head";
-import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
 import Layout from "@components/Layout";
 import PageLoading from "@components/PageLoading";
 import "@styles/globals.css";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }) {
   const routeChangeComplete = () => {
     (document.body || window).scrollTo(0, 0);
   };

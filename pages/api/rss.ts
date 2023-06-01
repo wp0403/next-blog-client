@@ -4,12 +4,12 @@
  * @Author: WangPeng
  * @Date: 2023-06-01 17:19:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-01 17:46:16
+ * @LastEditTime: 2023-06-01 18:24:49
  */
 import fs from 'fs';
 import RSS from 'rss';
 
-export default async (req, res) => {
+const rss = async (req, res) => {
     const feed = new RSS({
         title: 'Shimmer RSS',
         description: 'shimmer博客的rss',
@@ -49,3 +49,5 @@ export default async (req, res) => {
     res.write(rssContent);
     res.end();
 };
+
+export default rss;
