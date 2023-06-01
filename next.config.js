@@ -4,6 +4,7 @@ const path = require("path");
 const getRobotsPath = () => path.join(__dirname, "public", "robots.txt");
 const getSitemapPath = () => path.join(__dirname, "public", "sitemap.xml");
 const getDeadChainPath = () => path.join(__dirname, "public", "deadChain.xml");
+const getRssPath = () => path.join(__dirname, "public", "rss.xml");
 const getLogoPath = () => path.join(__dirname, "public", "logo.png");
 
 const nextConfig = {
@@ -35,6 +36,10 @@ const nextConfig = {
       {
         source: "/deadChain.xml",
         destination: getDeadChainPath(),
+      },
+      {
+        source: "/rss.xml",
+        destination: getRssPath(),
       },
       {
         source: "/logo.png",

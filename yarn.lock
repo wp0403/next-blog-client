@@ -316,7 +316,7 @@
 
 "@types/jsmediatags@^3.9.3":
   version "3.9.3"
-  resolved "https://registry.npmmirror.com/@types/jsmediatags/-/jsmediatags-3.9.3.tgz"
+  resolved "https://registry.npmmirror.com/@types/jsmediatags/-/jsmediatags-3.9.3.tgz#b98b964ac052ab301f6ca0efee89642fc4e6f35d"
   integrity sha512-oNEPG+SI5E/VWK0x9JTWwkU+LmmOgW4tisCE4IrxiyNfzIRyg9kspNjaoqknpN9HUIexDvbD2/wbViw6TGIFgw==
 
 "@types/json5@^0.0.29":
@@ -346,7 +346,7 @@
   resolved "https://registry.npmmirror.com/@types/ms/-/ms-0.7.31.tgz"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*", "@types/node@18.11.15":
+"@types/node@*":
   version "18.11.15"
   resolved "https://registry.npmmirror.com/@types/node/-/node-18.11.15.tgz"
   integrity sha512-VkhBbVo2+2oozlkdHXLrb3zjsRkpdnaU2bXmX8Wgle3PUi569eLRaHGlgETQHR7lLL1w7GiG3h9SnePhxNDecw==
@@ -355,6 +355,11 @@
   version "17.0.45"
   resolved "https://registry.npmmirror.com/@types/node/-/node-17.0.45.tgz"
   integrity sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==
+
+"@types/node@^20.2.5":
+  version "20.2.5"
+  resolved "https://registry.npmmirror.com/@types/node/-/node-20.2.5.tgz#26d295f3570323b2837d322180dfbf1ba156fefb"
+  integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
 
 "@types/parse5@^6.0.0":
   version "6.0.3"
@@ -373,21 +378,21 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@18.0.9":
-  version "18.0.9"
-  resolved "https://registry.npmmirror.com/@types/react-dom/-/react-dom-18.0.9.tgz"
-  integrity sha512-qnVvHxASt/H7i+XG1U1xMiY5t+IHcPGUK7TDMDzom08xa7e86eCeKOiLZezwCKVxJn6NEiiy2ekgX8aQssjIKg==
+"@types/react-dom@^18.2.4":
+  version "18.2.4"
+  resolved "https://registry.npmmirror.com/@types/react-dom/-/react-dom-18.2.4.tgz#13f25bfbf4e404d26f62ac6e406591451acba9e0"
+  integrity sha512-G2mHoTMTL4yoydITgOGwWdWMVd8sNgyEP85xVmMKAPUBwQWm9wBPQUmvbeF4V3WBY1P7mmL4BkjQ0SqUpf1snw==
   dependencies:
     "@types/react" "*"
 
-"@types/react-syntax-highlighter@^15.5.5":
-  version "15.5.6"
-  resolved "https://registry.npmmirror.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-15.5.6.tgz"
-  integrity sha512-i7wFuLbIAFlabTeD2I1cLjEOrG/xdMa/rpx2zwzAoGHuXJDhSqp9BSfDlMHSh9JSuNfxHk9eEmMX6D55GiyjGg==
+"@types/react-syntax-highlighter@^15.5.7":
+  version "15.5.7"
+  resolved "https://registry.npmmirror.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-15.5.7.tgz#bd29020ccb118543d88779848f99059b64b02d0f"
+  integrity sha512-bo5fEO5toQeyCp0zVHBeggclqf5SQ/Z5blfFmjwO5dkMVGPgmiwZsJh9nu/Bo5L7IHTuGWrja6LxJVE2uB5ZrQ==
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@18.0.26", "@types/react@>=16":
+"@types/react@*", "@types/react@>=16":
   version "18.0.26"
   resolved "https://registry.npmmirror.com/@types/react/-/react-18.0.26.tgz"
   integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
@@ -395,6 +400,20 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/react@^18.2.7":
+  version "18.2.7"
+  resolved "https://registry.npmmirror.com/@types/react/-/react-18.2.7.tgz#dfb4518042a3117a045b8c222316f83414a783b3"
+  integrity sha512-ojrXpSH2XFCmHm7Jy3q44nXDyN54+EYKP2lBhJ2bqfyPj6cIUW/FZW/Csdia34NQgq7KYcAlHi5184m4X88+yw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/rss@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.npmmirror.com/@types/rss/-/rss-0.0.30.tgz#0bee0c2e8bcac4374ce7a760c1f21a532f58c50e"
+  integrity sha512-RnWs98qajbcAZqie6EWYraJ2N+1Q1Wy9KN7HcVPJ//sYJGVjLjvkChZdeQPwf88xAcNUCcLXt6Zz3kiid7s/yw==
 
 "@types/sax@^1.2.1":
   version "1.2.4"
@@ -2772,6 +2791,18 @@ micromatch@^4.0.4:
     braces "^3.0.2"
     picomatch "^2.3.1"
 
+mime-db@~1.25.0:
+  version "1.25.0"
+  resolved "https://registry.npmmirror.com/mime-db/-/mime-db-1.25.0.tgz#c18dbd7c73a5dbf6f44a024dc0d165a1e7b1c392"
+  integrity sha512-5k547tI4Cy+Lddr/hdjNbBEWBwSl8EBc5aSdKvedav8DReADgWJzcYiktaRIw3GtGC1jjwldXtTzvqJZmtvC7w==
+
+mime-types@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.npmmirror.com/mime-types/-/mime-types-2.1.13.tgz#e07aaa9c6c6b9a7ca3012c69003ad25a39e92a88"
+  integrity sha512-ryBDp1Z/6X90UvjUK3RksH0IBPM137T7cmg4OgD5wQBojlAiUwuok0QeELkim/72EtcYuNlmbkrcGuxj3Kl0YQ==
+  dependencies:
+    mime-db "~1.25.0"
+
 mimic-response@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmmirror.com/mimic-response/-/mimic-response-3.1.0.tgz"
@@ -3845,6 +3876,14 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
+rss@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmmirror.com/rss/-/rss-1.2.2.tgz#50a1698876138133a74f9a05d2bdc8db8d27a921"
+  integrity sha512-xUhRTgslHeCBeHAqaWSbOYTydN2f0tAzNXvzh3stjz7QDhQMzdgHf3pfgNIngeytQflrFPfy6axHilTETr6gDg==
+  dependencies:
+    mime-types "2.1.13"
+    xml "1.0.1"
+
 run-parallel@^1.1.9:
   version "1.2.0"
   resolved "https://registry.npmmirror.com/run-parallel/-/run-parallel-1.2.0.tgz"
@@ -4482,6 +4521,11 @@ xhr2@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npmmirror.com/xhr2/-/xhr2-0.1.4.tgz"
   integrity sha512-3QGhDryRzTbIDj+waTRvMBe8SyPhW79kz3YnNb+HQt/6LPYQT3zT3Jt0Y8pBofZqQX26x8Ecfv0FXR72uH5VpA==
+
+xml@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
+  integrity sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==
 
 xtend@^4.0.0:
   version "4.0.2"
