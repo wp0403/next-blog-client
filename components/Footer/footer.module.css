@@ -53,6 +53,61 @@
   font-size: 14px;
 }
 
+.click{
+  cursor: pointer;
+}
+
+.click:hover{
+  color: var(--b-alpha);
+  font-weight: 700;
+}
+
+.link_click{
+  cursor: pointer;
+}
+
+.link_click:hover{
+  color: var(--color-blue-hover);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.modal :global .ant-modal-header{
+  padding: 12px 8px;
+  background-color: var(--w-alpha);
+}
+
+.modal :global .ant-modal-close-icon{
+  color: var(--b-alpha-50);
+}
+
+.modal :global .ant-modal-content{
+  background-color: var(--w-alpha);
+  box-shadow: 0 0 10px 5px var(--b-alpha-10);
+}
+
+.modal :global .ant-modal-title{
+  font-size: 18px;
+  text-align: center;
+  color: var(--b-alpha-80);
+}
+
+.modal p{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6em;
+  padding: 4px 0;
+  color: var(--b-alpha-70);
+}
+
+.modal .modal_footer{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6em;
+  margin-top: 12px;
+  color: var(--b-alpha-70);
+}
+
 @media screen and (max-width: 700px) {
   .user,
   .title {
