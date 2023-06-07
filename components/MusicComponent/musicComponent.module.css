@@ -35,6 +35,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.film_rotate{
   animation: rotate 6s linear infinite;
 }
 

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-23 22:33:24
+ * @LastEditTime: 2023-06-06 16:03:54
  */
 import Fingerprint2 from 'fingerprintjs2'
 import crypto from 'crypto'
@@ -295,57 +295,6 @@ export const handleThemeChange = (event) => {
     document.documentElement.classList.add("dark");
     return 1;
   }
-}
-
-export const splitPage = (width) => {
-  const pageSplit = 24;
-  const [xxl, xl, lg, md, xs] = [6, 4, 3, 2, 1];
-  let currentSize = lg;
-
-  switch (width) {
-    case 1600:
-      currentSize = xxl;
-      break;
-    case 1200:
-      currentSize = xl;
-      break;
-    case 992:
-      currentSize = lg;
-      break;
-    case 768:
-      currentSize = md;
-      break;
-    case 390:
-      currentSize = xs;
-      break;
-    default:
-      currentSize = lg;
-      break;
-  }
-
-  return {
-    currentSize, // 每份占据的比例
-    width,  // 当前页面宽度
-    splitWidth: width * (pageSplit / currentSize),  // 每份的宽度
-    splitNum: pageSplit / currentSize,  // 当前每行有多少个
-  }
-}
-
-/**
- * 传人一个整数，返回一个和为该数的数组
- * @param num 
- * @returns 
- */
-export const findSum = (num) => {
-  if (num === 0) return [];
-  if (num < 0) return null;
-  for (let i = 1; i <= num; i++) {
-    const rest = findSum(num - i);
-    if (rest !== null) {
-      return [i, ...rest];
-    }
-  }
-  return null;
 }
 
 /**

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 21:44:07
+ * @LastEditTime: 2023-06-07 17:54:52
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -503,12 +503,6 @@ export const about = '作为一名热爱前端开发的工程师，我对技术�
 
 // 更多列表
 export const moreList = [
-    // {
-    //     id: "audiovisuals",
-    //     title: "音乐&MV",
-    //     desc: "我喜欢的一些音乐和mv",
-    //     url: "https://wp-boke.work/audiovisuals",
-    // },
     {
         id: "resume",
         title: "我的简历",
@@ -527,4 +521,10 @@ export const moreList = [
         desc: "快来互链吧！！！",
         url: "/friendly-links",
     },
+    // {
+    //     id: "audiovisuals",
+    //     title: "音乐&MV",
+    //     desc: "我喜欢的一些音乐和mv",
+    //     url: "/audiovisuals",
+    // },
 ];

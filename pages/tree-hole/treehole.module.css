@@ -67,6 +67,7 @@
 
 .tree_item_content {
   color: var(--b-alpha-80);
+  white-space: pre-wrap;
 }
 
 .tree_item:hover {
