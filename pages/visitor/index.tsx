@@ -4,11 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 16:26:47
+ * @LastEditTime: 2023-06-08 18:13:11
  */
 import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
-import { useDebounceEffect, useGetState } from "ahooks";
+import { useDebounceEffect, useGetState, useMount } from "ahooks";
 import { Pagination, Spin } from "antd";
 import { LayoutContext } from "@/store/layoutStore";
 import {
@@ -39,6 +39,10 @@ const Visitor = () => {
     setTotal(posts.meta.total);
     setLoading(false);
   };
+
+  useMount(() => {
+    getData();
+  });
 
   // 获取列表数据
   useDebounceEffect(

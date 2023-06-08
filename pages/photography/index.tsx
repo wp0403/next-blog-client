@@ -4,10 +4,10 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 16:26:08
+ * @LastEditTime: 2023-06-08 18:12:09
  */
 import Head from "next/head";
-import { useGetState, useDebounceEffect } from "ahooks";
+import { useGetState, useDebounceEffect, useMount } from "ahooks";
 import { Image, Pagination, Spin } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import usePageSize from "@utils/CustomHooks/usePageSize";
@@ -45,6 +45,10 @@ const Photography = () => {
     getPage() === 1 && setTotal(posts.meta.total);
     setLoading(false);
   };
+
+  useMount(() => {
+    getData();
+  });
 
   // 获取列表数据
   useDebounceEffect(
@@ -119,7 +123,7 @@ const Photography = () => {
           )}
         </Spin>
       </div>
-      {total && total > 10 && (
+      {Boolean(total > 10) && (
         <div className={style.pagination}>
           <Pagination
             hideOnSinglePage
