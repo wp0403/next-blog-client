@@ -4,20 +4,21 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:26:44
+ * @LastEditTime: 2023-06-08 14:29:58
  */
 import Head from "next/head";
-import { useGetState } from "ahooks";
-import { Image } from "antd";
+import { useGetState, useDebounceEffect } from "ahooks";
+import { Image, Pagination, Spin } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import usePageSize from "@utils/CustomHooks/usePageSize";
-import { distinctObjectMap, formatDate } from "@utils/dataUtils";
+import { formatDate } from "@utils/dataUtils";
 import {
   addNavItemStyle,
   bindHandleScroll,
-  layoutContent,
+  isBrowser,
   removeNavItemStyle,
   removeScroll,
+  routeChangeComplete,
 } from "@utils/elementUtils";
 import LazyCom from "@components/LazyCom";
 import style from "./Photography.module.css";
@@ -31,55 +32,31 @@ const Photography = () => {
   const [page, setPage, getPage] = useGetState<number>(1);
   // 每页条数
   const [page_size, setPageSize] = useState<number>(10);
-  const [loading, setLoading] = useGetState<boolean>(false);
-  const [totalPages, setTotalPages, getTotalPages] = useGetState<number>(0);
+  const [loading, setLoading] = useGetState<boolean>(true);
+  const [total, setTotal] = useState<number>(0);
 
   const content = useRef<any>(null);
 
   const getDate = async () => {
-    if (getTotalPages() !== 0 && getTotalPages() < getPage()) return;
-    setLoading(true);
     const res = await fetch(
       `https://wp-boke.work/api/getPhotographyList?page=${getPage()}&page_size=${page_size}`
     );
     const posts = await res.json();
-    setData((a) => distinctObjectMap([...a, ...posts.data], "id"));
-    getPage() === 1 && setTotalPages(posts.meta.total_pages);
+    setData(posts.data);
+    getPage() === 1 && setTotal(posts.meta.total);
     setLoading(false);
   };
 
-  // 滚动事件
-  const scrollFun = () => {
-    // 滚动盒子
-    const scrollBox = layoutContent();
-    const scrollConBox = content.current;
-    const flag = page < totalPages;
-
-    if (
-      scrollConBox.offsetHeight -
-        scrollBox.offsetHeight +
-        40 -
-        scrollBox.scrollTop <=
-        500 &&
-      !loading &&
-      flag
-    ) {
-      setPage((data) => data + 1);
-    }
-  };
-
   // 获取列表数据
-  useEffect(() => {
-    getDate();
-  }, [page]);
-
-  useEffect(() => {
-    const scrollBox = layoutContent();
-    scrollBox && scrollBox.addEventListener("scroll", scrollFun);
-    return () => {
-      scrollBox && scrollBox.removeEventListener("scroll", scrollFun);
-    };
-  }, [page_size, page, totalPages, loading, layoutContent]);
+  useDebounceEffect(
+    () => {
+      getDate();
+    },
+    [page],
+    {
+      wait: 800,
+    }
+  );
 
   useEffect(() => {
     addNavItemStyle();
@@ -136,8 +113,30 @@ const Photography = () => {
         id="photography_content"
         ref={dom}
       >
-        {data?.map((v) => randerItem(v))}
+        <Spin spinning={loading}>
+          {data && Boolean(data?.length) && data?.map((v) => randerItem(v))}
+          {(!data || !data?.length) && (
+            <div className={style.loading_box}>暂无数据</div>
+          )}
+        </Spin>
       </div>
+      {total && total > 10 && (
+        <div className={style.pagination}>
+          <Pagination
+            hideOnSinglePage
+            showLessItems
+            showSizeChanger={false}
+            current={page}
+            pageSize={page_size}
+            total={total}
+            onChange={(v) => {
+              setLoading(true);
+              setPage(v);
+              routeChangeComplete();
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };

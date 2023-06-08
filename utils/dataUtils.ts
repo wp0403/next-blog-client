@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-06 16:03:54
+ * @LastEditTime: 2023-06-08 11:16:44
  */
 import Fingerprint2 from 'fingerprintjs2'
 import crypto from 'crypto'
@@ -398,15 +398,11 @@ export const getFingerprint = async () => {
   return fingerprint;
 }
 
-// 加盐哈希算法，使用sha256加密
-export const generateHash = (value, salt = 'fed94ab3abf9a6bfc43ab2e857956c11') => {
-  const hash = crypto.createHash('sha256');
-  hash.update(value + salt);   // 将原始值与盐进行拼接
-  return hash.digest('hex');   // 返回哈希值，使用hex编码
-}
-
 // 加密数据
 export function encrypt(data, key = 'fed94ab3abf9a6bfc43ab2e857956c11') {
-  const cipher = crypto.createCipher('aes-256-cbc', key); // 加密模式为aes-256-cbc
-  return cipher.update(data, 'utf8', 'hex') + cipher.final('hex'); // 将加密结果转为Hex编码
+  // 加密模式为aes-256-cbc
+  const cipher = crypto.createCipher('aes-256-cbc', key);
+  // 将加密结果转为Hex编码
+  return cipher.update(data, 'utf8', 'hex') + cipher.final('hex'); 
+
 }

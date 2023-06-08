@@ -84,3 +84,8 @@ export const isBrowser = () => {
         return false
     }
 }
+
+// 回到顶部
+export const routeChangeComplete = () => {
+    (document.body || window).scrollTo(0, 0);
+};

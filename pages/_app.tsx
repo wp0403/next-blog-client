@@ -3,13 +3,10 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Layout from "@components/Layout";
 import PageLoading from "@components/PageLoading";
+import { routeChangeComplete } from "@/utils/elementUtils";
 import "@styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-  const routeChangeComplete = () => {
-    (document.body || window).scrollTo(0, 0);
-  };
-
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 21:49:13
+ * @LastEditTime: 2023-06-08 13:52:38
  */
 import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
@@ -14,6 +14,7 @@ import { LayoutContext } from "@/store/layoutStore";
 import {
   addNavItemStyle,
   bindHandleScroll,
+  isBrowser,
   removeNavItemStyle,
   removeScroll,
 } from "@/utils/elementUtils";
@@ -68,12 +69,16 @@ const Visitor = () => {
             <div
               key={v.id}
               className={style.item}
-              style={{
-                backgroundColor:
-                  theme === 2
-                    ? getRandomColor(36, 220)
-                    : getRandomColor(30, 30),
-              }}
+              style={
+                isBrowser()
+                  ? {
+                      backgroundColor:
+                        theme === 2
+                          ? getRandomColor(36, 220)
+                          : getRandomColor(30, 30),
+                    }
+                  : {}
+              }
             >
               <div className={style.item_header}>
                 <div className={style.item_time}>

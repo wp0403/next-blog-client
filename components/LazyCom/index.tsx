@@ -4,13 +4,14 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-30 09:47:01
+ * @LastEditTime: 2023-06-08 13:51:56
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Image as AntImage } from "antd";
 import { useInViewport } from "ahooks";
 import { getRandomColor } from "@utils/dataUtils";
+import { isBrowser } from "@/utils/elementUtils";
 import style from "./index.module.css";
 
 type Props = {
@@ -54,6 +55,7 @@ const LazyCom = (props: Props) => {
               setIsLoad(true);
             }}
             src={src}
+            priority={true}
             {...reset}
           />
           <AntImage
@@ -72,11 +74,15 @@ const LazyCom = (props: Props) => {
         className={`${className} ${style.photography_image_div} ${
           isLoad && style.photography_image_none
         }`}
-        style={{
-          backgroundColor: getRandomColor(),
-          width: width,
-          height: width,
-        }}
+        style={
+          isBrowser()
+            ? {
+                backgroundColor: getRandomColor(),
+                width: width,
+                height: width,
+              }
+            : {}
+        }
       />
     </span>
   );

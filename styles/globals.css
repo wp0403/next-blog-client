@@ -131,6 +131,7 @@ body{
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 #__next {

@@ -76,6 +76,7 @@ export default function Navbar() {
               width={100}
               alt="about"
               src={theme === 2 ? logo_black : logo_white}
+              priority={true}
             />
           </Link>
         </div>

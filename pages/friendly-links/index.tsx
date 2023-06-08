@@ -4,9 +4,8 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-29 17:57:45
+ * @LastEditTime: 2023-06-08 14:00:38
  */
-import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import React, { useContext, useEffect } from "react";
@@ -17,6 +16,7 @@ import {
   removeScroll,
 } from "@/utils/elementUtils";
 import { getRandomColor } from "@utils/dataUtils";
+import { isBrowser } from "@/utils/elementUtils";
 import { LayoutContext } from "@/store/layoutStore";
 import Comment from "@components/Comment";
 import style from "./friendlyLinks.module.css";
@@ -57,10 +57,16 @@ const FriendlyLinks = ({ posts }) => {
           <Link
             key={v.id}
             className={style.blog_item}
-            style={{
-              backgroundColor:
-                theme === 2 ? getRandomColor(36, 220) : getRandomColor(30, 30),
-            }}
+            style={
+              isBrowser()
+                ? {
+                    backgroundColor:
+                      theme === 2
+                        ? getRandomColor(36, 220)
+                        : getRandomColor(30, 30),
+                  }
+                : {}
+            }
             href={v.url}
             target="_blank"
             rel="noopener noreferrer"
