@@ -16,7 +16,7 @@ import {
   removeNavItemStyle,
   removeScroll,
 } from "@utils/elementUtils";
-import aboutImg from "@/public/about_3.jpg";
+import aboutImg from "@/public/images/about_3.jpg";
 import style from "./about.module.css";
 
 const About = () => {

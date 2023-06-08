@@ -4,11 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 13:52:38
+ * @LastEditTime: 2023-06-08 16:26:47
  */
 import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
-import { useGetState } from "ahooks";
+import { useDebounceEffect, useGetState } from "ahooks";
 import { Pagination, Spin } from "antd";
 import { LayoutContext } from "@/store/layoutStore";
 import {
@@ -17,6 +17,7 @@ import {
   isBrowser,
   removeNavItemStyle,
   removeScroll,
+  routeChangeComplete,
 } from "@/utils/elementUtils";
 import { formatDate } from "@/utils/dataUtils";
 import { getRandomColor } from "@utils/dataUtils";
@@ -27,25 +28,28 @@ const Visitor = () => {
   const [list, setList] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage, getPage] = useGetState<number>(1);
-  const [totalPage, setTotalPage, getTotalPage] = useGetState<number>(0);
   const [total, setTotal] = useState<number>(0);
   const getData = async () => {
-    if (getTotalPage() !== 0 && getTotalPage() < getPage()) return;
-    setLoading(true);
     const res = await fetch(
       `https://wp-boke.work/api/getVisitorList?page=${getPage()}`
     );
     const posts = await res.json();
 
     setList(posts.data);
-    setTotalPage(posts.meta.totalPage);
     setTotal(posts.meta.total);
     setLoading(false);
   };
 
-  useEffect(() => {
-    getData();
-  }, [page]);
+  // 获取列表数据
+  useDebounceEffect(
+    () => {
+      getData();
+    },
+    [page],
+    {
+      wait: 800,
+    }
+  );
 
   useEffect(() => {
     addNavItemStyle();
@@ -111,7 +115,11 @@ const Visitor = () => {
           current={page}
           pageSize={15}
           total={total}
-          onChange={(v) => setPage(v)}
+          onChange={(v) => {
+            setLoading(true);
+            setPage(v);
+            routeChangeComplete();
+          }}
         />
       </div>
     </div>

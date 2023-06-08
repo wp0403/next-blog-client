@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 14:29:58
+ * @LastEditTime: 2023-06-08 16:26:08
  */
 import Head from "next/head";
 import { useGetState, useDebounceEffect } from "ahooks";
@@ -15,7 +15,6 @@ import { formatDate } from "@utils/dataUtils";
 import {
   addNavItemStyle,
   bindHandleScroll,
-  isBrowser,
   removeNavItemStyle,
   removeScroll,
   routeChangeComplete,
@@ -37,7 +36,7 @@ const Photography = () => {
 
   const content = useRef<any>(null);
 
-  const getDate = async () => {
+  const getData = async () => {
     const res = await fetch(
       `https://wp-boke.work/api/getPhotographyList?page=${getPage()}&page_size=${page_size}`
     );
@@ -50,7 +49,7 @@ const Photography = () => {
   // 获取列表数据
   useDebounceEffect(
     () => {
-      getDate();
+      getData();
     },
     [page],
     {

@@ -5,7 +5,7 @@ import Typed from "typed.js";
 import { bindHandleScroll, removeScroll } from "@utils/elementUtils";
 import { scrollTo } from "@utils/element";
 import SysIcon from "@components/SysIcon";
-import bgImg from "@/public/bg00003.jpg";
+import bgImg from "@/public/images/bg00003.jpg";
 import { timeAixsList } from "@/utils/dict";
 import styles from "@styles/home.module.css";
 

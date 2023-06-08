@@ -9,8 +9,7 @@
   left: 0;
   top: 0;
   z-index: -100;
-  transition: transform 1.5s, opacity 1s;
-  transform: scale(1.05);
+  animation: gradient 1.5s 1;
 }
 
 .bg_card_img{
@@ -224,5 +223,16 @@
 
   .timeAixs{
     width: 90%;
+  }
+}
+
+@keyframes gradient {
+  from {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }

@@ -4,15 +4,15 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-19 10:49:39
+ * @LastEditTime: 2023-06-08 16:54:39
  */
 import Link from "next/link";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
-import logo_black from "@/public/logo_black.png";
-import logo_white from "@/public/logo_white.png";
+import logo_black from "@/public/images/logo_black.png";
+import logo_white from "@/public/images/logo_white.png";
 import { handleThemeChange } from "@utils/dataUtils";
 import { LayoutContext } from "@/store/layoutStore";
 import styles from "./navBar.module.css";
