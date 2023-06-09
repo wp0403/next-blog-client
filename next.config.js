@@ -22,8 +22,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api",
-        destination: "/",
+        source: "/rss",
+        destination: "/api/rss",
       },
       {
         source: "/robots.txt",
