@@ -11,8 +11,18 @@
 }
 
 .copyright {
-  min-width: 240px;
+  min-width: 220px;
   display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.other_websites,
+.contact {
+  min-width: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   flex-direction: column;
   padding: 12px;
 }
@@ -36,16 +46,6 @@
   white-space: nowrap;
 }
 
-.other_websites,
-.contact {
-  min-width: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  padding: 12px;
-}
-
 .title {
   text-align: start;
   padding: 3px 30px;
@@ -53,46 +53,50 @@
   font-size: 14px;
 }
 
-.click{
+.click {
   cursor: pointer;
+  transition: 0.4s;
 }
 
-.click:hover{
+.click:hover {
   color: var(--b-alpha);
-  font-weight: 700;
 }
 
-.link_click{
+.link_click {
   cursor: pointer;
+  transition: 0.4s;
 }
 
-.link_click:hover{
+.link_click:hover {
   color: var(--color-blue-hover);
-  font-weight: 700;
-  text-decoration: underline;
 }
 
-.modal :global .ant-modal-header{
+.modal :global .ant-modal-header {
   padding: 12px 8px;
   background-color: var(--w-alpha);
 }
 
-.modal :global .ant-modal-close-icon{
+.modal :global .ant-modal-close-icon {
   color: var(--b-alpha-50);
 }
 
-.modal :global .ant-modal-content{
+.modal :global .ant-modal-content {
   background-color: var(--w-alpha);
   box-shadow: 0 0 10px 5px var(--b-alpha-10);
 }
 
-.modal :global .ant-modal-title{
+.modal :global .ant-modal-title {
   font-size: 18px;
   text-align: center;
   color: var(--b-alpha-80);
 }
 
-.modal p{
+.modal .modal_content{
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.modal p {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.6em;
@@ -100,7 +104,23 @@
   color: var(--b-alpha-70);
 }
 
-.modal .modal_footer{
+.modal .modal_title{
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--b-alpha-60);
+  border-left: 3px solid var(--b-alpha-50);
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+.modal .modal_desc_title{
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--b-alpha-80);
+  padding-bottom: 4px;
+}
+
+.modal .modal_footer {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.6em;
@@ -123,6 +143,12 @@
   .contact {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .copyright,
+  .other_websites,
+  .contact {
+    width: 220px;
   }
 }
 

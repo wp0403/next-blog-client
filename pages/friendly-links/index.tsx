@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-09 11:19:17
+ * @LastEditTime: 2023-06-09 18:28:09
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -53,7 +53,7 @@ const FriendlyLinks = ({ posts }) => {
       </div>
       <div className={style.desc}>不定期清理失效网站，拒绝无效互链。</div>
       <div className={style.content}>
-        {data?.map((v) => (
+        {[...data, ...data]?.map((v) => (
           <Link
             key={v.id}
             className={style.blog_item}
