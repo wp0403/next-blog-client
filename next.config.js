@@ -22,6 +22,14 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: "/sitemap",
+        destination: "/api/sitemap",
+      },
+      {
+        source: "/deadChain",
+        destination: "/api/deadChain",
+      },
+      {
         source: "/rss",
         destination: "/api/rss",
       },
