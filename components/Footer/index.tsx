@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-09 19:07:49
+ * @LastEditTime: 2023-06-09 19:10:54
  */
 import Link from "next/link";
 import { useState } from "react";
@@ -27,7 +27,7 @@ const Footer = () => {
         <Link
           className={style.link}
           target="_blank"
-          href="/sitemap.xml"
+          href="/sitemap"
           passHref
           legacyBehavior
         >
@@ -38,7 +38,7 @@ const Footer = () => {
         <Link
           className={style.link}
           target="_blank"
-          href="/rss.xml"
+          href="/rss"
           passHref
           legacyBehavior
         >
