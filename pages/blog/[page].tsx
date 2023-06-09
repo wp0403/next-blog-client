@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-25 14:06:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 13:43:59
+ * @LastEditTime: 2023-06-09 11:11:06
  */
 // import Image from "next/image";
 import Head from "next/head";
@@ -248,6 +248,6 @@ export async function getStaticProps({ params }) {
         ...posts2,
       },
     },
-    revalidate: 60, // In seconds
+    revalidate: 180, // In seconds
   };
 }

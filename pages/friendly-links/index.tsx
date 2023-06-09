@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 14:00:38
+ * @LastEditTime: 2023-06-09 11:19:17
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -43,7 +43,7 @@ const FriendlyLinks = ({ posts }) => {
       <div className={style.demo}>
         <div className={style.demo_item}>网站名：shimmer</div>
         <div className={style.demo_item}>
-          站点头像：https://wp-boke.work/logo.png
+          站点头像：https://wp-boke.work/images/logo.png
         </div>
         <div className={style.demo_item}>网站链接：https://wp-boke.work</div>
         <div className={style.demo_item}>

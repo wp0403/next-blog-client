@@ -5,7 +5,7 @@ const getRobotsPath = () => path.join(__dirname, "public", "robots.txt");
 const getSitemapPath = () => path.join(__dirname, "public", "sitemap.xml");
 const getDeadChainPath = () => path.join(__dirname, "public", "deadChain.xml");
 const getRssPath = () => path.join(__dirname, "public", "rss.xml");
-const getLogoPath = () => path.join(__dirname, "public", "images/logo.png");
+const getImagePath = (v) => path.join(__dirname, "public", "images", v);
 
 const nextConfig = {
   reactStrictMode: true,
@@ -21,10 +21,6 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      {
-        source: "/api",
-        destination: "/",
-      },
       {
         source: "/robots.txt",
         destination: getRobotsPath(),
@@ -42,8 +38,8 @@ const nextConfig = {
         destination: getRssPath(),
       },
       {
-        source: "/logo.png",
-        destination: getLogoPath(),
+        source: "/images/:path*",
+        destination: getImagePath(":path*"),
       },
     ];
   },
