@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-07 17:54:52
+ * @LastEditTime: 2023-06-12 13:07:38
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -517,7 +517,7 @@ export const moreList = [
     },
     {
         id: "friendly-links",
-        title: "纽带花园",
+        title: "友情链接",
         desc: "快来互链吧！！！",
         url: "/friendly-links",
     },
