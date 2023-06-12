@@ -59,8 +59,8 @@
 }
 
 .blog_item:hover {
-  transform: translateY(-5px) scale(1.05, 1.05);
-  box-shadow: 0 0 8px 3px var(--b-alpha-10);
+  /* transform: translateY(-5px) scale(1.05, 1.05); */
+  box-shadow: 0 1px 10px 5px var(--b-alpha-30);
   z-index: 1;
 }
 
