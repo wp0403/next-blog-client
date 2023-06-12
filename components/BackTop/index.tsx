@@ -4,13 +4,14 @@
  * @Author: WangPeng
  * @Date: 2022-01-07 17:34:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 17:21:52
+ * @LastEditTime: 2023-06-12 13:55:48
  */
 import React, { useEffect, useState } from "react";
 import addEventListener from "rc-util/lib/Dom/addEventListener";
 import { throttleByAnimationFrame } from "@/utils/cloneUtils/throttleByAnimationFrame";
 import { scrollTo, getScroll } from "@/utils/element";
 import SysIcon from "@/components/SysIcon";
+import { routeChangeComplete } from "@/utils/elementUtils";
 import styles from "./backTop.module.css";
 
 interface Props {
@@ -102,7 +103,7 @@ const BackTop = (props: Props) => {
       }`}
       ref={ref}
       style={style}
-      onClick={scrollToTop}
+      onClick={routeChangeComplete} // 替换scrollToTop使用css原生的动画
     >
       <SysIcon
         className={styles.icon}

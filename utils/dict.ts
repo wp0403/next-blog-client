@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-12 13:07:38
+ * @LastEditTime: 2023-06-12 13:53:45
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -46,7 +46,7 @@ export const timeAixsList = [
     {
         id: 8,
         time: "2023.05.24",
-        title: "正式上线网站访客列表页",
+        title: "正式上线网站更多页，用于网站新功能开发",
     },
 ];
 // 职业概述
