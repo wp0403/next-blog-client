@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/public/deadChain.xml
+/public/sitemap.xml
+/public/rss.xml
