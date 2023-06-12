@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-09 19:10:54
+ * @LastEditTime: 2023-06-12 13:44:50
  */
 import Link from "next/link";
 import { useState } from "react";
@@ -16,12 +16,6 @@ const Footer = () => {
   const [dutyModal, setDutyModal] = useState<boolean>(false);
   return (
     <footer className={style.footer}>
-      {/* <div className={style.other_websites}>
-        <div className={style.title}>友情链接</div>
-        <div className={style.link}>网站一</div>
-        <div className={style.link}>网站一</div>
-        <div className={style.link}>网站一</div>
-      </div> */}
       <div className={style.other_websites}>
         <div className={style.title}>站内索引</div>
         <Link
@@ -46,12 +40,16 @@ const Footer = () => {
             RSS订阅
           </a>
         </Link>
-        <div
-          className={`${style.link} ${style.click}`}
-          onClick={() => setDutyModal(true)}
+        <Link
+          className={style.link}
+          href="/friendly-links"
+          passHref
+          legacyBehavior
         >
-          免责声明
-        </div>
+          <a className={`${style.link} ${style.link_click}`} rel="noopener">
+            友情链接
+          </a>
+        </Link>
       </div>
       <div className={style.contact}>
         <div className={style.title}>联系我</div>
@@ -78,6 +76,13 @@ const Footer = () => {
           >
             版权声明
           </div>
+
+          <div
+            className={`${style.link} ${style.click}`}
+            onClick={() => setDutyModal(true)}
+          >
+            免责声明
+          </div>
           <Link
             className={style.link}
             target="_blank"
@@ -89,7 +94,6 @@ const Footer = () => {
               京ICP备2022004838号-1
             </a>
           </Link>
-          <div className={style.link}>公安备案</div>
         </div>
       </div>
       <Modal

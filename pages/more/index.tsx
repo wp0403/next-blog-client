@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-08 11:38:36
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:35:01
+ * @LastEditTime: 2023-06-12 13:48:14
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -35,7 +35,11 @@ const More = () => {
         <div className={style.item_title}>{v.title}</div>
         <div className={style.item_desc}>{v.desc}</div>
         <div className={style.item_footer}>
-          <Link className={style.item_btn} href={v.url} target="_block">
+          <Link
+            className={style.item_btn}
+            href={v.url}
+            target={v.target || "_self"}
+          >
             Come Here
           </Link>
         </div>
