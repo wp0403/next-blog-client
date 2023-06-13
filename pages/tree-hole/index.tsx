@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-23 14:15:39
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-09 10:27:40
+ * @LastEditTime: 2023-06-13 17:11:19
  */
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
@@ -18,6 +18,7 @@ import {
 } from "@utils/elementUtils";
 import { changeTreeData, distinctObjectMap } from "@utils/dataUtils";
 import style from "./treehole.module.css";
+import VirtuallyItem from "@/components/VirtuallyItem";
 
 type DateItem = {
   [key: string]: boolean | number | string | any;
@@ -102,16 +103,18 @@ export default function TreeHole() {
           <div className={style.item} key={ind}>
             <div className={style.year}>{v?.year}</div>
             {v?.children?.map((item) => (
-              <div className={style.tree_item} key={item.id}>
-                <div className={style.tree_item_top}>
-                  <div className={style.tree_item_time}>{item?.date_str}</div>
-                  <div
-                    className={style.tree_item_content}
-                    dangerouslySetInnerHTML={{ __html: item.content }}
-                  />
+              <VirtuallyItem key={item.id}>
+                <div className={style.tree_item} key={item.id}>
+                  <div className={style.tree_item_top}>
+                    <div className={style.tree_item_time}>{item?.date_str}</div>
+                    <div
+                      className={style.tree_item_content}
+                      dangerouslySetInnerHTML={{ __html: item.content }}
+                    />
+                  </div>
+                  <div className={style.tree_item_type}>{item?.type}</div>
                 </div>
-                <div className={style.tree_item_type}>{item?.type}</div>
-              </div>
+              </VirtuallyItem>
             ))}
           </div>
         ))}

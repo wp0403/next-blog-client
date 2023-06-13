@@ -1,12 +1,13 @@
 import Router from "next/router";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { useMount } from "ahooks";
+// import { useMount } from "ahooks";
 import Layout from "@components/Layout";
 import PageLoading from "@components/PageLoading";
 import { routeChangeComplete } from "@/utils/elementUtils";
 import LoadingCom from "@/components/LoadingCom";
 import "@styles/globals.css";
+import BackTop from "@/components/BackTop";
 
 export default function App({ Component, pageProps }) {
   const [initLoading, setInitLoading] = useState<boolean>(false);

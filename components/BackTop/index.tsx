@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-07 17:34:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-12 13:55:48
+ * @LastEditTime: 2023-06-13 17:40:40
  */
 import React, { useEffect, useState } from "react";
 import addEventListener from "rc-util/lib/Dom/addEventListener";
@@ -73,17 +73,9 @@ const BackTop = (props: Props) => {
   // 为滚动页面绑定滚动事件
   const bindScrollEvent = () => {
     const container = getTarget();
+
     // 为滚动元素绑定滚动事件
-    scrollEvent.current = addEventListener(
-      container,
-      "scroll",
-      (e: React.UIEvent<HTMLElement>) => {
-        handleScroll(e);
-      }
-    );
-    handleScroll({
-      target: container,
-    });
+    scrollEvent.current = addEventListener(container, "scroll", handleScroll);
   };
 
   useEffect(() => {

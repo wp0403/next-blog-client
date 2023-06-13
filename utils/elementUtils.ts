@@ -58,19 +58,19 @@ export const pageScroll = () => {
     }
     timerId = setTimeout(() => {
         layoutNav()?.classList.remove('nav_none');
-    },100);
+    }, 100);
 };
 
 // 设置页面滚动事件
-export const bindHandleScroll = () => {
+export const bindHandleScroll = (callback?) => {
     if (!layoutContent()) return;
-    layoutContent().addEventListener('scroll', pageScroll, false);
+    layoutContent().addEventListener('scroll', callback || pageScroll, false);
 };
 
 // 卸载页面滚动事件
-export const removeScroll = () => {
+export const removeScroll = (callback?) => {
     if (!layoutContent()) return;
-    layoutContent().removeEventListener('scroll', pageScroll, false);
+    layoutContent().removeEventListener('scroll', callback || pageScroll, false);
     lastScrollPos = 0;
 };
 
