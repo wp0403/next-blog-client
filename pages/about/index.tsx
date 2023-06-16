@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-03-20 17:29:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 13:45:49
+ * @LastEditTime: 2023-06-16 18:00:12
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -47,11 +47,7 @@ const About = () => {
         <div className={style.title}>Me</div>
         <div className={style.info}>
           Hi！我是Shimmer🌈，在北京工作，目前从事Web前端工程师。
-          <Link
-            className={style.toResume}
-            href={"https://wp-boke.work/resume"}
-            target="_block"
-          >
+          <Link className={style.toResume} href={"/resume"} target="_self">
             （了解更多请点击这里）
           </Link>
         </div>

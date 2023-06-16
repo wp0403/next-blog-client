@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 15:00:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-01 18:25:04
+ * @LastEditTime: 2023-06-16 10:29:14
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -20,7 +20,10 @@ const sitemap = async (req, res) => {
     res.setHeader('Cache-Control', 'public, max-age=0.1, must-revalidate');
 
     // Add URLs to the Sitemap stream
-    const pages = ['/', '/archive', '/tree-hole', '/photography', '/about', '/resume'];
+    const pages = [
+        '/', '/archive', '/tree-hole', '/photography', '/about', '/resume',
+        '/friendly-links'
+    ];
     pages?.map(v => sitemapStream.write({ url: `${v}` }))
 
     // 调用外部 API 获取内容
@@ -29,7 +32,11 @@ const sitemap = async (req, res) => {
     );
     const classifyList = (await classifyObj.json()).data;
 
-    classifyList?.map(v => sitemapStream.write({ url: `/blog-details/${v.id}` }))
+    classifyList?.map(v =>
+        sitemapStream.write({
+            url: `/blog-details/${v.id}`
+        })
+    )
     // ...
 
     // End the stream

@@ -4,14 +4,16 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-12 13:44:50
+ * @LastEditTime: 2023-06-16 18:12:06
  */
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Modal } from "antd";
+import { LayoutContext } from "@/store/layoutStore";
 import style from "./footer.module.css";
 
 const Footer = () => {
+  const { theme } = useContext(LayoutContext);
   const [copyrightModal, setCopyrightModal] = useState<boolean>(false);
   const [dutyModal, setDutyModal] = useState<boolean>(false);
   return (
@@ -52,17 +54,63 @@ const Footer = () => {
         </Link>
       </div>
       <div className={style.contact}>
+        <div className={style.title}>外部链接</div>
+        <Link
+          className={style.link}
+          href="https://www.foreverblog.cn/go.html"
+          passHref
+          legacyBehavior
+        >
+          <a
+            className={`${style.link} ${style.link_click}`}
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              style={{ width: "auto", height: "16px" }}
+              src={
+                theme === 1
+                  ? "https://img.foreverblog.cn/wormhole_1_tp.gif"
+                  : "https://img.foreverblog.cn/wormhole_3_tp.gif"
+              }
+              alt=""
+            />
+          </a>
+        </Link>
+        <Link
+          className={style.link}
+          href="https://www.foreverblog.cn/"
+          passHref
+          legacyBehavior
+        >
+          <a
+            className={`${style.link} ${style.link_click}`}
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              style={{ width: "auto", height: "14px" }}
+              src="https://img.foreverblog.cn/logo_en_default.png"
+              alt=""
+            />
+          </a>
+        </Link>
+      </div>
+      <div className={style.contact}>
         <div className={style.title}>联系我</div>
         <div className={style.link}>qq: 1818784856</div>
         <div className={style.link}>微信: wp0403-</div>
         <Link
           className={style.link}
           href="mailto:webwp0403@163.com?subject=邮件标题&body=邮件内容"
-          target="_blank"
           passHref
           legacyBehavior
         >
-          <a className={`${style.link} ${style.link_click}`} rel="nofollow">
+          <a
+            className={`${style.link} ${style.link_click}`}
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+          >
             邮箱: webwp0403@163.com
           </a>
         </Link>
@@ -85,12 +133,15 @@ const Footer = () => {
           </div>
           <Link
             className={style.link}
-            target="_blank"
             href="https://beian.miit.gov.cn"
             passHref
             legacyBehavior
           >
-            <a className={`${style.link} ${style.link_click}`} rel="nofollow">
+            <a
+              className={`${style.link} ${style.link_click}`}
+              rel="nofollow noopener noreferrer"
+              target="_blank"
+            >
               京ICP备2022004838号-1
             </a>
           </Link>
