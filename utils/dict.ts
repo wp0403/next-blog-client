@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-12 13:53:45
+ * @LastEditTime: 2023-06-27 10:25:57
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -520,6 +520,12 @@ export const moreList = [
         title: "友情链接",
         desc: "快来互链吧！！！",
         url: "/friendly-links",
+    },
+    {
+        id: "start-pages",
+        title: "起始页",
+        desc: "替代传统搜索首页，提供更多的可配置设置",
+        url: "https://start.wp-boke.work",
     },
     // {
     //     id: "audiovisuals",
