@@ -157,6 +157,11 @@
   }
 }
 
+.link_img{
+  width: auto;
+  height: 16px;
+}
+
 @media screen and (max-width: 760px) and (min-width: 700px) {
   .user {
     padding: 3px 30px;

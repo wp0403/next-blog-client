@@ -4,12 +4,15 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-16 18:12:06
+ * @LastEditTime: 2023-06-27 10:22:23
  */
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useContext } from "react";
 import { Modal } from "antd";
 import { LayoutContext } from "@/store/layoutStore";
+import TravellingDark from "@/public/images/travelling-dark.png";
+import TravellingLight from "@/public/images/travelling-light.png";
 import style from "./footer.module.css";
 
 const Footer = () => {
@@ -74,6 +77,26 @@ const Footer = () => {
                   : "https://img.foreverblog.cn/wormhole_3_tp.gif"
               }
               alt=""
+            />
+          </a>
+        </Link>
+        <Link
+          className={style.link}
+          href="https://www.travellings.cn/go.html"
+          passHref
+          legacyBehavior
+        >
+          <a
+            className={`${style.link} ${style.link_click}`}
+            rel="nofollow noopener noreferrer"
+            target="_blank"
+          >
+            <Image
+              className={style.link_img}
+              width={200}
+              alt=""
+              src={theme === 1 ? TravellingLight : TravellingDark}
+              priority={true}
             />
           </a>
         </Link>

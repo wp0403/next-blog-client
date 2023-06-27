@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-29 18:18:20
+ * @LastEditTime: 2023-06-26 18:10:10
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -24,6 +24,10 @@ import style from "./blogDetail.module.css";
 
 export default function BlogDetails({ posts }) {
   const { data = {} } = posts;
+
+  if (posts.code === 305) {
+    window.location.href = "/404";
+  }
 
   const renderLink = (obj, type) => {
     return <div className={style.list_item_type_item}>{obj.value}</div>;
