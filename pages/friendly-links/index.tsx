@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-09 19:16:54
+ * @LastEditTime: 2023-07-03 18:38:07
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -37,9 +37,9 @@ const FriendlyLinks = ({ posts }) => {
   return (
     <div className={style.friendly_links}>
       <Head>
-        <title>纽带花园</title>
+        <title>友情链接</title>
       </Head>
-      <h1 className={style.title}>纽带花园</h1>
+      <h1 className={style.title}>友情链接</h1>
       <div className={style.demo}>
         <div className={style.demo_item}>网站名：shimmer</div>
         <div className={style.demo_item}>
