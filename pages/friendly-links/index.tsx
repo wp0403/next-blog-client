@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-03 18:38:07
+ * @LastEditTime: 2023-07-07 14:05:42
  */
 import Link from "next/link";
 import Head from "next/head";
@@ -91,7 +91,7 @@ export default FriendlyLinks;
 export async function getStaticProps() {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://wp-boke.work/api/getFriendlyLinks`);
+  const res = await fetch(`https://shimmer.wp-boke.work/api/getFriendlyLinks`);
   const posts = await res.json();
 
   // Pass post data to the page via props

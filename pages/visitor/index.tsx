@@ -31,7 +31,7 @@ const Visitor = () => {
   const [total, setTotal] = useState<number>(0);
   const getData = async () => {
     const res = await fetch(
-      `https://wp-boke.work/api/getVisitorList?page=${getPage()}`
+      `https://shimmer.wp-boke.work/api/getVisitorList?page=${getPage()}`
     );
     const posts = await res.json();
 

@@ -40,7 +40,7 @@ export default function TreeHole() {
     if (getTotalPages() !== 0 && getTotalPages() < getPage()) return;
     setLoading(true);
     const res = await fetch(
-      `https://wp-boke.work/api/getSecretList?page=${getPage()}&page_size=${page_size}`
+      `https://shimmer.wp-boke.work/api/getSecretList?page=${getPage()}&page_size=${page_size}`
     );
     const posts = await res.json();
     setData((a) => distinctObjectMap([...a, ...posts.data], "id"));

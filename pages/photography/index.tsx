@@ -38,7 +38,7 @@ const Photography = () => {
 
   const getData = async () => {
     const res = await fetch(
-      `https://wp-boke.work/api/getPhotographyList?page=${getPage()}&page_size=${page_size}`
+      `https://shimmer.wp-boke.work/api/getPhotographyList?page=${getPage()}&page_size=${page_size}`
     );
     const posts = await res.json();
     setData(posts.data);

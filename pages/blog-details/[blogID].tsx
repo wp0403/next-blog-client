@@ -104,7 +104,7 @@ export default function BlogDetails({ posts }) {
 
 export async function getStaticPaths() {
   // 调用外部 API 获取内容
-  const res = await fetch("https://wp-boke.work/api/getClassifyList");
+  const res = await fetch("https://shimmer.wp-boke.work/api/getClassifyList");
   const { data } = await res.json();
 
   return {
@@ -117,7 +117,7 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `https://wp-boke.work/api/getClassifyDetails?id=${params.blogID}`
+    `https://shimmer.wp-boke.work/api/getClassifyDetails?id=${params.blogID}`
   );
   const posts = await res.json();
 

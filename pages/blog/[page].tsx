@@ -42,11 +42,11 @@ export default function BlogDetails({ posts }) {
     if (!keyword || loading) return;
     setLoading(true);
     const res = await fetch(
-      `https://wp-boke.work/api/getSearchClassifyList?page=${getSearchPage()}&keyword=${getKeyword()}`
+      `https://shimmer.wp-boke.work/api/getSearchClassifyList?page=${getSearchPage()}&keyword=${getKeyword()}`
       // `http://localhost:7001/getSearchClassifyList?page=${getSearchPage()}&keyword=${getKeyword()}`
     );
     const res1 = await fetch(
-      `https://wp-boke.work/api/getClassifyListPage?keyword=${getKeyword()}`
+      `https://shimmer.wp-boke.work/api/getClassifyListPage?keyword=${getKeyword()}`
       // `http://localhost:7001/getClassifyListPage?keyword=${getKeyword()}`
     );
 
@@ -204,7 +204,9 @@ export default function BlogDetails({ posts }) {
 
 export async function getStaticPaths() {
   // 调用外部 API 获取内容
-  const res = await fetch(`https://wp-boke.work/api/getClassifyListPage`);
+  const res = await fetch(
+    `https://shimmer.wp-boke.work/api/getClassifyListPage`
+  );
   const posts = await res.json();
 
   const arr = [] as string[];
@@ -221,7 +223,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // 获取页码
-  const pageObj = await fetch(`https://wp-boke.work/api/getClassifyListPage`);
+  const pageObj = await fetch(
+    `https://shimmer.wp-boke.work/api/getClassifyListPage`
+  );
   const posts1 = await pageObj.json();
 
   const pageList = [] as string[];
@@ -230,10 +234,12 @@ export async function getStaticProps({ params }) {
   }
   // 调用外部 API 获取内容
   const res = await fetch(
-    `https://wp-boke.work/api/getClassifyList?page=${params.page}`
+    `https://shimmer.wp-boke.work/api/getClassifyList?page=${params.page}`
     // `http://localhost:7001/getClassifyList?page=${params.page}`
   );
-  const classifyNum = await fetch(`https://wp-boke.work/api/getClassifyNum`);
+  const classifyNum = await fetch(
+    `https://shimmer.wp-boke.work/api/getClassifyNum`
+  );
   const posts2 = await res.json();
   const posts3 = await classifyNum.json();
 

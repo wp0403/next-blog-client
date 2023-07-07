@@ -21,7 +21,7 @@ const ClassifyPrevOrNext = (props: Props) => {
 
   const getData = async () => {
     const res = await fetch(
-      `https://wp-boke.work/api/getClassifyDetailsFooter?id=${id}`
+      `https://shimmer.wp-boke.work/api/getClassifyDetailsFooter?id=${id}`
     );
     const posts = await res.json();
     setData(posts.data);

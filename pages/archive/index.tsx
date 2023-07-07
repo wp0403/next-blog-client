@@ -62,7 +62,7 @@ export default function Archive(props) {
 export async function getStaticProps() {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://wp-boke.work/api/getArchive`);
+  const res = await fetch(`https://shimmer.wp-boke.work/api/getArchive`);
   // const res = await fetch(`http://localhost:7001/getArchive`);
   const { data } = await res.json();
 

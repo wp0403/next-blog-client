@@ -13,7 +13,7 @@ export default function Layout({ children }) {
     //   `http://localhost:7001/getIp?hashValue=${hashValue}`
     // );
     const res = await fetch(
-      `https://wp-boke.work/api/getIp?hashValue=${hashValue}`
+      `https://shimmer.wp-boke.work/api/getIp?hashValue=${hashValue}`
     );
   };
   useEffect(() => {

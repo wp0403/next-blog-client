@@ -28,7 +28,7 @@ const sitemap = async (req, res) => {
 
     // 调用外部 API 获取内容
     const classifyObj = await fetch(
-        `https://wp-boke.work/api/getClassifyList?page=`
+        `https://shimmer.wp-boke.work/api/getClassifyList?page=`
     );
     const classifyList = (await classifyObj.json()).data;
 
