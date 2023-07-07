@@ -4,11 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-07 14:05:42
+ * @LastEditTime: 2023-07-07 15:36:15
  */
 import Link from "next/link";
 import Head from "next/head";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   addNavItemStyle,
   bindHandleScroll,
@@ -16,7 +16,6 @@ import {
   removeScroll,
 } from "@/utils/elementUtils";
 import { getRandomColor } from "@utils/dataUtils";
-import { isBrowser } from "@/utils/elementUtils";
 import { LayoutContext } from "@/store/layoutStore";
 import Comment from "@components/Comment";
 import style from "./friendlyLinks.module.css";
@@ -24,6 +23,11 @@ import style from "./friendlyLinks.module.css";
 const FriendlyLinks = ({ posts }) => {
   const { theme } = useContext(LayoutContext);
   const { data } = posts;
+  const [isBrowser, setIsBrowser] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   useEffect(() => {
     addNavItemStyle();
@@ -58,7 +62,7 @@ const FriendlyLinks = ({ posts }) => {
             key={v.id}
             className={style.blog_item}
             style={
-              isBrowser()
+              isBrowser
                 ? {
                     backgroundColor:
                       theme === 2

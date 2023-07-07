@@ -4,14 +4,13 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 13:51:56
+ * @LastEditTime: 2023-07-07 15:35:49
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Image as AntImage } from "antd";
 import { useInViewport } from "ahooks";
 import { getRandomColor } from "@utils/dataUtils";
-import { isBrowser } from "@/utils/elementUtils";
 import style from "./index.module.css";
 
 type Props = {
@@ -28,6 +27,11 @@ const LazyCom = (props: Props) => {
   const [src, setSrc] = useState<string>();
   const [inViewport] = useInViewport(ref);
   const [isLoad, setIsLoad] = useState<boolean>(false);
+  const [isBrowser, setIsBrowser] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   useEffect(() => {
     inViewport && !src && setSrc(imgSrc);
@@ -75,7 +79,7 @@ const LazyCom = (props: Props) => {
           isLoad && style.photography_image_none
         }`}
         style={
-          isBrowser()
+          isBrowser
             ? {
                 backgroundColor: getRandomColor(),
                 width: width,

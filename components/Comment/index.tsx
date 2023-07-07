@@ -4,16 +4,20 @@
  * @Author: WangPeng
  * @Date: 2023-05-25 18:37:40
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-27 10:50:21
+ * @LastEditTime: 2023-07-07 15:35:35
  */
-import React, { useEffect } from "react";
-import { isBrowser } from "@/utils/elementUtils";
+import React, { useEffect, useState } from "react";
 import style from "./comment.module.css";
 
 type Props = {};
 
 const Comment = (props: Props) => {
   const {} = props;
+  const [isBrowser, setIsBrowser] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   useEffect(() => {
     async function initTwikoo() {
@@ -35,7 +39,7 @@ const Comment = (props: Props) => {
       }
     }
 
-    isBrowser() && initTwikoo();
+    isBrowser && initTwikoo();
   }, []);
 
   return (

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-23 19:26:04
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 18:13:11
+ * @LastEditTime: 2023-07-07 15:36:45
  */
 import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
@@ -14,7 +14,6 @@ import { LayoutContext } from "@/store/layoutStore";
 import {
   addNavItemStyle,
   bindHandleScroll,
-  isBrowser,
   removeNavItemStyle,
   removeScroll,
   routeChangeComplete,
@@ -29,6 +28,12 @@ const Visitor = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage, getPage] = useGetState<number>(1);
   const [total, setTotal] = useState<number>(0);
+  const [isBrowser, setIsBrowser] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
   const getData = async () => {
     const res = await fetch(
       `https://shimmer.wp-boke.work/api/getVisitorList?page=${getPage()}`
@@ -78,7 +83,7 @@ const Visitor = () => {
               key={v.id}
               className={style.item}
               style={
-                isBrowser()
+                isBrowser
                   ? {
                       backgroundColor:
                         theme === 2

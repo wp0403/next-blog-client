@@ -74,17 +74,6 @@ export const removeScroll = (callback?) => {
     lastScrollPos = 0;
 };
 
-// 判断是否存在window
-export const isBrowser = () => {
-    if (typeof window !== 'undefined') {
-        // 在客户端渲染阶段
-        return true;
-    } else {
-        // 在服务器端渲染阶段
-        return false
-    }
-}
-
 // 回到顶部
 export const routeChangeComplete = () => {
     (document.body || window).scrollTo(0, 0);
