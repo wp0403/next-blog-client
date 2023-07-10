@@ -1,6 +1,7 @@
 import Router from "next/router";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 // import { useMount } from "ahooks";
 import Layout from "@components/Layout";
 import PageLoading from "@components/PageLoading";
@@ -50,6 +51,7 @@ export default function App({ Component, pageProps }) {
           content="telephone=no, date=no, email=no, address=no"
         />
       </Head>
+      <Analytics />
       {initLoading ? (
         <LoadingCom />
       ) : (
