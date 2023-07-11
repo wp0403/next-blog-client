@@ -4,11 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-01-25 16:48:55
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-25 22:39:38
+ * @LastEditTime: 2023-07-11 11:19:05
  */
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   addNavItemStyle,
   bindHandleScroll,
@@ -17,12 +17,21 @@ import {
 } from "@utils/elementUtils";
 import style from "./archive.module.css";
 
-export default function Archive(props) {
-  const { data } = props;
+export default function Archive() {
+  const [data, setDate] = useState<any[]>([]);
+
+  const init = async () => {
+    const res = await fetch(`https://shimmer.wp-boke.work/api/getArchive`);
+    // const res = await fetch(`http://localhost:7001/getArchive`);
+    const { data } = await res.json();
+
+    setDate(data);
+  };
 
   useEffect(() => {
     addNavItemStyle();
     bindHandleScroll();
+    init();
 
     return () => {
       removeNavItemStyle();
@@ -57,18 +66,4 @@ export default function Archive(props) {
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://shimmer.wp-boke.work/api/getArchive`);
-  // const res = await fetch(`http://localhost:7001/getArchive`);
-  const { data } = await res.json();
-
-  // Pass post data to the page via props
-  return {
-    props: { data },
-    revalidate: 60, // In seconds
-  };
 }
