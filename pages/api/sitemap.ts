@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 15:00:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-16 10:29:14
+ * @LastEditTime: 2023-07-13 18:32:51
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -22,7 +22,7 @@ const sitemap = async (req, res) => {
     // Add URLs to the Sitemap stream
     const pages = [
         '/', '/archive', '/tree-hole', '/photography', '/about', '/resume',
-        '/friendly-links'
+        '/friendly-links', '/disclaimers', '/copyright-notice'
     ];
     pages?.map(v => sitemapStream.write({ url: `${v}` }))
 

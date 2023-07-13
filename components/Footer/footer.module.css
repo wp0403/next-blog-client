@@ -76,63 +76,6 @@
   color: var(--color-blue-hover);
 }
 
-.modal :global .ant-modal-header {
-  padding: 12px 8px;
-  background-color: var(--w-alpha);
-}
-
-.modal :global .ant-modal-close-icon {
-  color: var(--b-alpha-50);
-}
-
-.modal :global .ant-modal-content {
-  background-color: var(--w-alpha);
-  box-shadow: 0 0 10px 5px var(--b-alpha-10);
-}
-
-.modal :global .ant-modal-title {
-  font-size: 18px;
-  text-align: center;
-  color: var(--b-alpha-80);
-}
-
-.modal .modal_content{
-  max-height: 65vh;
-  overflow-y: auto;
-}
-
-.modal p {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.6em;
-  padding: 4px 0;
-  color: var(--b-alpha-70);
-}
-
-.modal .modal_title{
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--b-alpha-60);
-  border-left: 3px solid var(--b-alpha-50);
-  padding-left: 12px;
-  margin-bottom: 12px;
-}
-
-.modal .modal_desc_title{
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--b-alpha-80);
-  padding-bottom: 4px;
-}
-
-.modal .modal_footer {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.6em;
-  margin-top: 12px;
-  color: var(--b-alpha-70);
-}
-
 @media screen and (max-width: 700px) {
   .user,
   .title {
