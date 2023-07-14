@@ -9,12 +9,12 @@ export default function Layout({ children }) {
   const getIp = async () => {
     const originalValue = await getFingerprint();
     const hashValue = encrypt(originalValue);
-    const res = await fetch(
-      `http://localhost:7001/getIp?hashValue=${hashValue}`
-    );
     // const res = await fetch(
-    //   `https://shimmer.wp-boke.work/api/getIp?hashValue=${hashValue}`
+    //   `http://localhost:7001/getIp?hashValue=${hashValue}`
     // );
+    const res = await fetch(
+      `https://shimmer.wp-boke.work/api/getIp?hashValue=${hashValue}`
+    );
   };
   useEffect(() => {
     getIp();

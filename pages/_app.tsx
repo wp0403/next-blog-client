@@ -8,7 +8,6 @@ import PageLoading from "@components/PageLoading";
 import { routeChangeComplete } from "@/utils/elementUtils";
 import LoadingCom from "@/components/LoadingCom";
 import "@styles/globals.css";
-import BackTop from "@/components/BackTop";
 
 export default function App({ Component, pageProps }) {
   const [initLoading, setInitLoading] = useState<boolean>(false);

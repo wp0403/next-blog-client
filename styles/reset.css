@@ -28,7 +28,7 @@
   border: none;
 }
 
-.ant-pagination .ant-pagination-item:hover a{
+.ant-pagination .ant-pagination-item:hover a {
   color: var(--txt-w-pure);
 }
 
@@ -87,3 +87,32 @@
   transform: translateX(0) !important;
 }
 /* 图片 结束 */
+
+/* 评论 开始 */
+.el-input-group__prepend,
+.el-input__inner {
+  color: var(--b-alpha-80) !important;
+}
+
+.el-textarea__inner,
+.el-input__count,
+.tk-submit-action-icon {
+  color: var(--b-alpha-70) !important;
+}
+
+.tk-preview{
+  color: var(--b-alpha-60) !important;
+}
+
+.tk-comments-container{
+  color: var(--b-alpha-60) !important;
+}
+
+.tk-ruser{
+  color: var(--purple-text);
+}
+
+.tk-content p{
+  color: var(--b-alpha-90) !important;
+}
+/* 评论 结束 */
