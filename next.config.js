@@ -19,7 +19,7 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
+  rewrites: () => {
     return [
       {
         source: "/sitemap",
