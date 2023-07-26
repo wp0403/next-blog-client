@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-06-01 17:19:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-26 15:02:02
+ * @LastEditTime: 2023-07-26 15:12:04
  */
 import fs from 'fs';
 import RSS from 'rss';
@@ -51,5 +51,9 @@ const rss = async (req, res) => {
     res.write(rssContent);
     res.end();
 };
+
+export const config = {
+    runtime: 'edge',
+}
 
 export default rss;
