@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 16:10:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-26 15:11:58
+ * @LastEditTime: 2023-07-26 15:02:06
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -40,9 +40,5 @@ const deadChain = async (req, res) => {
     res.write(sitemap);
     res.end();
 };
-
-export const config = {
-    runtime: 'edge',
-}
 
 export default deadChain;

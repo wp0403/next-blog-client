@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 15:00:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-26 15:12:08
+ * @LastEditTime: 2023-07-26 15:01:28
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -55,9 +55,5 @@ const sitemap = async (req, res) => {
     res.write(sitemap);
     res.end();
 };
-
-export const config = {
-    runtime: 'edge',
-}
 
 export default sitemap;
