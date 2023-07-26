@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-06-01 17:19:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-26 14:42:22
+ * @LastEditTime: 2023-07-26 14:50:10
  */
 import fs from 'fs';
 import RSS from 'rss';
@@ -41,9 +41,11 @@ const rss = async (req, res) => {
     res.setHeader('Content-Type', 'application/xml');
     res.setHeader('Cache-Control', 'public, max-age=0.1, must-revalidate');
 
-    const sitemapPath = '/rss.xml';
-
-    fs.writeFileSync(sitemapPath, rssContent);
+    const isVercel = process.env.IS_VERCEL;
+    if (!isVercel) {
+        const sitemapPath = './public/rss.xml';
+        fs.writeFileSync(sitemapPath, rssContent);
+    }
 
     // Write the XML to the response
     res.write(rssContent);

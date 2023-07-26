@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 15:00:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-26 14:42:26
+ * @LastEditTime: 2023-07-26 14:50:36
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -45,8 +45,11 @@ const sitemap = async (req, res) => {
     // Generate the XML
     const sitemap = await streamToPromise(sitemapStream);
 
-    const sitemapPath = '/sitemap.xml';
-    fs.writeFileSync(sitemapPath, sitemap);
+    const isVercel = process.env.IS_VERCEL;
+    if (!isVercel) {
+        const sitemapPath = './public/sitemap.xml';
+        fs.writeFileSync(sitemapPath, sitemap);
+    }
 
     // Write the XML to the response
     res.write(sitemap);

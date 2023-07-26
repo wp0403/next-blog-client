@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 16:10:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-26 14:42:11
+ * @LastEditTime: 2023-07-26 14:49:14
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -30,8 +30,11 @@ const deadChain = async (req, res) => {
     // Generate the XML
     const sitemap = await streamToPromise(sitemapStream);
 
-    const sitemapPath = '/deadChain.xml';
-    fs.writeFileSync(sitemapPath, sitemap);
+    const isVercel = process.env.IS_VERCEL;
+    if (!isVercel) {
+        const sitemapPath = './public/deadChain.xml';
+        fs.writeFileSync(sitemapPath, sitemap);
+    }
 
     // Write the XML to the response
     res.write(sitemap);
