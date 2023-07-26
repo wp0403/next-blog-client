@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 16:10:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-01 18:24:20
+ * @LastEditTime: 2023-07-26 14:42:11
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -30,7 +30,7 @@ const deadChain = async (req, res) => {
     // Generate the XML
     const sitemap = await streamToPromise(sitemapStream);
 
-    const sitemapPath = './public/deadChain.xml';
+    const sitemapPath = '/deadChain.xml';
     fs.writeFileSync(sitemapPath, sitemap);
 
     // Write the XML to the response

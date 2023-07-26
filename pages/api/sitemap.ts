@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-24 15:00:43
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-13 18:32:51
+ * @LastEditTime: 2023-07-26 14:42:26
  */
 import fs from 'fs';
 import { SitemapStream, streamToPromise } from 'sitemap';
@@ -45,7 +45,7 @@ const sitemap = async (req, res) => {
     // Generate the XML
     const sitemap = await streamToPromise(sitemapStream);
 
-    const sitemapPath = './public/sitemap.xml';
+    const sitemapPath = '/sitemap.xml';
     fs.writeFileSync(sitemapPath, sitemap);
 
     // Write the XML to the response
