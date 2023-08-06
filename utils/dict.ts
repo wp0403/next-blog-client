@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-21 10:34:41
+ * @LastEditTime: 2023-08-06 13:06:25
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -532,6 +532,12 @@ export const moreList = [
         title: "页面状态监控",
         desc: "监控页面的状态，提供实时的预告",
         url: "https://stats.uptimerobot.com/QxJWAuB6Nx",
+    },
+    {
+        id: "api.wp-boke",
+        title: "api聚合",
+        desc: "聚合常用api，提供私有化部署，完全开源，可用于二次开发",
+        url: "https://api-render.wp-boke.work/",
     },
     // {
     //     id: "audiovisuals",
