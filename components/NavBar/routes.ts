@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-01-12 14:27:58
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-08 11:37:41
+ * @LastEditTime: 2023-08-09 18:17:34
  */
 export const navList = [
     {
@@ -36,6 +36,12 @@ export const navList = [
         href: "/photography",
         icon: "icon-sheying",
         title: "摄影",
+    },
+    {
+        key: "friendly-links",
+        href: "/friendly-links",
+        icon: "icon-icon_xinyong_xianxing_jijin-",
+        title: "友情链接",
     },
     {
         key: "about",

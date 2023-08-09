@@ -1,7 +1,10 @@
 {
-  "name": "my-app",
+  "name": "shimemer-blog",
   "version": "0.1.0",
+  "description": "blog",
+  "author": "shimmer",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev -p 6006",
     "build": "next build",
