@@ -49,6 +49,12 @@ export default function App({ Component, pageProps }) {
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
         />
+        <meta name="description" content="shimmer的博客" />
+        <meta
+          name="keywords"
+          content="shimmer, 博客, 首页, wp-boke.work, wp, wp-boke"
+        />
+        <meta name="author" content="shimmer" />
       </Head>
       <Analytics />
       {initLoading ? (

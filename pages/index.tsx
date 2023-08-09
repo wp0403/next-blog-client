@@ -46,8 +46,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>首页</title>
-        <meta name="description" content="于风里读诗的博客首页" />
+        <title>shimmer</title>
+        <meta name="description" content="shimmer的博客首页" />
+        <meta
+          name="keywords"
+          content="shimmer, 博客, 首页, wp-boke.work, wp, wp-boke"
+        />
+        <meta name="author" content="shimmer" />
       </Head>
       <div className={styles.home}>
         <div className={styles.bg_card}>
