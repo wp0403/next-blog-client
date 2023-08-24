@@ -68,11 +68,6 @@ small {
   font-size: 12px;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
 a {
   text-decoration: none;
 }
@@ -108,6 +103,14 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+ul {
+  list-style: circle inside;
+}
+
+ol {
+  list-style: decimal inside;
 }
 
 * {

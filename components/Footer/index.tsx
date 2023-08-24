@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-13 18:30:33
+ * @LastEditTime: 2023-08-24 15:30:37
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +23,7 @@ const Footer = () => {
         <Link
           className={style.link}
           target="_blank"
-          href="/sitemap"
+          href="/sitemap.xml"
           passHref
           legacyBehavior
         >
@@ -34,7 +34,7 @@ const Footer = () => {
         <Link
           className={style.link}
           target="_blank"
-          href="/rss"
+          href="/rss.xml"
           passHref
           legacyBehavior
         >

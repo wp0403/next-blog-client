@@ -24,19 +24,19 @@ const RanderMarkdown = (props: any) => {
   const changeCodeTheme = (v) => {
     switch (v) {
       case 1:
-        import(
-          "react-syntax-highlighter/dist/esm/styles/prism/gruvbox-dark"
-        ).then((mod) => setStyle(mod.default));
+        import("react-syntax-highlighter/dist/esm/styles/prism/xonokai").then(
+          (mod) => setStyle(mod.default)
+        );
         break;
       case 2:
-        import(
-          "react-syntax-highlighter/dist/esm/styles/prism/solarizedlight"
-        ).then((mod) => setStyle(mod.default));
+        import("react-syntax-highlighter/src/styles/prism/prism").then((mod) =>
+          setStyle(mod.default)
+        );
         break;
       default:
-        import(
-          "react-syntax-highlighter/dist/esm/styles/prism/vsc-dark-plus"
-        ).then((mod) => setStyle(mod.default));
+        import("react-syntax-highlighter/dist/esm/styles/prism/xonokai").then(
+          (mod) => setStyle(mod.default)
+        );
         break;
     }
   };

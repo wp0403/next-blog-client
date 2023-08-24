@@ -22,15 +22,15 @@ const nextConfig = {
   rewrites: () => {
     return [
       {
-        source: "/sitemap",
+        source: "/sitemap.xml",
         destination: "/api/sitemap",
       },
       {
-        source: "/deadChain",
+        source: "/deadChain.xml",
         destination: "/api/deadChain",
       },
       {
-        source: "/rss",
+        source: "/rss.xml",
         destination: "/api/rss",
       },
       {
@@ -38,19 +38,19 @@ const nextConfig = {
         destination: getRobotsPath(),
       },
       {
-        source: "/sitemap.xml",
+        source: "/public/sitemap.xml",
         destination: getSitemapPath(),
       },
       {
-        source: "/deadChain.xml",
+        source: "/public/deadChain.xml",
         destination: getDeadChainPath(),
       },
       {
-        source: "/rss.xml",
+        source: "/public/rss.xml",
         destination: getRssPath(),
       },
       {
-        source: "/images/:path*",
+        source: "/public/images/:path*",
         destination: getImagePath(":path*"),
       },
     ];

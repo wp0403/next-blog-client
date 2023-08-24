@@ -50,6 +50,10 @@
   vertical-align: text-bottom;
 }
 
+.markdown_body *{
+  border: none !important;
+}
+
 .markdown_body h1:hover .anchor .octicon-link:before,
 .markdown_body h2:hover .anchor .octicon-link:before,
 .markdown_body h3:hover .anchor .octicon-link:before,
