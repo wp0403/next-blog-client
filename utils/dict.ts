@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-08-28 11:54:20
+ * @LastEditTime: 2023-08-28 15:51:47
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -534,10 +534,10 @@ export const moreList = [
         url: "https://api-render.wp-boke.work/",
     },
     {
-        id: "image-color.shimmer",
+        id: "image-color.wp-boke",
         title: "图片色卡提取",
         desc: "用于上传图片，提取图片色卡",
-        url: "https://image-color.shimmer.work/",
+        url: "https://image-color.wp-boke.work/",
     },
     // {
     //     id: "audiovisuals",
