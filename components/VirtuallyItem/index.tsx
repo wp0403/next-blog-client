@@ -4,9 +4,9 @@
  * @Author: WangPeng
  * @Date: 2023-06-13 15:50:27
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-13 17:28:09
+ * @LastEditTime: 2023-09-01 15:07:52
  */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useUpdate } from "ahooks";
 import { bindHandleScroll, removeScroll } from "@/utils/elementUtils";
 import style from "./virtuallyItem.module.css";
@@ -16,13 +16,13 @@ const VirtuallyItem = (props) => {
   // 用于记录当前元素的高度
   const itemHeight = useRef<number | null>(null);
   // 用户保存当前的元素
-  const item = useRef<any>(null);
+  const itemRef = useRef<any>(null);
   // 判断当前元素是否在可视窗口
   const [isVisual, setIsVisual] = useState<boolean>(true);
 
   const scrollCallback = () => {
     // get position relative to viewport
-    const rect = item.current?.getBoundingClientRect();
+    const rect = itemRef.current?.getBoundingClientRect();
     const distanceFromTop = rect.top;
     const distanceFromBottom = rect.bottom;
     // 可视区域高度
@@ -38,10 +38,10 @@ const VirtuallyItem = (props) => {
     }
   };
 
-  const windowResize = () => {
+  const windowResize = useCallback(() => {
     itemHeight.current = null;
     update();
-  };
+  }, [update]);
 
   useEffect(() => {
     bindHandleScroll(scrollCallback);
@@ -51,18 +51,21 @@ const VirtuallyItem = (props) => {
       removeScroll(scrollCallback);
       window.removeEventListener("resize", windowResize);
     };
-  }, []);
+  }, [windowResize]);
 
   useEffect(() => {
-    if (item.current && itemHeight.current !== item.current?.offsetHeight) {
-      itemHeight.current = item.current?.offsetHeight;
+    if (
+      itemRef.current &&
+      itemHeight.current !== itemRef.current?.offsetHeight
+    ) {
+      itemHeight.current = itemRef.current?.offsetHeight;
     }
-  }, [item.current, isVisual]);
+  }, [isVisual]);
 
   return (
     <div
       className={style.virtually_item}
-      ref={item}
+      ref={itemRef}
       style={{
         height: `${itemHeight.current ? `${itemHeight.current}px` : "auto"}`,
       }}

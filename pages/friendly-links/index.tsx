@@ -4,10 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 21:44:33
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-07 15:36:15
+ * @LastEditTime: 2023-09-01 14:33:36
  */
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import {
   addNavItemStyle,
@@ -75,7 +76,11 @@ const FriendlyLinks = ({ posts }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img className={style.blog_item_logo} src={v.logo} alt={v.title} />
+            <Image
+              className={style.blog_item_logo}
+              src={v.logo}
+              alt={v.title}
+            />
             <div className={style.blog_item_content}>
               <div className={style.blog_item_title}>{v.title}</div>
               <div className={style.blog_item_desc}>{v.desc}</div>

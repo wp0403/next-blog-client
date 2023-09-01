@@ -1,5 +1,6 @@
 import Router from "next/router";
 import Head from "next/head";
+import Script from "next/script";
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 // import { useMount } from "ahooks";
@@ -39,6 +40,21 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <Script
+        charSet="UTF-8"
+        id="LA_COLLECT"
+        src="https://sdk.51.la/js-sdk-pro.min.js"
+      ></Script>
+      <Script id="LA5">
+        {`
+          LA.init({
+            id:"3FmNQHwzFUzdFjX3",
+            ck:"3FmNQHwzFUzdFjX3",
+            autoTrack:true,
+            hashMode:true
+          })
+        `}
+      </Script>
       <Head>
         <meta name="baidu-site-verification" content="codeva-ZUhqyitPRt" />
         <meta

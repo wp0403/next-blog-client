@@ -4,9 +4,9 @@
  * @Author: WangPeng
  * @Date: 2022-01-07 17:34:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-13 17:40:40
+ * @LastEditTime: 2023-09-01 15:06:55
  */
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import addEventListener from "rc-util/lib/Dom/addEventListener";
 import { throttleByAnimationFrame } from "@/utils/cloneUtils/throttleByAnimationFrame";
 import { scrollTo, getScroll } from "@/utils/element";
@@ -71,12 +71,12 @@ const BackTop = (props: Props) => {
   );
 
   // 为滚动页面绑定滚动事件
-  const bindScrollEvent = () => {
+  const bindScrollEvent = useCallback(() => {
     const container = getTarget();
 
     // 为滚动元素绑定滚动事件
     scrollEvent.current = addEventListener(container, "scroll", handleScroll);
-  };
+  }, [getTarget, handleScroll]);
 
   useEffect(() => {
     bindScrollEvent();
@@ -86,7 +86,7 @@ const BackTop = (props: Props) => {
       }
       (handleScroll as any).cancel();
     };
-  }, [props.target]);
+  }, [bindScrollEvent, handleScroll, props.target]);
 
   return (
     <div

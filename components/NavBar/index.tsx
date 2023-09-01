@@ -4,11 +4,11 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 16:54:39
+ * @LastEditTime: 2023-09-01 15:10:08
  */
 import Link from "next/link";
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import SysIcon from "../SysIcon";
 import { navList } from "./routes";
 import logo_black from "@/public/images/logo_black.png";
@@ -40,16 +40,19 @@ export default function Navbar() {
   );
 
   // 切换主题
-  const themeSwitch = (event) => {
-    if (event === "click") {
-      document.documentElement.classList.toggle("dark");
-      setTheme(theme === 1 ? 2 : 1);
-      changeTheme(theme === 1 ? 2 : 1);
-    } else {
-      setTheme(handleThemeChange(event));
-      changeTheme(handleThemeChange(event));
-    }
-  };
+  const themeSwitch = useCallback(
+    (event) => {
+      if (event === "click") {
+        document.documentElement.classList.toggle("dark");
+        setTheme(theme === 1 ? 2 : 1);
+        changeTheme(theme === 1 ? 2 : 1);
+      } else {
+        setTheme(handleThemeChange(event));
+        changeTheme(handleThemeChange(event));
+      }
+    },
+    [setTheme, changeTheme, theme]
+  );
 
   useEffect(() => {
     setCurrent(window.location.pathname);
@@ -64,7 +67,7 @@ export default function Navbar() {
     return () => {
       darkModeMediaQuery.removeEventListener("change", themeSwitch);
     };
-  }, []);
+  }, [themeSwitch]);
 
   return (
     <>

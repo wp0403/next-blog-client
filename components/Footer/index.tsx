@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-08-24 15:30:37
+ * @LastEditTime: 2023-09-01 14:55:28
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -66,7 +66,7 @@ const Footer = () => {
             rel="nofollow noopener noreferrer"
             target="_blank"
           >
-            <img
+            <Image
               style={{ width: "auto", height: "16px" }}
               src={
                 theme === 1
@@ -108,7 +108,7 @@ const Footer = () => {
             rel="nofollow noopener noreferrer"
             target="_blank"
           >
-            <img
+            <Image
               style={{ width: "auto", height: "14px" }}
               src="https://img.foreverblog.cn/logo_en_default.png"
               alt=""

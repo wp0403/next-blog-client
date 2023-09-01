@@ -4,10 +4,10 @@
  * @Author: WangPeng
  * @Date: 2023-05-24 15:48:29
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-24 16:54:18
+ * @LastEditTime: 2023-09-01 15:03:28
  */
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import style from "./classifyPrevOrNext.module.css";
 
 type Props = {
@@ -19,17 +19,17 @@ const ClassifyPrevOrNext = (props: Props) => {
 
   const [data, setData] = useState<any[]>([]);
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
     const res = await fetch(
       `https://shimmer.wp-boke.work/api/getClassifyDetailsFooter?id=${id}`
     );
     const posts = await res.json();
     setData(posts.data);
-  };
+  }, [id]);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
   return (
     <div className={style.prev_next}>
       <Link
