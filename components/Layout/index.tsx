@@ -27,11 +27,6 @@ export default function Layout({ children }) {
         {children}
         <Footer />
         <BackTop />
-        <Script
-          id="LA-DATA-WIDGET"
-          crossOrigin="anonymous"
-          src="https://v6-widget.51.la/v6/3FmNQHwzFUzdFjX3/quote.js?theme=2&f=12&display=0,0,1,1,0,0,1,1"
-        ></Script>
       </LayoutContextProvider>
     </>
   );
