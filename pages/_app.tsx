@@ -47,6 +47,7 @@ export default function App({ Component, pageProps }) {
           ck: "3FmNQHwzFUzdFjX3",
           autoTrack: true,
           hashMode: true,
+          prefix: "js",
         });
       };
     }
@@ -57,10 +58,6 @@ export default function App({ Component, pageProps }) {
       <Script
         id="LA_COLLECT"
         src="https://wp-1302605407.cos.ap-beijing.myqcloud.com/js/js-sdk-pro.min.js"
-      ></Script>
-      <Script
-        id="LA_EVENT"
-        src="https://wp-1302605407.cos.ap-beijing.myqcloud.com/js/js-sdk-event.min.js"
       ></Script>
       <Head>
         <meta name="baidu-site-verification" content="codeva-ZUhqyitPRt" />
