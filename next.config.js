@@ -57,6 +57,12 @@ const nextConfig = {
         source: "/public/images/:path*",
         destination: getImagePath(":path*"),
       },
+      {
+        source: "/js/:path",
+        destination:
+          "https://wp-1302605407.cos.ap-beijing.myqcloud.com/js/:path",
+        permanent: true,
+      },
     ];
   },
 };
