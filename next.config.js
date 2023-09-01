@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.myqcloud.com",
       },
+      {
+        protocol: "https",
+        hostname: "img.foreverblog.cn",
+      },
     ],
   },
   rewrites: () => {
