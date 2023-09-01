@@ -41,12 +41,14 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       // 在客户端环境中执行延迟加载的 JavaScript 代码
-      (window as any).LA.init({
-        id: "3FmNQHwzFUzdFjX3",
-        ck: "3FmNQHwzFUzdFjX3",
-        autoTrack: true,
-        hashMode: true,
-      });
+      window.onload = () => {
+        (window as any).LA.init({
+          id: "3FmNQHwzFUzdFjX3",
+          ck: "3FmNQHwzFUzdFjX3",
+          autoTrack: true,
+          hashMode: true,
+        });
+      };
     }
   }, []);
 
