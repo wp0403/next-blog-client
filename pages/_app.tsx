@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }) {
       ></Script>
       <Script id="LA5">
         {`
-          LA.init({
+          window.LA.init({
             id:"3FmNQHwzFUzdFjX3",
             ck:"3FmNQHwzFUzdFjX3",
             autoTrack:true,
