@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-16 01:57:34
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-08-28 15:51:47
+ * @LastEditTime: 2023-09-05 10:43:30
  */
 // 网站时间轴
 export const timeAixsList = [
@@ -171,6 +171,61 @@ export const workList = [
 
 // 项目经验
 export const projectList = [
+    {
+        id: 4,
+        projectName: 'Huaxing Ai',
+        projectTime: '2023.7 - 至今',
+        desc: '华兴ai项目是华兴在公司内部提供人工智能辅助办公的尝试，旨在为员工提供方便快捷的办公平台。',
+        lectotype: 'Vite + Vue3 + Antd Vue + Pinia',
+        jobOrContribute: [
+            {
+                id: 1,
+                value: '担任该项目的主要开发人员，负责整个项目的架构和开发环境的搭建，确保整个项目的高效运行；'
+            },
+            {
+                id: 2,
+                value: '使用 Vite + Vue 3 框架以及 Ant Design Vue 和 Pinia 插件，快速地搭建了美观、简洁、易用的聊天应用程序；'
+            },
+            {
+                id: 3,
+                value: '负责处理接口调试和数据逻辑的统一处理，确保前后端之间的数据交互顺畅可靠；'
+            },
+            {
+                id: 4,
+                value: '为整个团队提供了完善的数据获取方法，编写了高质量的代码并提供详尽的文档注释，以提高团队成员的开发效率；'
+            },
+            {
+                id: 5,
+                value: '帮助项目顺利推进，并向公司内部员工提供了一个功能完备、界面美观、易于使用的聊天应用。'
+            },
+        ],
+        projectResults: [
+            {
+                id: 1,
+                value: '在开发过程中，我成功完成了聊天项目的搭建和完善，项目正常运行并提供给公司内部员工使用；'
+            },
+            {
+                id: 2,
+                value: '应用程序具有功能完备、界面美观、易于使用的特点，受到了用户的积极反馈和认可；'
+            },
+            {
+                id: 3,
+                value: '通过我对接口调试和数据逻辑的统一处理，实现了前后端之间的稳定数据交互，确保了应用的可靠性和性能；'
+            },
+            {
+                id: 4,
+                value: '我提供给团队成员详尽的文档注释和高质量的代码，使得其他开发人员能够轻松理解和维护项目；'
+            },
+            {
+                id: 5,
+                value: '我的工作帮助项目顺利推进，根据用户反馈进行了持续的改进和优化，提升了整体的用户体验和满意度；'
+            },
+            {
+                id: 6,
+                value: '在项目进行期间，我积极与团队合作，解决了各种技术和业务问题，展现了出色的团队合作精神。'
+            },
+        ]
+    },
     {
         id: 3,
         projectName: 'Dashboard',
@@ -490,6 +545,14 @@ export const myProject = [
     },
     {
         id: 3,
+        projectName: 'shimmer-api',
+        projectTime: '2023.6 - 至今',
+        lectotype: 'NestJS',
+        desc: '提供各种接口服务，满足个人项目的需求。',
+        jobOrAchievement: '通过shimmer-api，我为个人项目提供了丰富的接口服务，满足了不同功能模块的需求。利用NestJS技术栈，我可以构建稳定、高性能的后端服务，并通过这些API为个人项目增加更多的功能和交互性。'
+    },
+    {
+        id: 4,
         projectName: '率土之滨玩家管理平台',
         projectTime: '2023.3 - 至今',
         lectotype: 'Client：Umi.js + React + Ant Design Server：Nest.js + MySQL',
@@ -538,6 +601,12 @@ export const moreList = [
         title: "图片色卡提取",
         desc: "用于上传图片，提取图片色卡",
         url: "https://image-color.wp-boke.work/",
+    },
+    {
+        id: "land",
+        title: "访客统计",
+        desc: "统计网站受访数据",
+        url: "https://v6.51.la/land/3FmNQHwzFUzdFjX3",
     },
     // {
     //     id: "audiovisuals",
