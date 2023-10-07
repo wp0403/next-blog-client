@@ -106,11 +106,11 @@ table {
 }
 
 ul {
-  list-style: circle inside;
+  list-style: circle inherit;
 }
 
 ol {
-  list-style: decimal inside;
+  list-style: decimal inherit;
 }
 
 * {
