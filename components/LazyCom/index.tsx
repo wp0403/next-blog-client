@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 13:50:23
+ * @LastEditTime: 2023-10-09 13:55:43
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -24,10 +24,15 @@ type Props = {
 const LazyCom = (props: Props) => {
   const { className, imgSrc, domKey, width, reset = {} } = props;
   const ref = useRef(null);
-  const [src, setSrc] = useState<string>();
   const backgroundColor = useRef<string>(getRandomColor());
+  const [src, setSrc] = useState<string>();
   const [inViewport] = useInViewport(ref);
   const [isLoad, setIsLoad] = useState<boolean>(false);
+  const [isBrowser, setIsBrowser] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   useEffect(() => {
     inViewport && !src && setSrc(imgSrc);
@@ -56,32 +61,35 @@ const LazyCom = (props: Props) => {
             }}
             src={src}
             quality={100}
+            priority={true}
             {...reset}
           />
-          {isLoad && (
-            <AntImage
-              className={`${className} ${style.photography_image_antd}`}
-              width={width as any}
-              height={width as any}
-              alt=""
-              src={src}
-              rootClassName={className}
-            />
-          )}
+          <AntImage
+            className={`${className} ${style.photography_image_antd}`}
+            width={width as any}
+            height={width as any}
+            alt=""
+            src={src}
+            rootClassName={`${className} ${
+              !isLoad ? style.photography_image_none : ""
+            }`}
+          />
         </>
       )}
-
-      {/* 在图片加载完成前只显示占位背景色 */}
-      {!isLoad && (
-        <div
-          className={`${style.photography_image_div}`}
-          style={{
-            backgroundColor: backgroundColor.current,
-            width: width,
-            height: width,
-          }}
-        />
-      )}
+      <div
+        className={`${className} ${style.photography_image_div} ${
+          isLoad && style.photography_image_none
+        }`}
+        style={
+          isBrowser
+            ? {
+                backgroundColor: backgroundColor.current,
+                width: width,
+                height: width,
+              }
+            : {}
+        }
+      />
     </span>
   );
 };
