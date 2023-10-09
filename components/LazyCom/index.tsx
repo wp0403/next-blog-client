@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 13:55:43
+ * @LastEditTime: 2023-10-09 14:00:08
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -76,20 +76,20 @@ const LazyCom = (props: Props) => {
           />
         </>
       )}
-      <div
-        className={`${className} ${style.photography_image_div} ${
-          isLoad && style.photography_image_none
-        }`}
-        style={
-          isBrowser
-            ? {
-                backgroundColor: backgroundColor.current,
-                width: width,
-                height: width,
-              }
-            : {}
-        }
-      />
+      {!isLoad && (
+        <div
+          className={`${className} ${style.photography_image_div}`}
+          style={
+            isBrowser
+              ? {
+                  backgroundColor: backgroundColor.current,
+                  width: width,
+                  height: width,
+                }
+              : {}
+          }
+        />
+      )}
     </span>
   );
 };
