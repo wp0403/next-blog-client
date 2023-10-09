@@ -58,33 +58,9 @@
 /* 输入框 结束 */
 
 /* 图片 开始 */
-.ant-image-preview-root .ant-image-preview-mask {
-  background-color: var(--image-preview-mask) !important;
-}
-
-.ant-image-preview-operations-wrapper .ant-image-preview-operations {
-  background-color: var(--b-alpha-70);
-  color: var(--w-alpha-70) !important;
-}
-
-.ant-image-preview-operations-operation {
-  margin-inline-start: 0px !important;
-}
-
-.ant-image-preview-img-wrapper {
-  height: calc(100% - 46px) !important;
-  top: 46px !important;
-}
-
-.ant-image-preview-switch-left,
-.ant-image-preview-switch-right {
-  margin-top: 0px !important;
-  transform: translateY(0) !important;
-}
-
-.ant-image-preview-operations-progress {
-  left: 14px !important;
-  transform: translateX(0) !important;
+:is(.ant-image-preview-root .ant-image-preview-mask){
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
 }
 /* 图片 结束 */
 

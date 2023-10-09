@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-07-07 15:35:49
+ * @LastEditTime: 2023-10-09 11:47:48
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -25,13 +25,11 @@ const LazyCom = (props: Props) => {
   const { className, imgSrc, domKey, width, reset = {} } = props;
   const ref = useRef(null);
   const [src, setSrc] = useState<string>();
+  const backgroundColor = useRef<string>(getRandomColor());
   const [inViewport] = useInViewport(ref);
   const [isLoad, setIsLoad] = useState<boolean>(false);
-  const [isBrowser, setIsBrowser] = useState<boolean>(false);
-
-  useEffect(() => {
-    setIsBrowser(true);
-  }, []);
+  // 保存next/image加载的图片文件
+  const [imageData, setImageData] = useState<any>();
 
   useEffect(() => {
     inViewport && !src && setSrc(imgSrc);
@@ -58,36 +56,36 @@ const LazyCom = (props: Props) => {
             onLoad={() => {
               setIsLoad(true);
             }}
+            onLoadingComplete={(result) => {
+              setImageData(result.src);
+            }}
             src={src}
-            priority={true}
             {...reset}
           />
-          <AntImage
-            className={`${className} ${style.photography_image_antd}`}
-            width={width as any}
-            height={width as any}
-            alt=""
-            src={src}
-            rootClassName={`${className} ${
-              !isLoad ? style.photography_image_none : ""
-            }`}
-          />
+          {isLoad && imageData && (
+            <AntImage
+              className={`${className} ${style.photography_image}`}
+              width={width as any}
+              height={width as any}
+              alt=""
+              src={imageData}
+              rootClassName={className}
+            />
+          )}
         </>
       )}
-      <div
-        className={`${className} ${style.photography_image_div} ${
-          isLoad && style.photography_image_none
-        }`}
-        style={
-          isBrowser
-            ? {
-                backgroundColor: getRandomColor(),
-                width: width,
-                height: width,
-              }
-            : {}
-        }
-      />
+
+      {/* 在图片加载完成前只显示占位背景色 */}
+      {!isLoad && (
+        <div
+          className={`${style.photography_image_div}`}
+          style={{
+            backgroundColor: backgroundColor.current,
+            width: width,
+            height: width,
+          }}
+        />
+      )}
     </span>
   );
 };
