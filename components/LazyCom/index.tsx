@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 12:46:01
+ * @LastEditTime: 2023-10-09 13:50:23
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -60,7 +60,7 @@ const LazyCom = (props: Props) => {
           />
           {isLoad && (
             <AntImage
-              className={`${className} ${style.photography_image}`}
+              className={`${className} ${style.photography_image_antd}`}
               width={width as any}
               height={width as any}
               alt=""
