@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 12:38:02
+ * @LastEditTime: 2023-10-09 12:46:01
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -28,8 +28,6 @@ const LazyCom = (props: Props) => {
   const backgroundColor = useRef<string>(getRandomColor());
   const [inViewport] = useInViewport(ref);
   const [isLoad, setIsLoad] = useState<boolean>(false);
-  // 保存next/image加载的图片文件
-  const [imageData, setImageData] = useState<any>();
 
   useEffect(() => {
     inViewport && !src && setSrc(imgSrc);
@@ -56,20 +54,17 @@ const LazyCom = (props: Props) => {
             onLoad={() => {
               setIsLoad(true);
             }}
-            onLoadingComplete={(result) => {
-              setImageData(result.src);
-            }}
             src={src}
             quality={100}
             {...reset}
           />
-          {isLoad && imageData && (
+          {isLoad && (
             <AntImage
               className={`${className} ${style.photography_image}`}
               width={width as any}
               height={width as any}
               alt=""
-              src={imageData}
+              src={src}
               rootClassName={className}
             />
           )}
