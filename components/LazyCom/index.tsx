@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 11:47:48
+ * @LastEditTime: 2023-10-09 12:38:02
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -60,6 +60,7 @@ const LazyCom = (props: Props) => {
               setImageData(result.src);
             }}
             src={src}
+            quality={100}
             {...reset}
           />
           {isLoad && imageData && (
