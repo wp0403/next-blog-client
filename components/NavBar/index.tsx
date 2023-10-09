@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-09-01 15:10:08
+ * @LastEditTime: 2023-10-09 09:49:44
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -67,7 +67,7 @@ export default function Navbar() {
     return () => {
       darkModeMediaQuery.removeEventListener("change", themeSwitch);
     };
-  }, [themeSwitch]);
+  }, []);
 
   return (
     <>
