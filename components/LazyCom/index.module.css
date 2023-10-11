@@ -32,8 +32,7 @@
   object-fit: cover;
   padding: 4px;
   box-sizing: border-box;
-  opacity: 0;
-  z-index: -1;
+  display: none;
 }
 
 .photography_image_auto{
