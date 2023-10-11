@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 14:00:08
+ * @LastEditTime: 2023-10-11 15:49:22
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -50,9 +50,7 @@ const LazyCom = (props: Props) => {
       {src && (
         <>
           <Image
-            className={`${className} ${style.photography_image} ${
-              !isLoad && style.photography_image_none
-            }`}
+            className={`${className} ${style.photography_image}`}
             width={width as any}
             height={width as any}
             alt=""
@@ -61,19 +59,18 @@ const LazyCom = (props: Props) => {
             }}
             src={src}
             quality={100}
-            priority={true}
             {...reset}
           />
-          <AntImage
-            className={`${className} ${style.photography_image_antd}`}
-            width={width as any}
-            height={width as any}
-            alt=""
-            src={src}
-            rootClassName={`${className} ${
-              !isLoad ? style.photography_image_none : ""
-            }`}
-          />
+          {isLoad && (
+            <AntImage
+              className={`${className} ${style.photography_image_antd}`}
+              width={width as any}
+              height={width as any}
+              alt=""
+              src={src}
+              rootClassName={`${className}`}
+            />
+          )}
         </>
       )}
       {!isLoad && (

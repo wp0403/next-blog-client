@@ -20,14 +20,6 @@
   box-sizing: border-box;
 }
 
-.photography_image_none{
-  opacity: 0;
-  z-index: -1;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .photography_image_antd{
   object-fit: cover;
   padding: 4px;
