@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-11 16:03:40
+ * @LastEditTime: 2023-10-11 16:27:15
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -28,6 +28,7 @@ const LazyCom = (props: Props) => {
   const [src, setSrc] = useState<string>();
   const [inViewport] = useInViewport(ref);
   const [isLoad, setIsLoad] = useState<boolean>(false);
+  const [isAntdLoad, setIsAntdLoad] = useState<boolean>(false);
   const [isBrowser, setIsBrowser] = useState<boolean>(false);
 
   useEffect(() => {
@@ -66,6 +67,10 @@ const LazyCom = (props: Props) => {
               className={`${className} ${style.photography_image_antd}`}
               width={width as any}
               height={width as any}
+              onLoad={() => {
+                setIsAntdLoad(true);
+              }}
+              preview={isAntdLoad}
               alt=""
               src={src}
               rootClassName={`${className}`}
