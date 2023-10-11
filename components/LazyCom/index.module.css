@@ -20,6 +20,12 @@
   box-sizing: border-box;
 }
 
+.photography_image_pa{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .photography_image_antd{
   object-fit: cover;
   padding: 4px;

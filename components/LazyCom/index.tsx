@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-11 15:49:22
+ * @LastEditTime: 2023-10-11 16:03:40
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -75,7 +75,9 @@ const LazyCom = (props: Props) => {
       )}
       {!isLoad && (
         <div
-          className={`${className} ${style.photography_image_div}`}
+          className={`${className} ${style.photography_image_div} ${
+            src && style.photography_image_pa
+          }`}
           style={
             isBrowser
               ? {
