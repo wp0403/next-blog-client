@@ -4,12 +4,11 @@
  * @Author: WangPeng
  * @Date: 2023-06-08 14:33:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 17:39:47
+ * @LastEditTime: 2023-10-11 16:43:19
  */
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import bgImg from "@/public/images/bg00001.jpg";
-import shimmerGif from "@/public/images/shimmer.gif";
 import style from "./loadingcom.module.css";
 
 const LoadingCom = () => {
