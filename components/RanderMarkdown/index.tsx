@@ -17,7 +17,7 @@ const useRanderMarkdown = (markdown) => {
   };
 
   // 将标题内容转换成id时可以用的字符串
-  const slugify = (string) => {
+  const slugify = (string = "") => {
     return string
       .trim()
       .toLowerCase()
@@ -63,42 +63,66 @@ const useRanderMarkdown = (markdown) => {
                 (node.children[0] as any).value,
                 props.level
               );
-              return <h1 className="markdown-toc-item" id={id} {...props} />;
+              return (
+                <h1 className="markdown-toc-item" id={id}>
+                  {props.children}
+                </h1>
+              );
             },
             h2: ({ node, ...props }) => {
               const id = generateHeadingId(
                 (node.children[0] as any).value,
                 props.level
               );
-              return <h2 className="markdown-toc-item" id={id} {...props} />;
+              return (
+                <h2 className="markdown-toc-item" id={id}>
+                  {props.children}
+                </h2>
+              );
             },
             h3: ({ node, ...props }) => {
               const id = generateHeadingId(
                 (node.children[0] as any).value,
                 props.level
               );
-              return <h3 className="markdown-toc-item" id={id} {...props} />;
+              return (
+                <h3 className="markdown-toc-item" id={id}>
+                  {props.children}
+                </h3>
+              );
             },
             h4: ({ node, ...props }) => {
               const id = generateHeadingId(
                 (node.children[0] as any).value,
                 props.level
               );
-              return <h4 className="markdown-toc-item" id={id} {...props} />;
+              return (
+                <h4 className="markdown-toc-item" id={id}>
+                  {props.children}
+                </h4>
+              );
             },
             h5: ({ node, ...props }) => {
               const id = generateHeadingId(
                 (node.children[0] as any).value,
                 props.level
               );
-              return <h5 className="markdown-toc-item" id={id} {...props} />;
+              return (
+                <h5 className="markdown-toc-item" id={id}>
+                  {props.children}
+                </h5>
+              );
             },
             h6: ({ node, ...props }) => {
               const id = generateHeadingId(
                 (node.children[0] as any).value,
                 props.level
               );
-              return <h6 className="markdown-toc-item" id={id} {...props} />;
+              return (
+                <h6 className="markdown-toc-item" id={id}>
+                  {props.children}
+                </h6>
+              );
             },
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
