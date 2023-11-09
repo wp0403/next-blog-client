@@ -53,7 +53,6 @@ const useRanderMarkdown = (markdown) => {
     () => (
       <Image.PreviewGroup>
         <ReactMarkdown
-          children={markdown}
           className="markdown_body"
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
@@ -170,7 +169,9 @@ const useRanderMarkdown = (markdown) => {
               );
             },
           }}
-        />
+        >
+          {markdown}
+        </ReactMarkdown>
       </Image.PreviewGroup>
     ),
     [markdown]
