@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
+const withCSS = require("@zeit/next-css");
 
 const getRobotsPath = () => path.join(__dirname, "public", "robots.txt");
 const getSitemapPath = () => path.join(__dirname, "public", "sitemap.xml");
@@ -10,7 +11,7 @@ const getImagePath = (v) => path.join(__dirname, "public", "images", v);
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-
+  withCSS: withCSS(),
   images: {
     remotePatterns: [
       {
@@ -66,4 +67,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

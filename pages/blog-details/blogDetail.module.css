@@ -8,8 +8,51 @@
   align-items: center;
 }
 
+.blog_detail_box {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--b-alpha-10);
+}
+
+.blog_detail_box .right_content {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.blog_detail_box .right_content .blog_toc_box{
+  position: sticky;
+  top: 78px;
+}
+
+.blog_toc_title{
+  color: var(--b-alpha-90);
+  font-weight: 500;
+  margin-left: 1.5em;
+  font-size: 18px;
+  line-height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  border-bottom: 1px solid var(--b-alpha-20);
+}
+
+.blog_toc{
+  margin-left: 1.5em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+}
+
+.blog_detail_box .content {
+  flex: 1;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
-  width: 60%;
+  flex: 1;
   border-bottom: 3px var(--b-alpha-80) solid;
   padding: 40px 0;
 }
@@ -74,36 +117,67 @@
   margin-right: 20px;
 }
 
-.content {
-  width: 60%;
+.blog_content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 0 15px;
-  border-bottom: 3px solid var(--b-alpha-10);
+  padding-bottom: 15px;
 }
 
-.footer{
-  padding: 15px 0 30px;
-  width: 60%;
+.footer {
+  padding: 30px 0 30px;
+  width: calc(100% - 48px);
 }
 
-.comment{
-  width: 60%;
-}
-
-@media screen and (max-width: 1000px) {
-  .header,
-  .content,
-  .footer,.comment {
-    width: 80%;
-  }
+.comment {
+  width: calc(100% - 48px);
 }
 
 @media screen and (max-width: 800px) {
-  .header,
-  .content,
-  .footer,.comment {
-    width: 90%;
+  .blog_detail_box {
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .right_content {
+    display: none;
+  }
+
+  .footer,
+  .comment {
+    width: calc(100% - 48px);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .blog_detail_box {
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .right_content {
+    width: 300px;
+  }
+
+  .footer,
+  .comment {
+    width: calc(80% - 48px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .blog_detail_box {
+    padding: 0 24px;
+    width: 1200px;
+  }
+
+  .right_content {
+    width: 300px;
+  }
+
+  .footer,
+  .comment {
+    width: calc(60% - 48px);
   }
 }

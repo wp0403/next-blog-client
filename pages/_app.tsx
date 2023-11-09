@@ -1,9 +1,7 @@
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import Head from "next/head";
-import Script from "next/script";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
-// import { useMount } from "ahooks";
 import Layout from "@components/Layout";
 import PageLoading from "@components/PageLoading";
 import { routeChangeComplete } from "@/utils/elementUtils";
@@ -11,14 +9,16 @@ import LoadingCom from "@/components/LoadingCom";
 import "@styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-  const [initLoading, setInitLoading] = useState<boolean>(false);
+  const router = useRouter();
+  const [initLoading, setInitLoading] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // useMount(() => {
-  //   setTimeout(() => {
-  //     setInitLoading(false);
-  //   }, 3000);
-  // });
+  useEffect(() => {
+    if (router.asPath !== router.route) {
+      // 页面加载完成
+      setInitLoading(false);
+    }
+  }, [router.asPath, router.route]);
 
   useEffect(() => {
     Router.events.on("routeChangeComplete", routeChangeComplete);
@@ -38,27 +38,8 @@ export default function App({ Component, pageProps }) {
     };
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // 在客户端环境中执行延迟加载的 JavaScript 代码
-      window.onload = () => {
-        (window as any).LA.init({
-          id: "3FmNQHwzFUzdFjX3",
-          ck: "3FmNQHwzFUzdFjX3",
-          autoTrack: true,
-          hashMode: true,
-          prefix: "js",
-        });
-      };
-    }
-  }, []);
-
   return (
     <>
-      <Script
-        id="LA_COLLECT"
-        src="https://wp-1302605407.cos.ap-beijing.myqcloud.com/js/js-sdk-pro.min.js"
-      ></Script>
       <Head>
         <meta name="baidu-site-verification" content="codeva-ZUhqyitPRt" />
         <meta

@@ -14,11 +14,10 @@ export default function Home() {
   const aboutDom = useRef<any>(null);
 
   const goAbout = () => {
-    const aboutTop = aboutDom.current.offsetTop;
-
-    scrollTo(aboutTop, {
-      getContainer: () => document.body || window,
-    });
+    // const aboutTop = aboutDom.current.offsetTop;
+    // scrollTo(aboutTop, {
+    //   getContainer: () => document.body || window,
+    // });
   };
 
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function Home() {
       backSpeed: 40,
       loop: true,
       loopCount: Infinity,
-      autoInsertCss: true,
+      autoInsertCss: false,
       backDelay: 2000,
       showCursor: false,
     });
@@ -73,17 +72,15 @@ export default function Home() {
           <div className={styles.jiantou}>
             <SysIcon
               className={styles.jiantou_icon}
-              type="icon-a-xiajiantouxia"
+              type="icon-a-jiantou-xia"
               onClick={goAbout}
             />
           </div>
         </div>
-        {/* <div className={styles.project_box}>
+        {/* <div className={styles.project_box} ref={aboutDom}>
           <div className={styles.project_title}>BLOG GROWTH RECORD</div>
           <div className={styles.project_desc}>更多的作品</div>
-          <div className={styles.project}>
-
-          </div>
+          <div className={styles.project}></div>
         </div> */}
         <div className={styles.timeAixs_box}>
           <div className={styles.timeAixs_title}>GROWTH RECORD</div>

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-10 13:56:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-11 16:27:15
+ * @LastEditTime: 2023-10-17 17:26:11
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -36,7 +36,7 @@ const LazyCom = (props: Props) => {
   }, []);
 
   useEffect(() => {
-    inViewport && !src && setSrc(imgSrc);
+    inViewport && !src && !isLoad && setSrc(imgSrc);
   }, [imgSrc, inViewport, src]);
   return (
     <span
@@ -56,7 +56,7 @@ const LazyCom = (props: Props) => {
             height={width as any}
             alt=""
             onLoad={() => {
-              setIsLoad(true);
+              !isLoad && setIsLoad(true);
             }}
             src={src}
             quality={100}

@@ -4,11 +4,11 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-26 18:10:10
+ * @LastEditTime: 2023-11-09 16:13:00
  */
 import Head from "next/head";
 import { useEffect } from "react";
-import RanderMarkdown from "@components/RanderMarkdown";
+import useRanderMarkdown from "@components/RanderMarkdown";
 import SysIcon from "@components/SysIcon";
 import { formatDate, hasUnicode, unicodeToEmoji } from "@utils/dataUtils";
 import {
@@ -25,17 +25,15 @@ import style from "./blogDetail.module.css";
 export default function BlogDetails({ posts }) {
   const { data = {} } = posts;
 
-  if (posts.code === 305) {
-    window.location.href = "/404";
-  }
-
-  const renderLink = (obj, type) => {
-    return <div className={style.list_item_type_item}>{obj.value}</div>;
-  };
+  const { markdownHtml, tocDom } = useRanderMarkdown(data.content);
 
   useEffect(() => {
     addNavItemStyle();
     bindHandleScroll();
+
+    if (posts.code === 305) {
+      window.location.href = "/404";
+    }
 
     return () => {
       removeNavItemStyle();
@@ -48,48 +46,56 @@ export default function BlogDetails({ posts }) {
       <Head>
         <title>{data.title}</title>
       </Head>
-      <div className={style.header}>
-        <div className={style.list_item_title}>{data.title}</div>
-        <div className={style.list_item_info}>
-          <div className={style.list_item_type}>
-            <SysIcon className={style.icon} type="icon-biaoqian2" />
-            <span>{data.classify}</span>
-            <span className={style.blog_item_class_border}>|</span>
-            <span>{data.classify_sub}</span>
+      <div className={style.blog_detail_box}>
+        <div className={style.content}>
+          <div className={style.header}>
+            <div className={style.list_item_title}>{data.title}</div>
+            <div className={style.list_item_info}>
+              <div className={style.list_item_type}>
+                <SysIcon className={style.icon} type="icon-biaoqian2" />
+                <span>{data.classify}</span>
+                <span className={style.blog_item_class_border}>|</span>
+                <span>{data.classify_sub}</span>
+              </div>
+              <div className={style.list_item_time}>
+                <SysIcon className={style.icon} type="icon-shijian" />
+                发布于{formatDate(data.time_str, "yyyy-MM-dd")} 最近修改
+                {formatDate(data.last_edit_time, "yyyy-MM-dd")}
+              </div>
+              <div className={style.list_item_type}>
+                <SysIcon className={style.icon} type="icon-yanjing-kai" />
+                <span>{data.views}</span>
+              </div>
+              <div className={style.list_item_type}>
+                <SysIcon className={style.icon} type="icon-guanzhu" />
+                <span>{data.likes}</span>
+              </div>
+              <div className={style.list_item_type}>
+                <SysIcon className={style.icon} type="icon-geren1" />
+                {hasUnicode(data?.userInfo?.name)
+                  ? unicodeToEmoji(data?.userInfo?.name)
+                  : data?.userInfo?.name}
+              </div>
+            </div>
           </div>
-          <div className={style.list_item_time}>
-            <SysIcon className={style.icon} type="icon-shijian" />
-            发布于{formatDate(data.time_str, "yyyy-MM-dd")} 最近修改
-            {formatDate(data.last_edit_time, "yyyy-MM-dd")}
-          </div>
-          <div className={style.list_item_type}>
-            <SysIcon className={style.icon} type="icon-yanjing-kai" />
-            <span>{data.views}</span>
-          </div>
-          <div className={style.list_item_type}>
-            <SysIcon className={style.icon} type="icon-guanzhu" />
-            <span>{data.likes}</span>
-          </div>
-          <div className={style.list_item_type}>
-            <SysIcon className={style.icon} type="icon-geren1" />
-            {hasUnicode(data?.userInfo?.name)
-              ? unicodeToEmoji(data?.userInfo?.name)
-              : data?.userInfo?.name}
+          <div className={style.blog_content}>
+            {data.storage_type === "1" && markdownHtml}
+            {data.storage_type === "2" && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data?.content ? data.content : "暂无",
+                }}
+              />
+            )}
+            {data.storage_type === "3" && data.content}
           </div>
         </div>
-      </div>
-      <div className={style.content}>
-        {data.storage_type === "1" && (
-          <RanderMarkdown markdown={data.content} />
-        )}
-        {data.storage_type === "2" && (
-          <div
-            dangerouslySetInnerHTML={{
-              __html: data?.content ? data.content : "暂无",
-            }}
-          />
-        )}
-        {data.storage_type === "3" && data.content}
+        <div className={style.right_content}>
+          <div className={style.blog_toc_box}>
+            <div className={style.blog_toc_title}>目录</div>
+            <div className={style.blog_toc}>{tocDom}</div>
+          </div>
+        </div>
       </div>
       <div className={style.footer}>
         <Permit id={data.id} user={data?.userInfo?.name} />

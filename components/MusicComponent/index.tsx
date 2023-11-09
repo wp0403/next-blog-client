@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-05-05 14:19:08
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-05-12 17:15:12
+ * @LastEditTime: 2023-11-08 15:27:17
  */
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
@@ -65,7 +65,6 @@ const MusicComponent = (props: Props) => {
 
     audioRef.current.addEventListener("timeupdate", (event) => {
       const currentTime = Math.floor(audioRef.current.currentTime * 1000);
-      console.log(currentTime);
 
       const item = lyrList.findIndex(
         (v) => currentTime + timeErrorValue < v.time
@@ -76,7 +75,6 @@ const MusicComponent = (props: Props) => {
         setText(lyrList[item - 1]?.text);
 
         const currentDom = document.getElementById(`lyr_item${item - 1}`);
-        console.log(currentDom);
 
         const currentTop = currentDom?.offsetTop || 0;
         const lrcScrollHeight = lrcScrollRef.current.offsetHeight;

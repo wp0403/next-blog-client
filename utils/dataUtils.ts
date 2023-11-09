@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 11:16:44
+ * @LastEditTime: 2023-11-01 18:11:34
  */
 import Fingerprint2 from 'fingerprintjs2'
 import crypto from 'crypto'
@@ -403,6 +403,5 @@ export function encrypt(data, key = 'fed94ab3abf9a6bfc43ab2e857956c11') {
   // 加密模式为aes-256-cbc
   const cipher = crypto.createCipher('aes-256-cbc', key);
   // 将加密结果转为Hex编码
-  return cipher.update(data, 'utf8', 'hex') + cipher.final('hex'); 
-
+  return cipher.update(data, "utf8", "hex") + cipher.final("hex"); 
 }
