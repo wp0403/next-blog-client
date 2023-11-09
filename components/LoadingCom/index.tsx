@@ -4,26 +4,47 @@
  * @Author: WangPeng
  * @Date: 2023-06-08 14:33:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-11 16:43:19
+ * @LastEditTime: 2023-11-09 17:59:19
  */
-import Image from "next/image";
-import React from "react";
-import bgImg from "@/public/images/bg00001.jpg";
+import React, { useEffect, useRef } from "react";
 import style from "./loadingcom.module.css";
 
-const LoadingCom = () => {
+const LoadingCom = ({ loading }) => {
+  const loadingBox = useRef<any>();
+  useEffect(() => {
+    loadingBox.current.addEventListener("animationend", () => {
+      loadingBox.current.style.display = "none";
+    });
+  }, []);
   return (
-    <div className={style.loading_com}>
-      <Image
-        className={style.loading_com_bg}
-        src={bgImg}
-        alt="loading"
-        width={1000}
-        height={1000}
-      />
-      <div className={style.text_box}>
-        <div></div>
-        <div className={style.text}>Shimmer</div>
+    <div
+      className={`${style.preloader_box} ${
+        !loading && style.preloader_box_none
+      }`}
+      ref={loadingBox}
+    >
+      <div
+        className={`${style.preloader_left} ${
+          loading ? style.preloader_left_up : style.preloader_left_down
+        }`}
+      ></div>
+      <div
+        className={`${style.preloader_right} ${
+          loading ? style.preloader_right_up : style.preloader_right_down
+        }`}
+      ></div>
+      <div
+        className={`${style.preloader} ${
+          loading ? style.preloader_up : style.preloader_down
+        }`}
+      >
+        <span className={style.inner}>S</span>
+        <span className={style.inner}>H</span>
+        <span className={style.inner}>I</span>
+        <span className={style.inner}>M</span>
+        <span className={style.inner}>M</span>
+        <span className={style.inner}>E</span>
+        <span className={style.inner}>R</span>
       </div>
     </div>
   );

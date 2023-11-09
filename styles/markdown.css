@@ -278,21 +278,21 @@ code.hljs {
 }
 
 .toc-item1 {
-  padding-left: 8px;
-}
-
-.toc-item2 {
-  padding-left: 12px;
-}
-
-.toc-item3 {
   padding-left: 16px;
 }
 
+.toc-item2 {
+  padding-left: 28px;
+}
+
+.toc-item3 {
+  padding-left: 40px;
+}
+
 .toc-item4 {
-  padding-left: 20px;
+  padding-left: 52px;
 }
 
 .toc-item5 {
-  padding-left: 24px;
+  padding-left: 64px;
 }

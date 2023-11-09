@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Script from "next/script";
 import Navbar from "../NavBar";
 import Footer from "../Footer";
 import { LayoutContextProvider } from "@store/layoutStore";

@@ -16,7 +16,9 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (router.asPath !== router.route) {
       // 页面加载完成
-      setInitLoading(false);
+      setTimeout(() => {
+        setInitLoading(false);
+      }, 3000);
     }
   }, [router.asPath, router.route]);
 
@@ -58,13 +60,10 @@ export default function App({ Component, pageProps }) {
         <meta name="author" content="shimmer" />
       </Head>
       <Analytics />
-      {initLoading ? (
-        <LoadingCom />
-      ) : (
-        <Layout>
-          {loading ? <PageLoading /> : <Component {...pageProps} />}
-        </Layout>
-      )}
+      <LoadingCom loading={initLoading} />
+      <Layout>
+        {loading ? <PageLoading /> : <Component {...pageProps} />}
+      </Layout>
     </>
   );
 }

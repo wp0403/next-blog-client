@@ -26,9 +26,14 @@ const useRanderMarkdown = (markdown) => {
   };
 
   // 生成唯一id
-  const generateHeadingId = (string) => {
-    return slugify(string) + "-" + Math.random().toString(36).substr(2, 9);
+  const generateHeadingId = (string, level) => {
+    return slugify(string) + "-" + level;
   };
+
+  const flag =
+    typeof window !== "undefined"
+      ? document.querySelector(".markdown_body")?.innerHTML
+      : "";
 
   useEffect(() => {
     const list = document.querySelectorAll(".markdown-toc-item");
@@ -42,7 +47,7 @@ const useRanderMarkdown = (markdown) => {
     });
 
     setTocList(newList);
-  }, [document.querySelector(".markdown_body")?.innerHTML]);
+  }, [flag]);
 
   const markdownHtml = useMemo(
     () => (
@@ -54,27 +59,45 @@ const useRanderMarkdown = (markdown) => {
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={{
             h1: ({ node, ...props }) => {
-              const id = generateHeadingId((node.children[0] as any).value);
+              const id = generateHeadingId(
+                (node.children[0] as any).value,
+                props.level
+              );
               return <h1 className="markdown-toc-item" id={id} {...props} />;
             },
             h2: ({ node, ...props }) => {
-              const id = generateHeadingId((node.children[0] as any).value);
+              const id = generateHeadingId(
+                (node.children[0] as any).value,
+                props.level
+              );
               return <h2 className="markdown-toc-item" id={id} {...props} />;
             },
             h3: ({ node, ...props }) => {
-              const id = generateHeadingId((node.children[0] as any).value);
+              const id = generateHeadingId(
+                (node.children[0] as any).value,
+                props.level
+              );
               return <h3 className="markdown-toc-item" id={id} {...props} />;
             },
             h4: ({ node, ...props }) => {
-              const id = generateHeadingId((node.children[0] as any).value);
+              const id = generateHeadingId(
+                (node.children[0] as any).value,
+                props.level
+              );
               return <h4 className="markdown-toc-item" id={id} {...props} />;
             },
             h5: ({ node, ...props }) => {
-              const id = generateHeadingId((node.children[0] as any).value);
+              const id = generateHeadingId(
+                (node.children[0] as any).value,
+                props.level
+              );
               return <h5 className="markdown-toc-item" id={id} {...props} />;
             },
             h6: ({ node, ...props }) => {
-              const id = generateHeadingId((node.children[0] as any).value);
+              const id = generateHeadingId(
+                (node.children[0] as any).value,
+                props.level
+              );
               return <h6 className="markdown-toc-item" id={id} {...props} />;
             },
             code({ node, inline, className, children, ...props }) {
