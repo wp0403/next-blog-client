@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-06-08 14:33:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-11-09 17:59:19
+ * @LastEditTime: 2023-11-10 18:21:36
  */
 import React, { useEffect, useRef } from "react";
 import style from "./loadingcom.module.css";
@@ -12,10 +12,18 @@ import style from "./loadingcom.module.css";
 const LoadingCom = ({ loading }) => {
   const loadingBox = useRef<any>();
   useEffect(() => {
-    loadingBox.current.addEventListener("animationend", () => {
-      loadingBox.current.style.display = "none";
-    });
-  }, []);
+    const func = () => {
+      if (!loading) {
+        loadingBox.current.style.display = "none";
+      }
+    };
+    loadingBox.current.addEventListener("animationend", func);
+
+    return () => {
+      loadingBox.current.removeEventListener("animationend", func);
+    };
+  }, [loading]);
+
   return (
     <div
       className={`${style.preloader_box} ${

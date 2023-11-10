@@ -26,7 +26,7 @@
   top: 0;
   width: 50%;
   height: 100%;
-  background: #ed6c1f;
+  background: var(--purple-primary);
 }
 
 .preloader_left_up{
@@ -45,7 +45,7 @@
   top: 0;
   width: 50%;
   height: 100%;
-  background: #ed6c1f;
+  background: var(--purple-primary);
 }
 
 .preloader_right_up{

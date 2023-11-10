@@ -1,4 +1,4 @@
-import Router, { useRouter } from "next/router";
+import Router from "next/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
@@ -9,18 +9,14 @@ import LoadingCom from "@/components/LoadingCom";
 import "@styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
   const [initLoading, setInitLoading] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    if (router.asPath !== router.route) {
-      // 页面加载完成
-      setTimeout(() => {
-        setInitLoading(false);
-      }, 3000);
-    }
-  }, [router.asPath, router.route]);
+    setTimeout(() => {
+      setInitLoading(false);
+    }, 3000);
+  }, []);
 
   useEffect(() => {
     Router.events.on("routeChangeComplete", routeChangeComplete);
