@@ -24,7 +24,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 50%;
+  width: 51%;
   height: 100%;
   background: var(--purple-primary);
 }
@@ -43,7 +43,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 50%;
+  width: 51%;
   height: 100%;
   background: var(--purple-primary);
 }
