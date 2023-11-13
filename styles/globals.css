@@ -135,10 +135,12 @@ body{
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
+  align-items: center;
 }
 
 #__next {
   width: 100vw;
+  max-width: 1400px;
   flex: 1;
   display: flex;
   flex-direction: column;
