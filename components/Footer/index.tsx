@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:37
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-09-01 16:29:59
+ * @LastEditTime: 2023-11-14 16:43:55
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -60,6 +60,7 @@ const Footer = () => {
           href="https://www.foreverblog.cn/go.html"
           passHref
           legacyBehavior
+          aria-label="foreverblog-wormhole"
         >
           <a
             className={`${style.link} ${style.link_click}`}
@@ -84,6 +85,7 @@ const Footer = () => {
           href="https://www.travellings.cn/go.html"
           passHref
           legacyBehavior
+          aria-label="travellings"
         >
           <a
             className={`${style.link} ${style.link_click}`}
@@ -104,6 +106,7 @@ const Footer = () => {
           href="https://www.foreverblog.cn/"
           passHref
           legacyBehavior
+          aria-label="foreverblog"
         >
           <a
             className={`${style.link} ${style.link_click}`}

@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-11-09 16:13:00
+ * @LastEditTime: 2023-11-14 18:27:33
  */
 import Head from "next/head";
 import { useEffect } from "react";
@@ -47,6 +47,14 @@ export default function BlogDetails({ posts }) {
         <title>{data.title}</title>
       </Head>
       <div className={style.blog_detail_box}>
+        <div className={style.left_content}>
+          <div className={style.operate_box}>
+            <SysIcon className={style.operate_item} type="icon-good" />
+            <SysIcon className={style.operate_item} type="icon-favorite" />
+            <SysIcon className={style.operate_item} type="icon-forward" />
+            <SysIcon className={style.operate_item} type="icon-link" />
+          </div>
+        </div>
         <div className={style.content}>
           <div className={style.header}>
             <div className={style.list_item_title}>{data.title}</div>
