@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 02:49:22
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-10-09 09:49:44
+ * @LastEditTime: 2023-11-15 11:42:08
  */
 import Link from "next/link";
 import Image from "next/image";
@@ -61,11 +61,13 @@ export default function Navbar() {
     );
 
     // 添加一个监听器来监听主题切换
-    darkModeMediaQuery.addEventListener("change", themeSwitch);
+    darkModeMediaQuery &&
+      darkModeMediaQuery.addEventListener("change", themeSwitch);
     themeSwitch(darkModeMediaQuery);
 
     return () => {
-      darkModeMediaQuery.removeEventListener("change", themeSwitch);
+      darkModeMediaQuery &&
+        darkModeMediaQuery.removeEventListener("change", themeSwitch);
     };
   }, []);
 

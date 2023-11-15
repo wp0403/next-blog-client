@@ -17,17 +17,26 @@ const useRanderMarkdown = (markdown) => {
   };
 
   // 将标题内容转换成id时可以用的字符串
-  const slugify = (string = "") => {
-    return string
+  const generateUniqueId = (text = "") => {
+    // 将文本转换为小写，去除空格，并使用一种哈希函数生成数字
+    const hash = text
       .trim()
       .toLowerCase()
-      .replace(/[\s]+/g, "-")
-      .replace(/[^a-z0-9\-]/g, "");
+      .replace(/\s/g, "")
+      .split("")
+      .reduce(function (acc, char) {
+        return acc + char.charCodeAt(0);
+      }, 0);
+
+    // 使用前缀加上哈希值，以确保唯一性
+    const uniqueId = "anchor_" + hash;
+
+    return uniqueId;
   };
 
   // 生成唯一id
   const generateHeadingId = (string, level) => {
-    return slugify(string) + "-" + level;
+    return generateUniqueId(string) + "-" + level;
   };
 
   const flag =

@@ -4,13 +4,18 @@
  * @Author: WangPeng
  * @Date: 2022-12-15 03:00:13
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-11-14 18:27:33
+ * @LastEditTime: 2023-11-15 10:36:39
  */
 import Head from "next/head";
 import { useEffect } from "react";
 import useRanderMarkdown from "@components/RanderMarkdown";
 import SysIcon from "@components/SysIcon";
-import { formatDate, hasUnicode, unicodeToEmoji } from "@utils/dataUtils";
+import {
+  formatDate,
+  hasUnicode,
+  unicodeToEmoji,
+  shareWebPage,
+} from "@utils/dataUtils";
 import {
   addNavItemStyle,
   bindHandleScroll,
@@ -41,6 +46,18 @@ export default function BlogDetails({ posts }) {
     };
   }, []);
 
+  const clickOperate = (type) => {
+    switch (type) {
+      case "forward":
+        shareWebPage({
+          url: `https://wp-boke.work/blog-details/${data.id}`,
+          title: data.title,
+          text: data.desc,
+        });
+        return;
+    }
+  };
+
   return (
     <div className={style.blog_detail}>
       <Head>
@@ -51,7 +68,11 @@ export default function BlogDetails({ posts }) {
           <div className={style.operate_box}>
             <SysIcon className={style.operate_item} type="icon-good" />
             <SysIcon className={style.operate_item} type="icon-favorite" />
-            <SysIcon className={style.operate_item} type="icon-forward" />
+            <SysIcon
+              className={style.operate_item}
+              type="icon-forward"
+              onClick={() => clickOperate("forward")}
+            />
             <SysIcon className={style.operate_item} type="icon-link" />
           </div>
         </div>

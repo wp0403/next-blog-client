@@ -18,6 +18,7 @@
 
 .content {
   width: 60%;
+  max-width: 800px;
   padding-bottom: 24px;
 }
 

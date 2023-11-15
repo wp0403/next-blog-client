@@ -11,6 +11,12 @@ const getImagePath = (v) => path.join(__dirname, "public", "images", v);
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  presets: ["next/babel"],
+  plugins: [
+    // 其他插件...
+    process.env.NODE_ENV === "production" &&
+      "babel-plugin-transform-remove-console",
+  ].filter(Boolean),
   withCSS: withCSS(),
   images: {
     remotePatterns: [

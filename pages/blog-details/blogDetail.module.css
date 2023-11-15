@@ -47,6 +47,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.blog_detail_box .left_content .operate_box .operate_item:hover{
+  background-color: var(--b-alpha-30);
+  box-shadow: 0 0 10px 5px var(--b-alpha-20);
 }
 
 .blog_detail_box .right_content .blog_toc_box{
@@ -191,7 +198,7 @@
   }
 
   .right_content {
-    width: 300px;
+    width: 260px;
   }
 
   .footer,

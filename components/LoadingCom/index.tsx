@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-06-08 14:33:20
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-11-10 18:21:36
+ * @LastEditTime: 2023-11-15 11:41:48
  */
 import React, { useEffect, useRef } from "react";
 import style from "./loadingcom.module.css";
@@ -17,10 +17,12 @@ const LoadingCom = ({ loading }) => {
         loadingBox.current.style.display = "none";
       }
     };
-    loadingBox.current.addEventListener("animationend", func);
+    loadingBox.current &&
+      loadingBox.current.addEventListener("animationend", func);
 
     return () => {
-      loadingBox.current.removeEventListener("animationend", func);
+      loadingBox.current &&
+        loadingBox.current.removeEventListener("animationend", func);
     };
   }, [loading]);
 
