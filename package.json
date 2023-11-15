@@ -23,7 +23,7 @@
     "eslint": "8.29.0",
     "eslint-config-next": "^13.3.1",
     "fingerprintjs2": "^2.1.4",
-    "highlight.js": "^11.9.0",
+    "highlight.js": "^11.8.0",
     "jsmediatags": "^3.9.7",
     "next": "^13.4.4",
     "plyr": "^3.7.8",
