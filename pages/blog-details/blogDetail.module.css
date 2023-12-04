@@ -224,6 +224,6 @@
 
   .footer,
   .comment {
-    width: calc(60% - 48px);
+    width: calc(1200px - 48px);
   }
 }
