@@ -2,6 +2,7 @@ import Router from "next/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Layout from "@components/Layout";
 import PageLoading from "@components/PageLoading";
 import { routeChangeComplete } from "@/utils/elementUtils";
@@ -56,6 +57,7 @@ export default function App({ Component, pageProps }) {
         <meta name="author" content="shimmer" />
       </Head>
       <Analytics />
+      <SpeedInsights />
       <LoadingCom loading={initLoading} />
       <Layout>
         {loading ? <PageLoading /> : <Component {...pageProps} />}

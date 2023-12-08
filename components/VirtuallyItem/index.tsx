@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-06-13 15:50:27
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-09-01 15:07:52
+ * @LastEditTime: 2023-12-08 10:34:10
  */
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useUpdate } from "ahooks";
@@ -41,7 +41,7 @@ const VirtuallyItem = (props) => {
   const windowResize = useCallback(() => {
     itemHeight.current = null;
     update();
-  }, [update]);
+  }, []);
 
   useEffect(() => {
     bindHandleScroll(scrollCallback);
