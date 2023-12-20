@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2022-01-13 11:42:16
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-11-15 11:17:49
+ * @LastEditTime: 2023-12-20 10:38:28
  */
 import Fingerprint2 from "fingerprintjs2";
 import crypto from "crypto";
@@ -59,7 +59,7 @@ export const formatDate = (date: any, format: string) => {
       break;
   }
   if (!(date instanceof Date)) return;
-  var dict = {
+  const dict: any = {
     yyyy: date.getFullYear(),
     M: date.getMonth() + 1,
     d: date.getDate(),
@@ -78,7 +78,7 @@ export const formatDate = (date: any, format: string) => {
 };
 
 // 下载图片到本地
-export const downloadImg = (blob, filename) => {
+export const downloadImg = (blob: Blob | MediaSource, filename: string) => {
   const a = document.createElement("a"); // 创建一个a节点插入的document
   a.href = window.URL.createObjectURL(blob);
   a.download = filename.split("*-*")[1] || filename;
@@ -99,7 +99,7 @@ export const IncludeHttp = (url: string) => {
  * @param {String} head 表头, 可选 参数示例：'名字,邮箱,电话'
  * @param {*} name 导出的文件名, 可选
  */
-export const jsonToExcel = (data, head, name = "导出的文件名") => {
+export const jsonToExcel = (data: any[], head: string, name: any = "导出的文件名") => {
   let str = head ? head + "\n" : "";
   data.forEach((item) => {
     // 拼接json数据, 增加 \t 为了不让表格显示科学计数法或者其他格式
@@ -119,7 +119,7 @@ export const jsonToExcel = (data, head, name = "导出的文件名") => {
 };
 
 // 读取上传文件的内容
-export const handleUpload: any = (file, callback?) => {
+export const handleUpload: any = (file: Blob, callback?: (arg0: string | ArrayBuffer | null | undefined) => any) => {
   // 新建一个FileReader
   const reader = new FileReader();
   // 读取文件
@@ -136,7 +136,7 @@ export const handleUpload: any = (file, callback?) => {
 // XSS和转义符
 export const XSS_encode_html = (str) => {
   return str
-    ? str.replace(/[<">']/g, (a) => {
+    ? str.replace(/[<">']/g, (a: string | number) => {
         return {
           "<": "&lt;",
           '"': "&quot;",
@@ -160,7 +160,7 @@ export const getBase64 = (file) => {
   return new Promise<void>((resolve, reject) => {
     try {
       reader.onload = async () => {
-        const compressedDataURL = await compress(reader.result, 80, fileType);
+        const compressedDataURL: any = await compress(reader.result as any, 80, fileType);
         const compressedImageBlob: any = dataUrlToBlob(
           compressedDataURL,
           fileType
@@ -185,7 +185,7 @@ export const getBase64 = (file) => {
  * @param mimeType 图片格式，默认为 image/png,可以是其他image/jpeg等
  * @returns 返回值是一个数据url，是base64组成的图片的源数据、可以直接赋值给图片的src属性
  */
-export const compress = (base64, quality, mimeType) => {
+export const compress = (base64: string, quality: number, mimeType: string | undefined) => {
   let canvas = document.createElement("canvas");
   let img = document.createElement("img");
   // 是否开启cors,不开启使用canvas的toBlob()、toDataUrl()、getImageData()方法时会出现跨域问题。
@@ -213,7 +213,7 @@ export const compress = (base64, quality, mimeType) => {
  * @param mimeType 文件类型
  * @returns 输出对应文件
  */
-export const dataUrlToBlob = (base64, mimeType) => {
+export const dataUrlToBlob = (base64: string, mimeType: string) => {
   let bytes = window.atob(base64.split(",")[1]);
   let ab = new ArrayBuffer(bytes.length);
   let ia = new Uint8Array(ab);
@@ -233,13 +233,13 @@ export const createUid = (prefix) => {
     .substring(2, 6)}`;
 };
 // 判断字符串是否包含Unicode字符
-export const hasUnicode = (str) => {
+export const hasUnicode = (str: string) => {
   const unicodeRegexp = /\\u\{([0-9a-fA-F]+)\}/;
   return unicodeRegexp.test(str);
 };
 
 // 将字符串中Unicode字符转回原样
-export const unicodeToEmoji = (str) => {
+export const unicodeToEmoji = (str: string) => {
   return str.replace(/\\u\{([0-9a-fA-F]+)\}/g, (match, p1) =>
     String.fromCodePoint(parseInt(p1, 16))
   );
@@ -250,7 +250,7 @@ export const unicodeToEmoji = (str) => {
  * @param list
  * @returns
  */
-export const changeTreeData = (list) => {
+export const changeTreeData = (list: any[]) => {
   const newList1: any[] = [];
   const newList2: any[] = [];
   const topList = list.filter((v) => v.isTop);
@@ -287,7 +287,7 @@ export const changeTreeData = (list) => {
  * 主题切换
  * @returns
  */
-export const handleThemeChange = (event) => {
+export const handleThemeChange = (event: { matches: any; }) => {
   if (event.matches) {
     // console.log('light')
     document.documentElement.classList.remove("dark");
@@ -405,7 +405,7 @@ export const getFingerprint = async () => {
 };
 
 // 加密数据
-export function encrypt(data, key = "fed94ab3abf9a6bfc43ab2e857956c11") {
+export function encrypt(data: string, key = "fed94ab3abf9a6bfc43ab2e857956c11") {
   // 加密模式为aes-256-cbc
   const cipher = crypto.createCipher("aes-256-cbc", key);
   // 将加密结果转为Hex编码

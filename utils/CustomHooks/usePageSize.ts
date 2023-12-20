@@ -1,7 +1,7 @@
 import { useIsomorphicLayoutEffect } from 'ahooks';
 import React, { useState } from 'react';
 
-const usePageSize = (props) => {
+const usePageSize = (props: { id: string; }) => {
     const { id } = props;
     const [pageWidth, setPageWidth] = useState<number>(0)
     const pageSize = () => {
