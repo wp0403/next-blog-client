@@ -4,7 +4,7 @@
  * @Author: WangPeng
  * @Date: 2023-04-03 17:33:41
  * @LastEditors: WangPeng
- * @LastEditTime: 2023-06-08 18:12:09
+ * @LastEditTime: 2023-12-20 11:24:52
  */
 import Head from "next/head";
 import { useGetState, useDebounceEffect, useMount } from "ahooks";
@@ -73,7 +73,6 @@ const Photography = () => {
 
   const { pageWidth } = usePageSize({
     id: "photography_content",
-    dom: dom.current,
   });
 
   const randerItem = (v) => (
